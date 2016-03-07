@@ -1,0 +1,140 @@
+//
+//  Cheats.m
+//  BXBook
+//
+//  Created by xiaoqi on 15/7/23.
+//  Copyright (c) 2015年 cnu. All rights reserved.
+//
+
+#import "Cheats.h"
+#import "VideoPlay.h"
+
+@implementation Cheats
+
+
+/*开发者在页面操作中，用这几个值*/
+User *userCheats;//当前登录用户
+Game *gameCheats;//当前游戏对象，存有所有题目及答案
+Task *taskCheats;
+int cheatflag;
+int index1;
+int helpIdNow = 1;//记录当前题目的helpId，初始默认为1
+MPMoviePlayerViewController *movie;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    userCheats = self.user;
+    gameCheats = self.game;
+    taskCheats =self.task;
+    cheatflag = self.flag1cheat;
+    index1 =self.index;
+    NSLog(@"shoot:当前登录用户：%@",userCheats.loginName);
+    NSLog(@"shoot:游戏表中的id：%d",gameCheats.gameId);
+    NSLog(@"shoot:此页面要显示的内容如下：");
+    
+    
+
+    
+    //通过gameChoice判断helpId
+
+    if(cheatflag == 1){//连线题
+        helpIdNow = gameCheats.line.helpId;
+    }else if(cheatflag == 3){//射击
+        helpIdNow = gameCheats.shoot.helpId;
+    }else if(cheatflag == 2){//拼图
+        if (index1 == 1) {
+            helpIdNow = gameCheats.puzzle.helpId1;
+        }else if(index1 == 2) {
+            helpIdNow = gameCheats.puzzle.helpId2;
+        }else if(index1 == 3) {
+            helpIdNow = gameCheats.puzzle.helpId3;
+        }else if(index1 == 4) {
+            helpIdNow = gameCheats.puzzle.helpId4;
+        }
+    }else if(cheatflag == 4){//任务卡
+        helpIdNow = taskCheats.helpId;
+        NSLog(@"^^^^^^^^^:%d",helpIdNow);
+    }
+    
+    //以下为在页面显示通关秘籍
+    Help* help = [HelpDao findHelpByHelpId:helpIdNow];
+    NSLog(@"helpIdNow:%d.helpType:%d",helpIdNow, help.helpType);
+    if (help.helpType == 1) {//文字
+        UITextView *textView =[[UITextView alloc]initWithFrame:CGRectMake(140, 110, 768, 576)];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 6;// 字体的行间距
+        
+        NSDictionary *attributes = @{
+                                     NSFontAttributeName:[UIFont systemFontOfSize:28],
+                                     NSParagraphStyleAttributeName:paragraphStyle
+                                     };
+        textView.attributedText = [[NSAttributedString alloc] initWithString:help.helpUrl attributes:attributes];
+        textView.backgroundColor = [UIColor clearColor];//设置它的背景颜色
+        textView.scrollEnabled = YES;//是否可以拖动
+        textView.editable =NO;//禁止编辑
+        textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;//自适应高度
+        [self.view addSubview: textView];//加入到整个页面中
+    }else if (help.helpType == 2){//图片
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(140, 110, 768, 576)];
+        NSString* helpIdNowStr = [NSString stringWithFormat:@"%d", helpIdNow];
+        NSString* fileName = [@"Cheat" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
+        NSString* fileName2 = [fileName stringByAppendingString:@".png"];
+        [imageView setImage:[UIImage imageNamed:fileName2]];
+        [self.view addSubview:imageView];
+    }else if (help.helpType == 3){//视频
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        btn.frame = CGRectMake(400, 360, 200, 70);
+        [btn setTitle:@"点击播放微课" forState:UIControlStateNormal];
+        [btn setTitle:@"点击播放微课" forState:UIControlStateHighlighted];
+        [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:28]];
+        [btn addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
+    }
+    
+    //更新通关秘籍浏览人次
+    if (help.viewTimes>=0) {
+        help.viewTimes++;
+    }else{
+        help.viewTimes=1;
+    }
+    [HelpDao updateHelpViewTimes:help];
+}
+
+-(void)playVideo{
+    NSString* helpIdNowStr = [NSString stringWithFormat:@"%d", helpIdNow];
+    NSString* fileName = [@"Cheat" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
+ //   NSString *path = [[NSBundle mainBundle] pathForResource:@"Cheat18" ofType:@"mp4"];
+    //视频URL
+    NSURL *url = [NSURL fileURLWithPath:path];
+    //视频播放对象
+    movie = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+    [self presentMoviePlayerViewControllerAnimated:movie];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(myMovieFinishedCallback:)
+                                                 name: MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    
+}
+
+-(void)myMovieFinishedCallback:(NSNotification *)aNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:nil];
+    [movie  dismissMoviePlayerViewControllerAnimated];
+    [movie.moviePlayer stop];
+    movie.moviePlayer.initialPlaybackTime = -1.0;
+    movie = nil;
+}
+
+//左滑返回上一页
+- (void)handleSwipes:(UISwipeGestureRecognizer *)sender
+{
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        NSLog(@"leftn");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+@end
