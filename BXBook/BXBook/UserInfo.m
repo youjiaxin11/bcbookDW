@@ -37,6 +37,14 @@ User* userUserInfo;
     [_senPraiseLbl setText:[NSString stringWithFormat:@"%d",userUserInfo.sendPraiseNum]];
     [_revComLbl setText:[NSString stringWithFormat:@"%d",userUserInfo.receiveCommentNum]];
     [_senComLbl setText:[NSString stringWithFormat:@"%d",userUserInfo.sendCommentNum]];
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUserInfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UserInfo-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -46,6 +54,17 @@ User* userUserInfo;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUserInfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UserInfo-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

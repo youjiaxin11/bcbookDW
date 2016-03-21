@@ -20,6 +20,14 @@ User* userFriendWorks;
     [super viewDidLoad];
     userFriendWorks = self.user;
     NSLog(@"%@",userFriendWorks.loginName);
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFriendWorks.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"FriendWorks-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -29,6 +37,16 @@ User* userFriendWorks;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFriendWorks.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"FriendWorks-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

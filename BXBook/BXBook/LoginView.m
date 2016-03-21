@@ -80,6 +80,15 @@ static User *user;
         
         NSLog(@"userloginid:%d",userlogin.userLoginId);
 
+        //记录行为数据
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = userlogin.userId;
+        behaviour.doWhat = @"登录";
+        behaviour.doWhere = @"LoginView-(IBAction)login:(id)sender";
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
+        
+        
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
         information.user = user;
@@ -164,12 +173,22 @@ static User *user;
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex==1){
+        
+        
         NSString* timeNow = [TimeUtil getTimeNow];
         [UserDao updateUserLoginLogoutTime:userLoginId1 logoutTime:timeNow];
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ViewController *viewcontroller = [mainStoryboard instantiateViewControllerWithIdentifier:@"Index"];
         [viewcontroller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
         [self presentViewController:viewcontroller animated:YES completion:nil];
+        
+        //记录行为数据
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = user.userId;
+        behaviour.doWhat = @"退出";
+        behaviour.doWhere = @"LoginView-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
 
     }
 }

@@ -17,6 +17,15 @@ User* userChangePwd;
 - (void)viewDidLoad {
     [super viewDidLoad];
     userChangePwd = self.user;
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userChangePwd.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"ChangePwd-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 - (IBAction)inputOldPwd:(id)sender {
     [_oldPwdText setText:nil];
@@ -34,6 +43,16 @@ User* userChangePwd;
 }
 
 - (IBAction)changePwd:(id)sender {
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userChangePwd.userId;
+    behaviour.doWhat = @"修改密码";
+    behaviour.doWhere = @"ChangePwd-(IBAction)changePwd:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     if (_oldPwdText.text == nil || _pwdText == nil || _pwdText2 == nil || [_oldPwdText.text isEqualToString:@""] || [_pwdText.text isEqualToString:@""] || [_pwdText2.text isEqualToString:@""]) {
         [self prompt:@"输入不完整"];
     } else if([_pwdText.text isEqualToString:_pwdText2.text]){

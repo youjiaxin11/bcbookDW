@@ -31,6 +31,15 @@ NSString* str4;
     str4 = [str3 stringByAppendingString:@"+audio.caf"];
     [self setAudioSession];
     NSLog(@"@audio : %@",userUploadAudio.loginName);
+    
+    //记录行为数据
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUploadAudio.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UploadAudio-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
 }
 
 //上传作品
@@ -223,6 +232,14 @@ NSString* str4;
     //获取当前时间
     NSString* timeNow = [TimeUtil getTimeNow];
     [WorkDao insertWork:userUploadAudio.userId taskId:taskUploadAudio.taskId taskUrl:nil recPN:0 recCN:0 golden:0 uplT:timeNow score:0 loca:0];
+    
+    //记录行为数据
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUploadAudio.userId;
+    behaviour.doWhat = @"上传－本地";
+    behaviour.doWhere = @"UploadAudio-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 

@@ -20,6 +20,15 @@ int finishgameId1;//当前完成的游戏关卡号
     finishgameId1=self.finishgameId;
     NSLog(@"golden:%d",_user.golden);
     
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskChoice.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskChoice-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -29,6 +38,16 @@ int finishgameId1;//当前完成的游戏关卡号
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskChoice.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskChoice-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

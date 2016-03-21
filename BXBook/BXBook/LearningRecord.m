@@ -21,6 +21,15 @@ User* userLearningRecord;
     userLearningRecord = self.user;
     NSLog(@"%@",userLearningRecord.loginName);
     
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userLearningRecord.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"LearningRecord-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     //左上
     [goldenlBL setText:[NSString stringWithFormat:@"%d",userLearningRecord.golden]];
     [loginTimeLbl setText:[self computeLoginTime:userLearningRecord.userId]];
@@ -103,6 +112,16 @@ User* userLearningRecord;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userLearningRecord.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"LearningRecord-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

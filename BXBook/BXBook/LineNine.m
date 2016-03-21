@@ -45,7 +45,12 @@ static int lineNineAnswerTimes;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+    
     userLineNine = self.user;
+    
+
     //获取所有题目
     questionsAll = [[NSMutableArray alloc]init];
     questionsAll = [QuestionsDao findAllQuestions];
@@ -60,6 +65,15 @@ static int lineNineAnswerTimes;
     NSLog(@"linenine:当前登录用户：%@",userLineNine.loginName);
     NSLog(@"linenine:关卡数：%d",gameIdLineNine);
     NSLog(@"linenine:所有题目数量：%d", [questionsLineNine count]);
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userLineNine.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"LineNine-(void)viewDidLoad-关卡id:%d", gameIdLineNine];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
     
     //------------------------------------------------------------------------------------
     
@@ -330,6 +344,8 @@ static int lineNineAnswerTimes;
 //左滑退出
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
+
+    
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         exitlinenine = 1;
         [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
@@ -357,6 +373,15 @@ static int lineNineAnswerTimes;
     
     if (exitlinenine == 1) {//如果强行退出
         if(buttonIndex==0){
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userLineNine.userId;
+            behaviour.doWhat = @"游戏－退出";
+            behaviour.doWhere = @"LineNine-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
             [self clearLineNineStateArray];//退出前把答题情况清零
             ifFinished = 0;//退出前把是否可以跳到下一关的标志清零
             

@@ -45,6 +45,16 @@ Task* taskTaskinfo;
     taskTaskinfo = [TaskDao findTaskByTaskId:_taskChoiceId];
     [self musicEnsure];
     NSLog(@"%d,%d,%d,%d",taskTaskinfo.taskId,_currentIndex1,_currentIndex2,_currentIndex3);
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskinfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"TaskInfo-(void)viewDidLoad-任务id:%d", _taskChoiceId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     //[_taskMessageText setText:taskTaskinfo.taskMessage];
     //[_taskEvaluationText setText:taskTaskinfo.taskEvaluation];
 //    self.starRateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(250, 545, 150, 30) numberOfStars:taskTaskinfo.taskRank];
@@ -72,6 +82,16 @@ Task* taskTaskinfo;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskinfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskInfo-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {
@@ -206,18 +226,46 @@ Task* taskTaskinfo;
 
 //点击三星标准
 - (IBAction)levelThree:(id)sender {
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskinfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskInfo-(IBAction)levelThree:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     [self prompt:taskTaskinfo.evaluation1];
     if (taskTaskinfo.taskId == 3||taskTaskinfo.taskId == 5) {
     }else{[self play:_currentIndex1];}
 }
 //点击四星标准
 - (IBAction)levelFour:(id)sender {
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskinfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskInfo-(IBAction)levelFour:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
     [self prompt:taskTaskinfo.evaluation2];
     if (taskTaskinfo.taskId == 3||taskTaskinfo.taskId == 5) {
     }else{[self play:_currentIndex2];}
 }
 //点击五星标准
 - (IBAction)levelFive:(id)sender {
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskinfo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskInfo-(IBAction)levelFive:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     [self prompt:taskTaskinfo.evaluation3];
     if (taskTaskinfo.taskId == 3||taskTaskinfo.taskId == 5) {
     }else{[self play:_currentIndex3];}

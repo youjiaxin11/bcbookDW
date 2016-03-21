@@ -25,6 +25,15 @@ NSString* str4_photo;
     userUploadPhoto = self.user;
     taskUploadPhoto = self.task;
     NSLog(@"@photo : %@",userUploadPhoto.loginName);
+
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUploadPhoto.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UploadPhoto-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 - (IBAction)addPhoto:(id)sender {
@@ -53,13 +62,22 @@ NSString* str4_photo;
     self.lastChosenMediaType=[info objectForKey:UIImagePickerControllerMediaType];
     if([lastChosenMediaType isEqual:(NSString *) kUTTypeImage])
     {
+        //记录行为数据
+        NSString* timeNow = [TimeUtil getTimeNow];
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = userUploadPhoto.userId;
+        behaviour.doWhat = @"上传－本地";
+        behaviour.doWhere = @"UploadPhoto-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info";
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
+        
         //保存在本地相册
         UIImage *chosenImage=[info objectForKey:UIImagePickerControllerEditedImage];
         contentimageview.image=chosenImage;
         UIImageWriteToSavedPhotosAlbum(contentimageview.image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contexInfo:), nil );
         
         //获取当前时间
-        NSString* timeNow = [TimeUtil getTimeNow];
+     //   NSString* timeNow = [TimeUtil getTimeNow];
         //保存在本机沙盒
         str1_photo = [userUploadPhoto.loginName stringByAppendingString:@"+"];
         str2_photo = [str1_photo stringByAppendingString:[NSString stringWithFormat:@"%d+", taskUploadPhoto.taskId]];

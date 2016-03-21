@@ -51,6 +51,7 @@
 }
 
 - (IBAction)clickMoon:(id)sender {
+    
     [self moonCheat];
 }
 

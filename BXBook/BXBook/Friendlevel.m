@@ -29,6 +29,15 @@ User* userFriendlevel;
 {
     [super viewDidLoad];
     userFriendlevel = self.user;
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFriendlevel.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"FriendLevel-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     _msgList = [NSMutableArray arrayWithCapacity:6];
     //    for (int i=0; i<6; i++) {
     //        Friend *friend = [[Friend alloc] init];
@@ -85,6 +94,16 @@ User* userFriendlevel;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFriendlevel.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"Friendlevel-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

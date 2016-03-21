@@ -30,6 +30,8 @@ int jump2;
 - (void)viewDidLoad {
     [super viewDidLoad];
     userFamilyDinner = self.user;
+
+    
     answerFamilyDinnerTotalNum=self.fanswerTotalNum;
     FamilyDinnerRightNum1=self.fquestionRightNum1;
     FamilyDinnerRightNum2=self.fquestionRightNum2;
@@ -39,6 +41,18 @@ int jump2;
     NSLog(@"familyDinner:所有题目数量：%d", [questionsFamilyDinner count]);
    NSLog(@"答对题数：%d", answerFamilyDinnerTotalNum);
        NSLog(@"答了哪道题：%d",fquestionIndex);
+    
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFamilyDinner.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"FamilyDinner-(void)viewDidLoad-关卡id:%d", gameIdFamilyDinner];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+    
     if (FamilyDinnerRightNum1==1||FamilyDinnerRightNum2==1||FamilyDinnerRightNum3==1||FamilyDinnerRightNum4==1){
        question=[questionsFamilyDinner objectAtIndex :fquestionIndex];
        
@@ -86,6 +100,15 @@ int jump2;
     if(jump2==1) [self nextpage1];
     if (exitfamilydinner == 1) {//如果强行退出
         if(buttonIndex==0){
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userFamilyDinner.userId;
+            behaviour.doWhat = @"游戏－退出";
+            behaviour.doWhere = @"FamilyDinner-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
             UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
             gamechoice.user = userFamilyDinner;;
@@ -128,6 +151,8 @@ int jump2;
     answerFamilyDinnerTotalNum=0;
     FamilyDinnerRightNum1=0;FamilyDinnerRightNum2=0;FamilyDinnerRightNum3=0;FamilyDinnerRightNum4=0;
     fquestionIndex = 0;
+    
+    
 }
 
 

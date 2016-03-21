@@ -33,6 +33,15 @@ NSString* str4_video;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [contentimageview addGestureRecognizer:singleTap];
     NSLog(@"@video : %@",userUploadVideo.loginName);
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUploadVideo.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UploadVideo-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 -(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
@@ -123,6 +132,16 @@ NSString* str4_video;
      //   [UIImagePNGRepresentation(chosenImage) writeToFile: filePath  atomically:YES];
         NSData  *myData = [[NSData  alloc] initWithContentsOfFile: urlStr ];
         [myData writeToFile:filePath atomically: YES ];
+        
+        //记录行为数据
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = userUploadVideo.userId;
+        behaviour.doWhat = @"上传－本地";
+        behaviour.doWhere = @"UploadVideo-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info";
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
+
+        
         
         //录制完之后自动播放
         player=[AVPlayer playerWithURL:url];

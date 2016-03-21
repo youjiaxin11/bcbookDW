@@ -44,6 +44,14 @@ int finishgameId5;//当前完成的游戏关卡号
     NSLog(@"information：%@", _user.loginName);
     
    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userInformation.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"Information-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 
     
     // 设定位置和大小
@@ -86,6 +94,15 @@ int finishgameId5;//当前完成的游戏关卡号
 - (void)menuButtonClicked:(int)index{
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userInformation.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"Information-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     if (index == 0) {
         UploadPhoto *uploadphoto = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadPhoto"];
          uploadphoto.user = userInformation;
@@ -112,6 +129,15 @@ int finishgameId5;//当前完成的游戏关卡号
     //音乐暂停
     [self stop];
     
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userInformation.userId;
+    behaviour.doWhat = @"特殊";
+    behaviour.doWhere = @"Information-(IBAction)gameChocie:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
     gamechoice.user = userInformation;
@@ -134,6 +160,16 @@ int finishgameId5;//当前完成的游戏关卡号
 
 //直接跳到任务卡
 - (IBAction)gotoTask:(id)sender {
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userInformation.userId;
+    behaviour.doWhat = @"特殊";
+    behaviour.doWhere = @"Information-(IBAction)gotoTask:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     taskCard = 1;
     //音乐暂停
     [self stop];

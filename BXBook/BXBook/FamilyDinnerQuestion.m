@@ -25,6 +25,16 @@ Questions *question1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     userFamilyDinnerQuestion = self.user;
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFamilyDinnerQuestion.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"FamilyDinnerQuestion-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     familydinnerQuestionIndex = self.questionIndex;
     FamilyDinnerRightNum11=self.fquestionRightNum11;
      FamilyDinnerRightNum12=self.fquestionRightNum12;
@@ -57,6 +67,17 @@ Questions *question1;
     [self puzzleAnswer:fanswerQuestionIndex];}
 
 - (void)puzzleAnswer:(int)fanswerQuestionIndex{
+    
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFamilyDinnerQuestion.userId;
+    behaviour.doWhat = @"游戏－答题";
+    behaviour.doWhere = [[NSString alloc]initWithFormat:@"FamilyDinnerQuestion-(void)puzzleAnswer:(int)fanswerQuestionIndex-题目id:%d",question1.questionId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     userFamilyDinnerQuestion.answerTimes ++;
     question1.answerTimes++;
     if (question1.questionId-1==familydinnerQuestionIndex&&question1.answerRight==fanswerQuestionIndex)

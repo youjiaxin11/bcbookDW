@@ -19,6 +19,15 @@ Task* taskTaskIntroduction;
     taskTaskIntroduction = [TaskDao findTaskByTaskId:_taskChoiceId];
     [_taskMessageText setText:taskTaskIntroduction.taskMessage];
     NSLog(@"taskintruduction：%@", userTaskIntroduction.loginName);
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskIntroduction.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"TaskIntroduction-(void)viewDidLoad-任务id:%d", _taskChoiceId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -27,6 +36,16 @@ Task* taskTaskIntroduction;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskIntroduction.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"TaskIntroduction-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

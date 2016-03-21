@@ -27,7 +27,7 @@ int exitdragonboat = 0; //判断是否强行退出
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    userDragonBoat = self.user;
     // 数据初始化
     [self dataInitializationWhenViewDidLoad];
     
@@ -35,6 +35,16 @@ int exitdragonboat = 0; //判断是否强行退出
     NSLog(@"dragonboat:当前登录用户：%@",userDragonBoat.loginName);
     NSLog(@"dragonboat:游戏表中的id：%lu", (unsigned long)[questionsDragonBoat count]);
     NSLog(@"dragonboat:当前关卡数gameid：%d", gameIdDragonBoat);
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userDragonBoat.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"DragonBoat-(void)viewDidLoad-关卡id:%d", gameIdDragonBoat];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
 }
 
 -(void)dataInitializationWhenViewDidLoad{
@@ -52,6 +62,15 @@ int exitdragonboat = 0; //判断是否强行退出
 }
 
 - (IBAction)DBCheckAnswers:(id)sender {
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userDragonBoat.userId;
+    behaviour.doWhat = @"游戏－答题";
+    behaviour.doWhere = [[NSString alloc]initWithFormat:@"DragonBoat-(IBAction)DBCheckAnswers:(id)sender-题目id:%d",_DBQuestionEntity.questionId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
     
     // 用户答题次数和题目被答次数加1,并且更新数据库
     userDragonBoat.answerTimes++;
@@ -183,6 +202,15 @@ int exitdragonboat = 0; //判断是否强行退出
 //跳转到下一页
 -(void)nextpage1{
     
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userDragonBoat.userId;
+    behaviour.doWhat = @"游戏－过关";
+    behaviour.doWhere = @"DragonBoat-(void)nextpage1";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TaskChoice *taskchoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskChoice"];
     taskchoice.user = userDragonBoat;
@@ -214,6 +242,16 @@ int exitdragonboat = 0; //判断是否强行退出
     }
     else if (exitdragonboat == 1) {//如果强行退出
         if(buttonIndex==0){
+            
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userDragonBoat.userId;
+            behaviour.doWhat = @"游戏－退出";
+            behaviour.doWhere = @"DragonBoat-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
             UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
             gamechoice.user = userDragonBoat;

@@ -44,6 +44,15 @@ int change =0;
     _dice1.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [_dice1 addGestureRecognizer:singleTap];
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userGameChoice.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"GameChoice-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 -(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
@@ -55,6 +64,15 @@ int change =0;
                                             selector: @selector(changeImage)
                                             userInfo: nil
                                              repeats: YES];
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userGameChoice.userId;
+    behaviour.doWhat = @"游戏－选关";
+    behaviour.doWhere = @"GameChoice-(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
     
 }
 
@@ -134,6 +152,8 @@ int change =0;
 
 //点击开始闯关按钮
 - (IBAction)playGame:(id)sender{
+    
+
     
     finalChoice = [self judgeFinalResult:(int)dice1Num star:(float)self.starRateView.scorePercent];
     NSLog(@"finalChoice:%d",finalChoice);
@@ -215,6 +235,16 @@ int change =0;
 //            linecontrol.user = userGameChoice;
 //            [linecontrol setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 //            [self presentViewController:linecontrol animated:YES completion:nil];
+            
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userGameChoice.userId;
+            behaviour.doWhat = @"游戏－开始";
+            behaviour.doWhere = [[NSString alloc]initWithFormat:@"GameChoice-(IBAction)playGame:(id)sender-关卡id:%d", finalChoice];
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
             LineNine *linenine = [mainStoryboard instantiateViewControllerWithIdentifier:@"LineNine"];
             //  linecontrol.game = gameGameChoice;
             linenine.gameIdLineNine = finalChoice;

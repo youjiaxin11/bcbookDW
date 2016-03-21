@@ -37,6 +37,8 @@
 #import "QuestionsDao.h"
 #import "Friend.h"
 #import "CDSideBarController.h"
+#import "Behaviour.h"
+#import "BehaviourDao.h"
 
 
 typedef void(^ResponseCallback)(NSMutableDictionary*);

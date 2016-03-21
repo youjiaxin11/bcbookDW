@@ -183,6 +183,8 @@
 		3761D2301BA80C5700677222 /* 5-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761D22F1BA80C5700677222 /* 5-1.png */; };
 		3761D2321BA80C6700677222 /* 8-1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761D2311BA80C6700677222 /* 8-1-2.png */; };
 		376D77261B93E8AB0049FCB1 /* icontest.png in Resources */ = {isa = PBXBuildFile; fileRef = 376D77251B93E8AB0049FCB1 /* icontest.png */; };
+		3798BDE11C9F82E60094CC9C /* Behaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE01C9F82E60094CC9C /* Behaviour.m */; };
+		3798BDE51C9F83E80094CC9C /* BehaviourDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE41C9F83E80094CC9C /* BehaviourDao.m */; };
 		37A63FFE1B9EA25900D84680 /* 射击达人－音乐按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A63FFD1B9EA25900D84680 /* 射击达人－音乐按钮.png */; };
 		37B775771C55C493004AC862 /* LineNine.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B775761C55C493004AC862 /* LineNine.m */; };
 		37B7757B1C55C4C9004AC862 /* FamilyDinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7757A1C55C4C9004AC862 /* FamilyDinner.m */; };
@@ -492,6 +494,10 @@
 		3761D22F1BA80C5700677222 /* 5-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-1.png"; sourceTree = "<group>"; };
 		3761D2311BA80C6700677222 /* 8-1-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8-1-2.png"; sourceTree = "<group>"; };
 		376D77251B93E8AB0049FCB1 /* icontest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icontest.png; sourceTree = "<group>"; };
+		3798BDE01C9F82E60094CC9C /* Behaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behaviour.m; sourceTree = "<group>"; };
+		3798BDE21C9F82F20094CC9C /* Behaviour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
+		3798BDE31C9F83D80094CC9C /* BehaviourDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BehaviourDao.h; sourceTree = "<group>"; };
+		3798BDE41C9F83E80094CC9C /* BehaviourDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BehaviourDao.m; sourceTree = "<group>"; };
 		37A63FFD1B9EA25900D84680 /* 射击达人－音乐按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "射击达人－音乐按钮.png"; sourceTree = "<group>"; };
 		37B775761C55C493004AC862 /* LineNine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNine.m; sourceTree = "<group>"; };
 		37B775781C55C4A3004AC862 /* LineNine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineNine.h; sourceTree = "<group>"; };
@@ -695,6 +701,8 @@
 				3734F5471B96EBE9007F0B9B /* HelpDao.h */,
 				37485E9B1C7AD33D000D4FC1 /* QuestionsDao.m */,
 				37485E9D1C7AD34D000D4FC1 /* QuestionsDao.h */,
+				3798BDE31C9F83D80094CC9C /* BehaviourDao.h */,
+				3798BDE41C9F83E80094CC9C /* BehaviourDao.m */,
 			);
 			name = Dao;
 			sourceTree = "<group>";
@@ -908,6 +916,8 @@
 				37BBB5A81B95E20000CCD555 /* UserTask.m */,
 				37485E981C7AD104000D4FC1 /* Questions.h */,
 				37485E991C7AD113000D4FC1 /* Questions.m */,
+				3798BDE01C9F82E60094CC9C /* Behaviour.m */,
+				3798BDE21C9F82F20094CC9C /* Behaviour.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -1439,6 +1449,7 @@
 				3703E4091B8305CE00022163 /* WebUtil.m in Sources */,
 				3755C5331B60878300A397B7 /* TaskInfo.m in Sources */,
 				37BF57261B7AF1B5005CEB78 /* LearningRecord.m in Sources */,
+				3798BDE11C9F82E60094CC9C /* Behaviour.m in Sources */,
 				37E098681B4BCB7800EB8DC0 /* AppDelegate.m in Sources */,
 				372758891B84499100C268E3 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				3755AF301B858A1700AA02B9 /* Task.m in Sources */,
@@ -1449,6 +1460,7 @@
 				374AC8051B59EF0F0047704C /* PuzzleControl.m in Sources */,
 				3755C5441B60892900A397B7 /* UserInfo.m in Sources */,
 				37BBB5A91B95E20000CCD555 /* UserTask.m in Sources */,
+				3798BDE51C9F83E80094CC9C /* BehaviourDao.m in Sources */,
 				37BBB5A31B959D6C00CCD555 /* CBChartView.m in Sources */,
 				372758881B84499100C268E3 /* SBJsonStreamWriter.m in Sources */,
 				37485E9C1C7AD33D000D4FC1 /* QuestionsDao.m in Sources */,
@@ -1611,7 +1623,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = BCBookDW;
-				PROVISIONING_PROFILE = "2223a6b8-8b37-4e79-be93-371056969d4c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1625,7 +1637,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = BCBookDW;
-				PROVISIONING_PROFILE = "2223a6b8-8b37-4e79-be93-371056969d4c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

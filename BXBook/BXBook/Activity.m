@@ -19,6 +19,16 @@ Task* taskActivity;
     userActivity = self.user;
     taskActivity = self.task;
     NSLog(@"%@",userActivity.loginName);
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userActivity.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Activity-(void)viewDidLoad-任务id:%d", taskActivity.taskId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
 }
 
 //左滑返回上一页

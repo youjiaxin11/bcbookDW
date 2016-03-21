@@ -35,7 +35,14 @@ MPMoviePlayerViewController *movie;
     NSLog(@"shoot:游戏表中的id：%d",gameCheats.gameId);
     NSLog(@"shoot:此页面要显示的内容如下：");
     
-    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userCheats.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Cheats-(void)viewDidLoad-任务id:%d", taskCheats.taskId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 
     
     //通过gameChoice判断helpId
@@ -110,6 +117,16 @@ MPMoviePlayerViewController *movie;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userCheats.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"Cheats-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {
@@ -133,6 +150,16 @@ MPMoviePlayerViewController *movie;
     }
 }
 -(void)playVideo{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userCheats.userId;
+    behaviour.doWhat = @"查看微课";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Cheats-(void)playVideo-任务id:%d", taskCheats.taskId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     NSString* helpIdNowStr = [NSString stringWithFormat:@"%d", helpIdNow];
     NSString* fileName = [@"Cheat" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];

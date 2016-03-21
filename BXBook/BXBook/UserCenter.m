@@ -22,6 +22,15 @@ User* userUserCenter;
     }else{
         admDataCen.hidden = YES;
     }
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUserCenter.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UserCenter-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -31,6 +40,16 @@ User* userUserCenter;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userUserCenter.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"UserCenter-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (index == 0) {

@@ -28,8 +28,18 @@ static int answerTime;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     userLineNineQuestion = self.user;
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userLineNineQuestion.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"LineNineQuestion-(void)viewDidLoad";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+
     
     if (answerTime == 0) {
         //开辟9个位置存放9道题的答题情况，初始化为NSNumber:0
@@ -108,6 +118,17 @@ static int answerTime;
 
 //点击选项后跳转到此函数中，判断对错
 - (void)lineNineAnswer:(int)myAnswerQuestionIndex{
+    
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userLineNineQuestion.userId;
+    behaviour.doWhat = @"游戏－答题";
+    behaviour.doWhere = [[NSString alloc]initWithFormat:@"LineNineQuestion-(void)lineNineAnswer:(int)myAnswerQuestionIndex-题目id:%d",lineNineQuestion.questionId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
     userLineNineQuestion.answerTimes++;//用户答题次数＋1
     lineNineQuestion.answerTimes++;//题目被答次数＋1
     
