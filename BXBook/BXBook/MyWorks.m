@@ -200,9 +200,9 @@ MPMoviePlayerController *moviePlay;
             view.cardColor = [self colorForName:self.colors[self.index]];
           //  view.filePath = [self.filePaths objectAtIndex:self.index];
             self.index++;
-            view.userInteractionEnabled = YES;
-            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-            [view addGestureRecognizer:singleTap];
+//            view.userInteractionEnabled = YES;
+//            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+//            [view addGestureRecognizer:singleTap];
             return view;
 
         }else if (myworkShow.type == 3){//录音

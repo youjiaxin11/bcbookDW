@@ -59,7 +59,7 @@
     playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     
     [self.layer addSublayer:playerLayer];
-   // [player play];
+    [player play];
     
 //  //  NSURL *url=[info objectForKey:UIImagePickerControllerMediaURL];//视频路径
 
