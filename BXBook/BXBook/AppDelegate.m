@@ -52,6 +52,14 @@ int loginState = 0;
         loginState = 1;
         
         NSLog(@"程序在后台被默默关闭");
+        
+        //记录行为数据
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = loginId;
+        behaviour.doWhat = @"退出";
+        behaviour.doWhere = @"AppDelegate-(void)applicationDidEnterBackground:(UIApplication *)application";
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
     }];
 }
 
@@ -71,12 +79,21 @@ int loginState = 0;
         loginState = 0;
         NSLog(@"重新登录");
         
+        
         //获取最近登录的Userlogin
         int k = [UserDao getUserLoginCount];
         UserLogin *userlogin = [UserDao findUserLoginByuserloginId:k];
         NSArray* array2  = [NSArray  arrayWithObjects:[NSString stringWithFormat:@"%d", userlogin.userLoginId],  userLogin.loginName, nil ];
         //保存数据
         [userDefaults setObject:array2  forKey:@"userInfo1"];
+        
+        //记录行为数据
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = userlogin.userId;
+        behaviour.doWhat = @"登录";
+        behaviour.doWhere = @"AppDelegate-(void)applicationWillEnterForeground:(UIApplication *)application";
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
 
     }else if (loginState == 0){//not end
         [userDefaults synchronize];
@@ -107,6 +124,14 @@ int loginState = 0;
     loginState = 1;
     
     NSLog(@"程序强制关闭");
+    
+    //记录行为数据
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = loginId;
+    behaviour.doWhat = @"退出";
+    behaviour.doWhere = @"AppDelegate-(void)applicationWillTerminate:(UIApplication *)application";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
 }
 
 @end

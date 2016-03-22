@@ -186,6 +186,14 @@
 		3798BDE11C9F82E60094CC9C /* Behaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE01C9F82E60094CC9C /* Behaviour.m */; };
 		3798BDE51C9F83E80094CC9C /* BehaviourDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE41C9F83E80094CC9C /* BehaviourDao.m */; };
 		37A63FFE1B9EA25900D84680 /* 射击达人－音乐按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A63FFD1B9EA25900D84680 /* 射击达人－音乐按钮.png */; };
+		37AC87FE1CA1490700B0BC30 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87F31CA1490700B0BC30 /* CardView.m */; };
+		37AC87FF1CA1490700B0BC30 /* CardViewPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87F51CA1490700B0BC30 /* CardViewPic.m */; };
+		37AC88001CA1490700B0BC30 /* CardViewVid.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87F71CA1490700B0BC30 /* CardViewVid.m */; };
+		37AC88011CA1490700B0BC30 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87F91CA1490700B0BC30 /* UIColor+FlatColors.m */; };
+		37AC88021CA1490700B0BC30 /* ZLPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87FB1CA1490700B0BC30 /* ZLPanGestureRecognizer.m */; };
+		37AC88031CA1490700B0BC30 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87FD1CA1490700B0BC30 /* ZLSwipeableView.m */; };
+		37AC88051CA14FAE00B0BC30 /* MyWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC88041CA14FAE00B0BC30 /* MyWork.m */; };
+		37AC88081CA15A3C00B0BC30 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 37AC88071CA15A3C00B0BC30 /* test.mp4 */; };
 		37B775771C55C493004AC862 /* LineNine.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B775761C55C493004AC862 /* LineNine.m */; };
 		37B7757B1C55C4C9004AC862 /* FamilyDinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7757A1C55C4C9004AC862 /* FamilyDinner.m */; };
 		37B7757D1C55C4D9004AC862 /* DragonBoat.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7757C1C55C4D9004AC862 /* DragonBoat.m */; };
@@ -499,6 +507,21 @@
 		3798BDE31C9F83D80094CC9C /* BehaviourDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BehaviourDao.h; sourceTree = "<group>"; };
 		3798BDE41C9F83E80094CC9C /* BehaviourDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BehaviourDao.m; sourceTree = "<group>"; };
 		37A63FFD1B9EA25900D84680 /* 射击达人－音乐按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "射击达人－音乐按钮.png"; sourceTree = "<group>"; };
+		37AC87F21CA1490700B0BC30 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		37AC87F31CA1490700B0BC30 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		37AC87F41CA1490700B0BC30 /* CardViewPic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewPic.h; sourceTree = "<group>"; };
+		37AC87F51CA1490700B0BC30 /* CardViewPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewPic.m; sourceTree = "<group>"; };
+		37AC87F61CA1490700B0BC30 /* CardViewVid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewVid.h; sourceTree = "<group>"; };
+		37AC87F71CA1490700B0BC30 /* CardViewVid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewVid.m; sourceTree = "<group>"; };
+		37AC87F81CA1490700B0BC30 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		37AC87F91CA1490700B0BC30 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
+		37AC87FA1CA1490700B0BC30 /* ZLPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPanGestureRecognizer.h; sourceTree = "<group>"; };
+		37AC87FB1CA1490700B0BC30 /* ZLPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPanGestureRecognizer.m; sourceTree = "<group>"; };
+		37AC87FC1CA1490700B0BC30 /* ZLSwipeableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableView.h; sourceTree = "<group>"; };
+		37AC87FD1CA1490700B0BC30 /* ZLSwipeableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableView.m; sourceTree = "<group>"; };
+		37AC88041CA14FAE00B0BC30 /* MyWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWork.m; sourceTree = "<group>"; };
+		37AC88061CA14FBC00B0BC30 /* MyWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWork.h; sourceTree = "<group>"; };
+		37AC88071CA15A3C00B0BC30 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		37B775761C55C493004AC862 /* LineNine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNine.m; sourceTree = "<group>"; };
 		37B775781C55C4A3004AC862 /* LineNine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineNine.h; sourceTree = "<group>"; };
 		37B775791C55C4B7004AC862 /* FamilyDinner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FamilyDinner.h; sourceTree = "<group>"; };
@@ -642,6 +665,7 @@
 		3736BA961BAEDAB10039BC72 /* MicroClasses */ = {
 			isa = PBXGroup;
 			children = (
+				37AC88071CA15A3C00B0BC30 /* test.mp4 */,
 			);
 			name = MicroClasses;
 			sourceTree = "<group>";
@@ -710,6 +734,7 @@
 		3740C8481B5777E60061DA84 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				37AC87F11CA148F000B0BC30 /* card */,
 				37D8C78C1C97D1C8005EEAE0 /* CDSideBarController.h */,
 				37D8C78D1C97D1C8005EEAE0 /* CDSideBarController.m */,
 				37D8C7831C97CFFA005EEAE0 /* FriendCell */,
@@ -918,8 +943,29 @@
 				37485E991C7AD113000D4FC1 /* Questions.m */,
 				3798BDE01C9F82E60094CC9C /* Behaviour.m */,
 				3798BDE21C9F82F20094CC9C /* Behaviour.h */,
+				37AC88041CA14FAE00B0BC30 /* MyWork.m */,
+				37AC88061CA14FBC00B0BC30 /* MyWork.h */,
 			);
 			name = Entity;
+			sourceTree = "<group>";
+		};
+		37AC87F11CA148F000B0BC30 /* card */ = {
+			isa = PBXGroup;
+			children = (
+				37AC87F21CA1490700B0BC30 /* CardView.h */,
+				37AC87F31CA1490700B0BC30 /* CardView.m */,
+				37AC87F41CA1490700B0BC30 /* CardViewPic.h */,
+				37AC87F51CA1490700B0BC30 /* CardViewPic.m */,
+				37AC87F61CA1490700B0BC30 /* CardViewVid.h */,
+				37AC87F71CA1490700B0BC30 /* CardViewVid.m */,
+				37AC87F81CA1490700B0BC30 /* UIColor+FlatColors.h */,
+				37AC87F91CA1490700B0BC30 /* UIColor+FlatColors.m */,
+				37AC87FA1CA1490700B0BC30 /* ZLPanGestureRecognizer.h */,
+				37AC87FB1CA1490700B0BC30 /* ZLPanGestureRecognizer.m */,
+				37AC87FC1CA1490700B0BC30 /* ZLSwipeableView.h */,
+				37AC87FD1CA1490700B0BC30 /* ZLSwipeableView.m */,
+			);
+			name = card;
 			sourceTree = "<group>";
 		};
 		37B7757E1C55C4E2004AC862 /* OldGame */ = {
@@ -1359,6 +1405,7 @@
 				3755AFE01B85A3F500AA02B9 /* 与b相配牧童短笛.mp3 in Resources */,
 				3755B0081B85A3F500AA02B9 /* lineImage9.png in Resources */,
 				3755B0051B85A3F500AA02B9 /* lineImage6.png in Resources */,
+				37AC88081CA15A3C00B0BC30 /* test.mp4 in Resources */,
 				37BBA1E51BA83EB900D6EBC1 /* LOGO3.png in Resources */,
 				37BBA1E71BA83EB900D6EBC1 /* LOGO5.png in Resources */,
 				37A63FFE1B9EA25900D84680 /* 射击达人－音乐按钮.png in Resources */,
@@ -1406,6 +1453,7 @@
 				374AC80E1B5A03EC0047704C /* Line.m in Sources */,
 				F4F48F421C8416F9007470ED /* FamilyDinnerQuestion.m in Sources */,
 				3755AF9E1B858B5400AA02B9 /* Friendlevel.m in Sources */,
+				37AC87FE1CA1490700B0BC30 /* CardView.m in Sources */,
 				37BF57241B7AF1A2005CEB78 /* FriendWorks.m in Sources */,
 				3755B0101B85A46E00AA02B9 /* PhotosController.m in Sources */,
 				37B7757B1C55C4C9004AC862 /* FamilyDinner.m in Sources */,
@@ -1416,6 +1464,7 @@
 				374AC8181B5A08880047704C /* GameDao.m in Sources */,
 				3727588A1B84499100C268E3 /* SBJsonStreamWriterState.m in Sources */,
 				37D8C78E1C97D1C8005EEAE0 /* CDSideBarController.m in Sources */,
+				37AC87FF1CA1490700B0BC30 /* CardViewPic.m in Sources */,
 				3751FFA81B58A70500FC4621 /* User.m in Sources */,
 				37069FC31B6B665000FA952A /* Cheats.m in Sources */,
 				3740C8521B57A5BD0061DA84 /* Information.m in Sources */,
@@ -1429,6 +1478,7 @@
 				3703E40F1B83061800022163 /* NSData+Gzip.m in Sources */,
 				373D5D081B4CB4DF00C01267 /* VideoPlay.m in Sources */,
 				3755AF2E1B85818300AA02B9 /* PuzzleQuestion.m in Sources */,
+				37AC88021CA1490700B0BC30 /* ZLPanGestureRecognizer.m in Sources */,
 				37BF572A1B7AF1EC005CEB78 /* MyFriend.m in Sources */,
 				3755C5401B60890100A397B7 /* UserCenter.m in Sources */,
 				37B9C4271B61DFAF00DC2DDB /* Help.m in Sources */,
@@ -1442,6 +1492,7 @@
 				372758861B84499100C268E3 /* SBJsonStreamParserAdapter.m in Sources */,
 				372758871B84499100C268E3 /* SBJsonStreamParserState.m in Sources */,
 				3755C5351B60879500A397B7 /* Activity.m in Sources */,
+				37AC88031CA1490700B0BC30 /* ZLSwipeableView.m in Sources */,
 				3740C84B1B57780C0061DA84 /* SqliteUtil.m in Sources */,
 				37BBB5A41B959D6C00CCD555 /* UIView+FrameSet.m in Sources */,
 				372758841B84499100C268E3 /* SBJsonStreamParser.m in Sources */,
@@ -1450,6 +1501,7 @@
 				3755C5331B60878300A397B7 /* TaskInfo.m in Sources */,
 				37BF57261B7AF1B5005CEB78 /* LearningRecord.m in Sources */,
 				3798BDE11C9F82E60094CC9C /* Behaviour.m in Sources */,
+				37AC88001CA1490700B0BC30 /* CardViewVid.m in Sources */,
 				37E098681B4BCB7800EB8DC0 /* AppDelegate.m in Sources */,
 				372758891B84499100C268E3 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				3755AF301B858A1700AA02B9 /* Task.m in Sources */,
@@ -1461,6 +1513,7 @@
 				3755C5441B60892900A397B7 /* UserInfo.m in Sources */,
 				37BBB5A91B95E20000CCD555 /* UserTask.m in Sources */,
 				3798BDE51C9F83E80094CC9C /* BehaviourDao.m in Sources */,
+				37AC88051CA14FAE00B0BC30 /* MyWork.m in Sources */,
 				37BBB5A31B959D6C00CCD555 /* CBChartView.m in Sources */,
 				372758881B84499100C268E3 /* SBJsonStreamWriter.m in Sources */,
 				37485E9C1C7AD33D000D4FC1 /* QuestionsDao.m in Sources */,
@@ -1477,6 +1530,7 @@
 				37B775771C55C493004AC862 /* LineNine.m in Sources */,
 				3734F5081B969FB0007F0B9B /* ViewController.m in Sources */,
 				372758921B845A5D00C268E3 /* WorkDao.m in Sources */,
+				37AC88011CA1490700B0BC30 /* UIColor+FlatColors.m in Sources */,
 				372F202C1B9BF1470019F156 /* TaskIntroduction.m in Sources */,
 				3755C53B1B6088CA00A397B7 /* UploadVideo.m in Sources */,
 				374AC8081B59EF280047704C /* ShootControl.m in Sources */,

@@ -39,6 +39,7 @@
 #import "CDSideBarController.h"
 #import "Behaviour.h"
 #import "BehaviourDao.h"
+#import "MyWork.h"
 
 
 typedef void(^ResponseCallback)(NSMutableDictionary*);
