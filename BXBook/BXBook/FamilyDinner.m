@@ -109,6 +109,11 @@ int jump2;
             behaviour.doWhen = timeNow;
             [BehaviourDao addBehaviour:behaviour];
             
+            answerFamilyDinnerTotalNum=0;
+            FamilyDinnerRightNum1=0;FamilyDinnerRightNum2=0;FamilyDinnerRightNum3=0;FamilyDinnerRightNum4=0;
+            fquestionIndex = 0;
+            
+            
             UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
             gamechoice.user = userFamilyDinner;;
@@ -148,9 +153,7 @@ int jump2;
         exitfamilydinner = 1;
         [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
     }
-    answerFamilyDinnerTotalNum=0;
-    FamilyDinnerRightNum1=0;FamilyDinnerRightNum2=0;FamilyDinnerRightNum3=0;FamilyDinnerRightNum4=0;
-    fquestionIndex = 0;
+
     
     
 }
@@ -231,6 +234,13 @@ int jump2;
 
 
 
+- (IBAction)goBack:(id)sender {
+    exitfamilydinner = 1;
+    [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+    answerFamilyDinnerTotalNum=0;
+    FamilyDinnerRightNum1=0;FamilyDinnerRightNum2=0;FamilyDinnerRightNum3=0;FamilyDinnerRightNum4=0;
+    fquestionIndex = 0;
+}
 
 
 @end

@@ -402,5 +402,9 @@ static int lineNineAnswerTimes;
         [self notFinishedAndGoBack];
     }
 }
+- (IBAction)goBack:(id)sender {
+    exitlinenine = 1;
+    [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+}
 
 @end

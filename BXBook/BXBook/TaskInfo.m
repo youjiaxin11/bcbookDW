@@ -270,4 +270,7 @@ Task* taskTaskinfo;
     if (taskTaskinfo.taskId == 3||taskTaskinfo.taskId == 5) {
     }else{[self play:_currentIndex3];}
 }
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

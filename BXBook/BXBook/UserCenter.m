@@ -147,4 +147,11 @@ User* userUserCenter;
     [self presentViewController:next animated:YES completion:nil];
 
 }
+- (IBAction)goBack:(id)sender {
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
+    information.user = userUserCenter;
+    [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:information animated:YES completion:nil];
+}
 @end

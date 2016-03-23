@@ -226,6 +226,15 @@ int finishgameId5;//当前完成的游戏关卡号
         [self presentViewController:loginview animated:YES completion:nil];
     }
 }
+- (IBAction)goBack:(id)sender {
+    //音乐暂停
+    [self stop];
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginView *loginview = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginView"];
+    [loginview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:loginview animated:YES completion:nil];
+
+}
 
 
 @end

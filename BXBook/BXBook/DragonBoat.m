@@ -266,4 +266,8 @@ int exitdragonboat = 0; //判断是否强行退出
         }
     }
 }
+- (IBAction)goBack:(id)sender {
+    exitdragonboat = 1;
+    [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+}
 @end

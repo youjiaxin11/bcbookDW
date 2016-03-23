@@ -97,5 +97,13 @@ int finishgameId1;//当前完成的游戏关卡号
         [self presentViewController:information animated:YES completion:nil];
     }
 }
+- (IBAction)goBack:(id)sender {
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    Information * information= [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
+    information.user = userTaskChoice;
+    information.finishgameId4=finishgameId1;
+    [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:information animated:YES completion:nil];
+}
 
 @end

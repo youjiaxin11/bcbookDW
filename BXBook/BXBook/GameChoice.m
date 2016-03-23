@@ -281,5 +281,14 @@ int change =0;
     }
     }
 }
+- (IBAction)goBack:(id)sender {
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
+    information.user = userGameChoice;
+    information.finishgameId4=finishgameId3;
+    [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:information animated:YES completion:nil];    
+
+}
 
 @end

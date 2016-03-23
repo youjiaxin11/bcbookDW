@@ -204,5 +204,14 @@ static User *user;
     [self.loginNameText resignFirstResponder];
     [self.passwordText resignFirstResponder];
 }
+- (IBAction)goBack:(id)sender {
+    LearningRecord *record = [[LearningRecord alloc]init];
+    int works = [record computeOfflineWorkCount:user.userId];
+    int finishNums = [self computeFinishGameNums];
+        NSString* message = [NSString stringWithFormat:@"亲爱的同学，\n你已通过了%d关，\n完成了%d个作品，\n得到了%d个游戏币，\n在小伙伴中排行第%d名，\n你还要继续学习吗？",finishNums,works,user.golden,user.rank];
+        [self prompt3:message];
+    
+
+}
 
 @end

@@ -210,5 +210,8 @@ NSString* str4_video;
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

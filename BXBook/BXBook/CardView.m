@@ -45,12 +45,20 @@
     UIColor* cardColor = self.cardColor;
     
     //显示文字
-    UITextView *cardTextView = [[UITextView alloc] initWithFrame:CGRectMake(30,20,frameWidth-60,frameHeight-40)];
+    UITextView *cardTextView = [[UITextView alloc] initWithFrame:CGRectMake(30,50,frameWidth-60,frameHeight-60)];
     cardTextView.backgroundColor = [UIColor clearColor];
     cardTextView.font = [UIFont fontWithName:@"Arial" size:30];
  //   self.cardText = @"demo";
     cardTextView.text = self.cardText;
     [self addSubview:cardTextView];
+    
+    //显示文字2
+    UITextView *infoTextView = [[UITextView alloc] initWithFrame:CGRectMake(30,10,frameWidth-60,40)];
+    infoTextView.backgroundColor = [UIColor clearColor];
+    infoTextView.font = [UIFont fontWithName:@"Arial" size:24];
+  //  self.infoText = @"demo";
+    infoTextView.text = self.infoText;
+    [self addSubview:infoTextView];
     
     NSLog(@"this demo!!!");
     

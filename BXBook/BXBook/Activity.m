@@ -87,5 +87,8 @@ Task* taskActivity;
     [nextpage setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:nextpage animated:YES completion:nil];
 }
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

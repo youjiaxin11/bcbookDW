@@ -146,6 +146,9 @@ NSString* str4_photo;
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
 

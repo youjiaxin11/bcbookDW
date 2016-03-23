@@ -55,6 +55,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-Q3-D0Y">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="SQN-h6-Et9" eventType="touchUpInside" id="hGF-E9-J7L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -143,6 +153,16 @@
                                     <action selector="nextPage:" destination="XuA-bY-YXK" eventType="touchUpInside" id="Yna-xt-8fb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-tO-Bbu">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="XuA-bY-YXK" eventType="touchUpInside" id="46m-M7-nkF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -192,6 +212,16 @@
                                 </state>
                                 <connections>
                                     <action selector="addPhoto:" destination="hdS-vi-eay" eventType="touchUpInside" id="rY1-aW-xcT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygb-Hy-SEO">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="hdS-vi-eay" eventType="touchUpInside" id="goK-YI-2eY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -293,6 +323,16 @@
                                     <action selector="dataCenter:" destination="7mR-XB-ZpM" eventType="touchUpInside" id="0Mb-hI-HHl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-a2-2AH">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="7mR-XB-ZpM" eventType="touchUpInside" id="zoo-eq-lcC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -335,6 +375,16 @@
                                 <rect key="frame" x="243" y="133" width="752" height="511"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAy-Fs-sIV">
+                                <rect key="frame" x="20" y="14" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="nrz-fd-tlN" eventType="touchUpInside" id="yM1-7b-qBE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -367,6 +417,16 @@
                                 <rect key="frame" x="133" y="304" width="596" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqh-ho-nGz">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="GFw-uo-7rG" eventType="touchUpInside" id="4ou-ln-icd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -691,6 +751,16 @@
                                 <rect key="frame" x="497" y="663" width="30" height="30"/>
                                 <state key="normal" title="删除"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-Ft-YJk">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="iBp-fO-ccq" eventType="touchUpInside" id="kb9-ey-fF2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -774,6 +844,16 @@
                                 <state key="normal" title="邀请奶奶"/>
                                 <connections>
                                     <action selector="gmbutton1:" destination="6zH-S5-rjb" eventType="touchUpInside" id="jSe-Rn-2aU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU7-zo-pfH">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="6zH-S5-rjb" eventType="touchUpInside" id="ars-hR-vC7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -874,6 +954,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="示例.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yUf-b2-amQ">
                                 <rect key="frame" x="308" y="459" width="240" height="144"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QE9-Bi-Pgf">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="keJ-9y-Nsa" eventType="touchUpInside" id="hFd-Df-zQ5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -929,6 +1019,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSH-dG-xtY">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="ydM-87-WYs" eventType="touchUpInside" id="yaZ-x1-zuV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -996,6 +1096,16 @@
                                 </state>
                                 <connections>
                                     <action selector="changePwd:" destination="AcF-KJ-NQ2" eventType="touchUpInside" id="Yvv-2F-aqo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nu-cY-Yua">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="AcF-KJ-NQ2" eventType="touchUpInside" id="bCX-G0-CWt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1112,6 +1222,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnE-Bj-8cE">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="HNU-ua-zhG" eventType="touchUpInside" id="zs6-qX-fZw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1203,6 +1323,16 @@
                                     <action selector="uploadWorks:" destination="KhL-9Q-yEH" eventType="touchUpInside" id="fKu-TR-wyv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-h6-fHa">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="KhL-9Q-yEH" eventType="touchUpInside" id="uez-zX-MuC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1279,6 +1409,16 @@
                                 </state>
                                 <connections>
                                     <action selector="recordClick:" destination="N0F-IB-vPp" eventType="touchUpInside" id="aeQ-rG-iX5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-Fn-jEa">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="N0F-IB-vPp" eventType="touchUpInside" id="jPR-BW-fBE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1363,6 +1503,16 @@
                                     <action selector="nextPageFriendWorks:" destination="29g-RL-ZTx" eventType="touchUpInside" id="EcV-As-S2E"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fx-jw-jFI">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="29g-RL-ZTx" eventType="touchUpInside" id="ZHh-hh-q7U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1414,6 +1564,16 @@
                                     <action selector="login:" destination="uL5-Qq-HmB" eventType="touchUpInside" id="Ipa-WC-e1z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-ra-BQi">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="uL5-Qq-HmB" eventType="touchUpInside" id="zTk-L2-lTw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -1430,7 +1590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGe-ln-ZVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="94"/>
+            <point key="canvasLocation" x="1380" y="94"/>
         </scene>
         <!--Information-->
         <scene sceneID="KVr-Ji-fug">
@@ -1473,6 +1633,16 @@
                                     <action selector="gotoTask:" destination="Fb7-4K-AOb" eventType="touchUpInside" id="ofX-5N-bAN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYJ-TZ-Gmd">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="Fb7-4K-AOb" eventType="touchUpInside" id="Cza-Wi-dSW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1498,6 +1668,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="13-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="mt7-fw-sJn">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-qe-0Zr">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="1R8-sc-wRh" eventType="touchUpInside" id="OQa-jN-4up"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2029,6 +2209,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4US-Ra-WnP">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="8mJ-DX-BUK" eventType="touchUpInside" id="u7k-K7-LKj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2123,6 +2313,16 @@
                                     <action selector="levelFive:" destination="n7o-9K-MYt" eventType="touchUpInside" id="J1k-2X-V5Y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSG-m4-rhP">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="n7o-9K-MYt" eventType="touchUpInside" id="0C4-jE-psx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2213,6 +2413,16 @@
                                 <state key="normal" title="Button9"/>
                                 <connections>
                                     <action selector="LineNineQuestion9:" destination="Mu4-qI-8ZQ" eventType="touchUpInside" id="1oA-Hu-wwX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7l-m5-cJf">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="Mu4-qI-8ZQ" eventType="touchUpInside" id="F2b-K0-Tdn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2360,6 +2570,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpP-9Q-a5N">
+                                <rect key="frame" x="20" y="20" width="125" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="返  回" backgroundImage="buttonBkg.png">
+                                    <color key="titleShadowColor" red="0.9416944357" green="0.97719562049999997" blue="0.46323910689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="lYn-jG-T1r" eventType="touchUpInside" id="kAu-9J-DTb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2395,6 +2615,7 @@
         <image name="8-1-2.png" width="1024" height="768"/>
         <image name="8-2.png" width="1024" height="768"/>
         <image name="9.png" width="1024" height="768"/>
+        <image name="buttonBkg.png" width="156" height="49"/>
         <image name="个人中心-2.png" width="1024" height="768"/>
         <image name="个人信息-2.png" width="1024" height="768"/>
         <image name="伙伴作品2.png" width="1024" height="768"/>

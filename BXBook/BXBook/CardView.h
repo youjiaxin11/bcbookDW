@@ -13,4 +13,5 @@
 @interface CardView : UIView
 @property UIColor *cardColor;
 @property NSString *cardText;
+@property NSString *infoText;
 @end

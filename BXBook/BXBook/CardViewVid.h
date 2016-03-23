@@ -15,6 +15,7 @@
 @interface CardViewVid : UIView
 @property UIColor *cardColor;
 @property UIImage *cardImage;
+@property NSString *infoText;
 @property(nonatomic,retain)  IBOutlet   UIView *contentimageview;
 @property (strong ,nonatomic) AVPlayer *player;//播放器，用于录制完视频后播放视频
 

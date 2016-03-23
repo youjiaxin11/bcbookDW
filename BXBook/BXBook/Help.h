@@ -11,7 +11,7 @@
 @interface Help : NSObject
 
 @property int helpId;// 主键自增长
-@property int helpType;//通关秘籍类型
+@property int helpType;//通关秘籍类型，1文字，2图片，3视频，4其他
 @property NSString* helpUrl;//通关秘籍url
 @property int viewTimes;//浏览人次
 

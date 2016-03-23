@@ -39,12 +39,18 @@
 		3703E4121B830A8700022163 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3703E4111B830A8700022163 /* libz.dylib */; };
 		37069FC31B6B665000FA952A /* Cheats.m in Sources */ = {isa = PBXBuildFile; fileRef = 37069FC21B6B665000FA952A /* Cheats.m */; };
 		37069FC61B6B670B00FA952A /* PlayMusicImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37069FC51B6B670B00FA952A /* PlayMusicImpl.m */; };
+		370C337E1CA282C20032205D /* CardViewAud.m in Sources */ = {isa = PBXBuildFile; fileRef = 370C337D1CA282C20032205D /* CardViewAud.m */; };
+		370C33831CA288160032205D /* pauseon.png in Resources */ = {isa = PBXBuildFile; fileRef = 370C33801CA288160032205D /* pauseon.png */; };
+		370C33841CA288160032205D /* playon.png in Resources */ = {isa = PBXBuildFile; fileRef = 370C33811CA288160032205D /* playon.png */; };
+		370C33881CA28ABB0032205D /* workAud.png in Resources */ = {isa = PBXBuildFile; fileRef = 370C33871CA28ABB0032205D /* workAud.png */; };
+		370C338C1CA292780032205D /* testAud.caf in Resources */ = {isa = PBXBuildFile; fileRef = 370C338B1CA292780032205D /* testAud.caf */; };
 		370E77D41C8820820066152E /* LineNineQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 370E77D31C8820820066152E /* LineNineQuestion.m */; };
 		370E77DA1C8821FC0066152E /* 拼图5.png in Resources */ = {isa = PBXBuildFile; fileRef = 370E77D51C8821FC0066152E /* 拼图5.png */; };
 		370E77DB1C8821FC0066152E /* 拼图6.png in Resources */ = {isa = PBXBuildFile; fileRef = 370E77D61C8821FC0066152E /* 拼图6.png */; };
 		370E77DC1C8821FC0066152E /* 拼图7.png in Resources */ = {isa = PBXBuildFile; fileRef = 370E77D71C8821FC0066152E /* 拼图7.png */; };
 		370E77DD1C8821FC0066152E /* 拼图8.png in Resources */ = {isa = PBXBuildFile; fileRef = 370E77D81C8821FC0066152E /* 拼图8.png */; };
 		370E77DE1C8821FC0066152E /* 拼图9.png in Resources */ = {isa = PBXBuildFile; fileRef = 370E77D91C8821FC0066152E /* 拼图9.png */; };
+		372626931CA2A4E400750099 /* buttonBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 372626921CA2A4E400750099 /* buttonBkg.png */; };
 		372758821B84499100C268E3 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3727586A1B84499100C268E3 /* NSObject+SBJson.m */; };
 		372758831B84499100C268E3 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3727586D1B84499100C268E3 /* SBJsonParser.m */; };
 		372758841B84499100C268E3 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3727586F1B84499100C268E3 /* SBJsonStreamParser.m */; };
@@ -303,6 +309,12 @@
 		37069FC21B6B665000FA952A /* Cheats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cheats.m; sourceTree = "<group>"; };
 		37069FC41B6B66E400FA952A /* PlayMusicImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayMusicImpl.h; sourceTree = "<group>"; };
 		37069FC51B6B670B00FA952A /* PlayMusicImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusicImpl.m; sourceTree = "<group>"; };
+		370C337C1CA282B20032205D /* CardViewAud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardViewAud.h; sourceTree = "<group>"; };
+		370C337D1CA282C20032205D /* CardViewAud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewAud.m; sourceTree = "<group>"; };
+		370C33801CA288160032205D /* pauseon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseon.png; sourceTree = "<group>"; };
+		370C33811CA288160032205D /* playon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playon.png; sourceTree = "<group>"; };
+		370C33871CA28ABB0032205D /* workAud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workAud.png; sourceTree = "<group>"; };
+		370C338B1CA292780032205D /* testAud.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testAud.caf; sourceTree = "<group>"; };
 		370E77D21C8820700066152E /* LineNineQuestion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineNineQuestion.h; sourceTree = "<group>"; };
 		370E77D31C8820820066152E /* LineNineQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNineQuestion.m; sourceTree = "<group>"; };
 		370E77D51C8821FC0066152E /* 拼图5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图5.png"; sourceTree = "<group>"; };
@@ -310,6 +322,7 @@
 		370E77D71C8821FC0066152E /* 拼图7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图7.png"; sourceTree = "<group>"; };
 		370E77D81C8821FC0066152E /* 拼图8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图8.png"; sourceTree = "<group>"; };
 		370E77D91C8821FC0066152E /* 拼图9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图9.png"; sourceTree = "<group>"; };
+		372626921CA2A4E400750099 /* buttonBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBkg.png; sourceTree = "<group>"; };
 		372758691B84499100C268E3 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		3727586A1B84499100C268E3 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		3727586B1B84499100C268E3 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -665,6 +678,7 @@
 		3736BA961BAEDAB10039BC72 /* MicroClasses */ = {
 			isa = PBXGroup;
 			children = (
+				370C338B1CA292780032205D /* testAud.caf */,
 				37AC88071CA15A3C00B0BC30 /* test.mp4 */,
 			);
 			name = MicroClasses;
@@ -860,6 +874,10 @@
 		37430FF31B8706A80068C389 /* ArtResource */ = {
 			isa = PBXGroup;
 			children = (
+				372626921CA2A4E400750099 /* buttonBkg.png */,
+				370C33871CA28ABB0032205D /* workAud.png */,
+				370C33801CA288160032205D /* pauseon.png */,
+				370C33811CA288160032205D /* playon.png */,
 				370E77D51C8821FC0066152E /* 拼图5.png */,
 				370E77D61C8821FC0066152E /* 拼图6.png */,
 				370E77D71C8821FC0066152E /* 拼图7.png */,
@@ -958,6 +976,8 @@
 				37AC87F51CA1490700B0BC30 /* CardViewPic.m */,
 				37AC87F61CA1490700B0BC30 /* CardViewVid.h */,
 				37AC87F71CA1490700B0BC30 /* CardViewVid.m */,
+				370C337C1CA282B20032205D /* CardViewAud.h */,
+				370C337D1CA282C20032205D /* CardViewAud.m */,
 				37AC87F81CA1490700B0BC30 /* UIColor+FlatColors.h */,
 				37AC87F91CA1490700B0BC30 /* UIColor+FlatColors.m */,
 				37AC87FA1CA1490700B0BC30 /* ZLPanGestureRecognizer.h */,
@@ -1283,6 +1303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37DFFD951BABB690002AD1DA /* 15.m4a in Resources */,
+				372626931CA2A4E400750099 /* buttonBkg.png in Resources */,
 				3755AFEB1B85A3F500AA02B9 /* answer6_1.png in Resources */,
 				3734F5311B96C0AC007F0B9B /* 14评论列表3.png in Resources */,
 				3755AFFB1B85A3F500AA02B9 /* b 中秋.mp3 in Resources */,
@@ -1302,6 +1323,7 @@
 				3755AFDD1B85A3F500AA02B9 /* 示例.jpg in Resources */,
 				3755AFDE1B85A3F500AA02B9 /* 思乡曲.mp3 in Resources */,
 				005AB6871B8AD37700B3D072 /* Cheat20.png in Resources */,
+				370C33831CA288160032205D /* pauseon.png in Resources */,
 				37D8C7991C97D1EB005EEAE0 /* menuUsers.png in Resources */,
 				3755AFFE1B85A3F500AA02B9 /* c 十五的月亮.mp3 in Resources */,
 				00B40DDB1BA6B3240082726E /* 拼图4.png in Resources */,
@@ -1342,6 +1364,7 @@
 				37DFFD891BABB690002AD1DA /* 3.m4a in Resources */,
 				3761D22E1BA8002D00677222 /* 2-2.png in Resources */,
 				370E77DB1C8821FC0066152E /* 拼图6.png in Resources */,
+				370C338C1CA292780032205D /* testAud.caf in Resources */,
 				37E0986E1B4BCB7800EB8DC0 /* Main.storyboard in Resources */,
 				3755AFE21B85A3F500AA02B9 /* a 彩云追月.mp3 in Resources */,
 				00B40DC11BA69E480082726E /* 伙伴排行-2.png in Resources */,
@@ -1353,6 +1376,7 @@
 				00B40DB91BA69E150082726E /* 修改密码-2.png in Resources */,
 				3755B0091B85A3F500AA02B9 /* lineImage10.png in Resources */,
 				3755AFF31B85A3F500AA02B9 /* answer8_3.png in Resources */,
+				370C33881CA28ABB0032205D /* workAud.png in Resources */,
 				37430FE01B86CCBA0068C389 /* Cheat7.png in Resources */,
 				00B40DCD1BA6ACE40082726E /* 8-2.png in Resources */,
 				3761D2271BA7FE9B00677222 /* 4-2.png in Resources */,
@@ -1387,6 +1411,7 @@
 				3755AFF81B85A3F500AA02B9 /* answer10_2.png in Resources */,
 				37430FEA1B86CCBA0068C389 /* Cheat17.png in Resources */,
 				3755AFF61B85A3F500AA02B9 /* answer9_3.png in Resources */,
+				370C33841CA288160032205D /* playon.png in Resources */,
 				37430FDE1B86CCBA0068C389 /* Cheat5.png in Resources */,
 				37DFFD981BABB690002AD1DA /* 18.m4a in Resources */,
 				37430FDA1B86CCBA0068C389 /* Cheat1.png in Resources */,
@@ -1497,6 +1522,7 @@
 				37BBB5A41B959D6C00CCD555 /* UIView+FrameSet.m in Sources */,
 				372758841B84499100C268E3 /* SBJsonStreamParser.m in Sources */,
 				374AC8111B5A04040047704C /* Shoot.m in Sources */,
+				370C337E1CA282C20032205D /* CardViewAud.m in Sources */,
 				3703E4091B8305CE00022163 /* WebUtil.m in Sources */,
 				3755C5331B60878300A397B7 /* TaskInfo.m in Sources */,
 				37BF57261B7AF1B5005CEB78 /* LearningRecord.m in Sources */,

@@ -79,4 +79,7 @@ User* userMyFriend;
     }
 }
 
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -1,15 +1,14 @@
 //
-//  CardViewVid.m
+//  CardViewPic.m
 //  ZLSwipeableViewDemo
 //
 //  Created by Zhixuan Lai on 11/1/14.
 //  Copyright (c) 2014 Zhixuan Lai. All rights reserved.
 //
 
-#import "CardViewVid.h"
+#import "CardViewAud.h"
 
-@implementation CardViewVid
-@synthesize player,contentimageview,filePath;
+@implementation CardViewAud
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -45,28 +44,34 @@
     
     UIColor* cardColor = self.cardColor;
     
+    //显示图片
+    //  self.cardImage = [UIImage imageNamed:@"topics8.png"];
+    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(50,60,frameWidth-80,frameHeight-150)];
+    
+    
+    UIGraphicsBeginImageContext(CGSizeMake(cardImageView.frame.size.width, cardImageView.frame.size.height));
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin = CGPointZero;
+    thumbnailRect.size.width = cardImageView.frame.size.width;
+    thumbnailRect.size.height = cardImageView.frame.size.height;
+    
+    [self.cardImage drawInRect:thumbnailRect];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    cardImageView.contentMode = UIViewContentModeCenter;
+    [cardImageView setImage:newImage];
+    [self addSubview:cardImageView];
+    
+    
     //显示文字2
     UITextView *infoTextView = [[UITextView alloc] initWithFrame:CGRectMake(30,10,frameWidth-60,40)];
     infoTextView.backgroundColor = [UIColor clearColor];
     infoTextView.font = [UIFont fontWithName:@"Arial" size:24];
-  //  self.infoText = @"demo";
+    // self.infoText = @"demo";
     infoTextView.text = self.infoText;
     [self addSubview:infoTextView];
-
-    //测试用例
-    filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
-    
-    NSURL *sourceMovieURL = [NSURL fileURLWithPath:filePath];
- 
-    AVAsset *movieAsset	= [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:movieAsset];
-    player = [AVPlayer playerWithPlayerItem:playerItem];
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    playerLayer.frame = CGRectMake(55, 20, frameWidth-100,frameHeight-80);
-    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    
-    [self.layer addSublayer:playerLayer];
-    
     
     UIButton* start = [[UIButton alloc] initWithFrame:CGRectMake(300,430,73,70)];
     [start setBackgroundImage:[UIImage imageNamed:@"playon.png"] forState:normal];
@@ -77,11 +82,8 @@
     [pause setBackgroundImage:[UIImage imageNamed:@"pauseon.png"] forState:normal];
     [pause addTarget:self action:@selector(actionPause:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:pause];
-
-
     
-    
-    NSLog(@"this video demo!!!");
+    NSLog(@"this audio demo!!!");
     
     //// card1
     {
@@ -100,11 +102,35 @@
 }
 
 -(void)actionStart:(id)sender{
-    [player play];
+    if (![self.audioPlayer isPlaying]) {
+        [self.audioPlayer play];
+    }
+    NSLog(@"播放!");
 }
 
 -(void)actionPause:(id)sender{
-    [player pause];
+    [self.audioPlayer pause];
 }
 
+/**
+ *  创建播放器
+ *
+ *  @return 播放器
+ */
+-(AVAudioPlayer *)audioPlayer{
+    if (!_audioPlayer) {
+        //测试用例
+        self.filePath = [[NSBundle mainBundle] pathForResource:@"testAud" ofType:@"caf"];
+        NSURL *url = [NSURL fileURLWithPath:self.filePath];
+        NSError *error=nil;
+        _audioPlayer=[[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+        _audioPlayer.numberOfLoops=0;
+        [_audioPlayer prepareToPlay];
+        if (error) {
+            NSLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
+            return nil;
+        }
+    }
+    return _audioPlayer;
+}
 @end

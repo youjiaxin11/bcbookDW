@@ -18,6 +18,7 @@
 #import "CardView.h"
 #import "CardViewPic.h"
 #import "CardViewVid.h"
+#import "CardViewAud.h"
 
 
 @interface MyWorks () <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate>
@@ -189,15 +190,20 @@ MPMoviePlayerController *moviePlay;
     if (self.index<self.count) {
         
         MyWork* myworkShow = [myworks objectAtIndex:self.index];
+        NSString* str1 = [@"任务名称:" stringByAppendingString:myworkShow.taskTitle];
+        NSString* str2 = [str1 stringByAppendingString:@"  提交时间:"];
+        NSString* str3 = [str2 stringByAppendingString:myworkShow.uploadTime];
         if (myworkShow.type == 1) {//图片
             CardViewPic *view = [[CardViewPic alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
             view.cardImage = [UIImage imageNamed:@"拼图5.png"];
+            view.infoText = str3;
             self.index++;
             return view;
         }else if (myworkShow.type == 2){//视频
             CardViewVid *view = [[CardViewVid alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
+            view.infoText = str3;
           //  view.filePath = [self.filePaths objectAtIndex:self.index];
             self.index++;
 //            view.userInteractionEnabled = YES;
@@ -207,9 +213,10 @@ MPMoviePlayerController *moviePlay;
 
         }else if (myworkShow.type == 3){//录音
             //在这里修改卡片的数据源
-            CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
+            CardViewAud *view = [[CardViewAud alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
-            view.cardText = @"111";
+            view.cardImage = [UIImage imageNamed:@"workAud.png"];
+            view.infoText = str3;
             self.index++;
             return view;
         }
@@ -313,6 +320,9 @@ MPMoviePlayerController *moviePlay;
     //    [moviePlay.moviePlayer stop];
     //    moviePlay.moviePlayer.initialPlaybackTime = -1.0;
     moviePlay = nil;
+}
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

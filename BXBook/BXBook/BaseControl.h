@@ -23,7 +23,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "VideoPlay.h"
 #import "PlayMusicImpl.h"
-#import <AVFoundation/AVFoundation.h>
 //#import "WebUtil.h"
 #import "WorkDao.h"
 #import "TimeUtil.h"
