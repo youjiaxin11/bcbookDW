@@ -44,4 +44,6 @@
 + (NSMutableArray*) findUserLoginByuserId:(int)_userId;
 //更新已经完成的游戏关卡
 + (int) updatefinishId:(User*)user;
+//更新已经得到的奖励
++ (int) updateaward:(User*)user ;
 @end

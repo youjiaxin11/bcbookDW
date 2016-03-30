@@ -41,4 +41,10 @@
 @property int finishId10;//游戏关卡10
 @property int finishId11;//游戏关卡11
 @property int finishId12;//游戏关卡12
+@property int award1;//通关奖励1
+@property int award2;//通关奖励2
+@property int award3;//通关奖励3
+@property int award4;//通关奖励4
+@property int award5;//通关奖励5
+@property int award6;//通关奖励6
 @end

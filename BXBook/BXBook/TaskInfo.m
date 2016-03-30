@@ -73,6 +73,14 @@ Task* taskTaskinfo;
 //                                 };
     //_taskMessageText.attributedText = [[NSAttributedString alloc] initWithString:taskTaskinfo.taskMessage attributes:attributes];
     //_taskEvaluationText.attributedText = [[NSAttributedString alloc] initWithString:taskTaskinfo.taskEvaluation attributes:attributes];
+    
+    //返回按钮
+    UIButton *goBackBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 130, 45)];
+    [goBackBtn setTitle:@"返  回" forState:normal];
+    [goBackBtn setBackgroundImage:[UIImage imageNamed:@"buttonBkg.png"] forState:normal];
+    [goBackBtn setFont:[UIFont systemFontOfSize:20]];
+    [goBackBtn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:goBackBtn];
 }
 
 - (void)viewDidAppear:(BOOL)animated

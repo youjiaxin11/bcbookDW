@@ -97,6 +97,12 @@
             user.finishId10 = sqlite3_column_int(statement, 28);
             user.finishId11 = sqlite3_column_int(statement, 29);
             user.finishId12 = sqlite3_column_int(statement, 30);
+            user.award1=sqlite3_column_int(statement, 31);
+            user.award2=sqlite3_column_int(statement, 32);
+            user.award3=sqlite3_column_int(statement, 33);
+            user.award4=sqlite3_column_int(statement, 34);
+            user.award5=sqlite3_column_int(statement, 35);
+            user.award6=sqlite3_column_int(statement, 36);
         }
     }
     sqlite3_finalize(statement);//结束之前清除statement对象
@@ -299,5 +305,20 @@
     sqlite3_close(database);//关闭数据库
     return success;
 }
-
++ (int) updateaward:(User*)user {
+    NSLog(@"update award：%@",user.loginName);
+    int success = 1;
+    NSString *query = [NSString stringWithFormat:@"UPDATE user SET award1= '%d',  award2= '%d',award3= '%d',award4= '%d', award5= '%d',  award6= '%d' WHERE userID = '%d'", user.award1,user.award2,user.award3,user.award4,user.award5,user.award6,user.userId];
+    sqlite3* database = [SqliteUtil openDatabase];
+    sqlite3_stmt *statement;
+    int result = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil);
+    if (result == SQLITE_OK)
+    {
+        sqlite3_step(statement);
+        NSLog(@"aaa");
+    }
+    sqlite3_finalize(statement);//结束之前清除statement对象
+    sqlite3_close(database);//关闭数据库
+    return success;
+}
 @end

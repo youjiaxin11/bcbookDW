@@ -8,7 +8,7 @@
 
 #import "BaseControl.h"
 #import "TaskChoice.h"
-
+#import "Mybag.h"
 @interface DragonBoat : BaseControl
 
 @property (assign, nonatomic) int gameIdDragonBoat;//关卡及难度数，1-12

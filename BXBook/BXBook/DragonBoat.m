@@ -97,7 +97,8 @@ int exitdragonboat = 0; //判断是否强行退出
             // 是最后一题，停止计时
             dispatch_source_cancel(timer);
             [self gameOverDataReset];
-            
+            //通关奖励
+            [self getaward];
             // 更新金币和数据库
             if (gameIdDragonBoat%2 == 1) {
                 userDragonBoat.golden++;
@@ -108,12 +109,10 @@ int exitdragonboat = 0; //判断是否强行退出
             }
             [UserDao updateUser:userDragonBoat];
             [QuestionsDao updateQuestions:_DBQuestionEntity];
+            [self prompsucess];
+            //   [self prompaward];
             
-            // 通关跳转
-            [self.view endEditing:YES];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"恭喜你，共用时%d秒，击败电脑，一站到底或者下一个任务",_DBFinalTimeUsing]  delegate:self cancelButtonTitle:@"一站到底" otherButtonTitles:@"开启任务", nil];
-            alert.tag = 21;
-            [alert show];
+            
         }
     }else{
         
@@ -230,15 +229,23 @@ int exitdragonboat = 0; //判断是否强行退出
 
 //出现在本页的所有弹框的具体属性设置
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSLog(@"tag：%d", alertView.tag) ;
+    
     if (alertView.tag == 20) {
         NSLog(@"提醒回答错啦");
     }else if (alertView.tag == 21){
         NSLog(@"最后一题回答完啦");
         if (buttonIndex == 0) {
-            NSLog(@"去往一站到底");
-        }else{
             [self nextpage1];
         }
+        
+        else if(buttonIndex==1){
+            
+            [self pagemybag];
+        }
+        
+        else [self nextpage1];
     }
     else if (exitdragonboat == 1) {//如果强行退出
         if(buttonIndex==0){
@@ -260,8 +267,16 @@ int exitdragonboat = 0; //判断是否强行退出
         }
     }else{
         if (buttonIndex == 1) {
+            NSLog(@"包包包");
+            [self pagemybag];
+        }
+        
+        else if (buttonIndex == 2) {
+            NSLog(@"一一一");
             [self nextpage1];
-        }else{
+        }
+        else{
+            NSLog(@"任任任");
             [self nextpage1];
         }
     }
@@ -269,5 +284,52 @@ int exitdragonboat = 0; //判断是否强行退出
 - (IBAction)goBack:(id)sender {
     exitdragonboat = 1;
     [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+}
+
+//通过不同的关给予不同的奖励
+-(void)getaward{
+    if(userDragonBoat.award1==nil||userDragonBoat.award1==0) userDragonBoat.award1=0;
+    if(userDragonBoat.award2==nil||userDragonBoat.award2==0) userDragonBoat.award2=0;
+    if(userDragonBoat.award3==nil||userDragonBoat.award3==0) userDragonBoat.award3=0;
+    if(userDragonBoat.award4==nil||userDragonBoat.award4==0) userDragonBoat.award4=0;
+    if(userDragonBoat.award5==nil||userDragonBoat.award5==0) userDragonBoat.award5=0;
+    if(userDragonBoat.award6==nil||userDragonBoat.award6==0) userDragonBoat.award6=0;
+    if(gameIdDragonBoat==1||gameIdDragonBoat==2) userDragonBoat.award1++;
+    if(gameIdDragonBoat==3||gameIdDragonBoat==4)userDragonBoat.award2++;
+    if(gameIdDragonBoat==5||gameIdDragonBoat==6)userDragonBoat.award3++;
+    if(gameIdDragonBoat==7||gameIdDragonBoat==8)userDragonBoat.award4++;
+    if(gameIdDragonBoat==9||gameIdDragonBoat==10)userDragonBoat.award5++;
+    if(gameIdDragonBoat==11||gameIdDragonBoat==12)userDragonBoat.award6++;
+    [UserDao updateaward:userDragonBoat];
+    NSLog(@"award3=%d",userDragonBoat.award3);
+    
+}
+- (void) prompsucess{
+    // 通关跳转
+    [self.view endEditing:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"恭喜你，共用时%d秒，击败电脑，闯关成功!\n制作粽子的奖励已经放到你的背包中，快快加油闯关集齐奖励吧！\n请选择查看我的背包,前往一站到底或者开启任务",_DBFinalTimeUsing]  delegate:self  cancelButtonTitle:@"开启任务" otherButtonTitles:@"我的背包", @"一站到底",nil];
+    alert.tag = 21;
+    [alert show];
+    
+    
+}
+
+
+//- (void) prompaward{
+//  [self.view endEditing:YES];
+//  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"恭喜你闯关成功！制作粽子的奖励已经放到你的背包中，快快加油闯关集齐奖励吧！"  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:@"看看我的背包", nil];
+//   alert.tag=56;
+//  [alert show];
+//
+
+//}
+
+//跳转到我的背包界面
+-(void)pagemybag{
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    Mybag*mybag= [mainStoryboard instantiateViewControllerWithIdentifier:@"Mybag"];
+    mybag.user = userDragonBoat;
+    [mybag setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:mybag animated:YES completion:nil];
 }
 @end

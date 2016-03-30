@@ -65,6 +65,14 @@ int finishgameId5;//当前完成的游戏关卡号
     [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
     [self.view addSubview:webView];
     
+    //返回按钮
+    UIButton *goBackBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 130, 45)];
+    [goBackBtn setTitle:@"返  回" forState:normal];
+    [goBackBtn setBackgroundImage:[UIImage imageNamed:@"buttonBkg.png"] forState:normal];
+    [goBackBtn setFont:[UIFont systemFontOfSize:20]];
+    [goBackBtn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:goBackBtn];
+    
     //播放音乐
     [self play];
     

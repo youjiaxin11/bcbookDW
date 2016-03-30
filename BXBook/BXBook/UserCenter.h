@@ -13,10 +13,13 @@
 #import "LearningRecord.h"
 #import "MyFriend.h"
 #import "FriendLevel.h"
-
+#import "Mybag.h"
 @interface UserCenter : BaseControl
 
 @property (assign, nonatomic) User *user;//当前登录用户
 @property (strong, nonatomic) IBOutlet UIButton *admDataCen;
+- (IBAction)mybag:(UIButton *)sender;
+
+
 
 @end

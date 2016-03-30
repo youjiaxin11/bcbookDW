@@ -154,4 +154,12 @@ User* userUserCenter;
     [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:information animated:YES completion:nil];
 }
+- (IBAction)mybag:(UIButton *)sender {
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+   Mybag *mybag = [mainStoryboard instantiateViewControllerWithIdentifier:@"Mybag"];
+  mybag.user = userUserCenter;
+    [mybag setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:mybag animated:YES completion:nil];
+    
+}
 @end
