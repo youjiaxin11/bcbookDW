@@ -80,7 +80,8 @@ Questions *question1;
     
     userFamilyDinnerQuestion.answerTimes ++;
     question1.answerTimes++;
-    if (question1.questionId-1==familydinnerQuestionIndex&&question1.answerRight==fanswerQuestionIndex)
+//    if (question1.questionId-1==familydinnerQuestionIndex&&question1.answerRight==fanswerQuestionIndex)
+        if (question1.answerRight==fanswerQuestionIndex)
     {
         NSLog(@"总数1:%d",answerFamilyDinnerTotalNum1);
         NSLog(@"%d",question1.questionId);
