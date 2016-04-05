@@ -74,7 +74,7 @@ int finishgameId1;//当前完成的游戏关卡号
 //跳转到下一页
 - (IBAction)nextPage:(id)sender{
     UIButton* button1 = (UIButton*)sender;
-    taskChoiceId = [button1 tag];
+    taskChoiceId = (int)[button1 tag];
     NSLog(@"id:%d",taskChoiceId);
     
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

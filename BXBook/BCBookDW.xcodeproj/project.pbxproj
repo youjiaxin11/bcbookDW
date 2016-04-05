@@ -125,6 +125,11 @@
 		3761D2301BA80C5700677222 /* 5-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761D22F1BA80C5700677222 /* 5-1.png */; };
 		3761D2321BA80C6700677222 /* 8-1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761D2311BA80C6700677222 /* 8-1-2.png */; };
 		376D5F981CB3A17900107178 /* bxbookdw.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 376D5F971CB3A17900107178 /* bxbookdw.sqlite */; };
+		376D5F9E1CB3A36D00107178 /* QueImage-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 376D5F991CB3A36D00107178 /* QueImage-1.png */; };
+		376D5F9F1CB3A36D00107178 /* QueImage-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 376D5F9A1CB3A36D00107178 /* QueImage-2.png */; };
+		376D5FA01CB3A36D00107178 /* QueMusic-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 376D5F9B1CB3A36D00107178 /* QueMusic-1.mp3 */; };
+		376D5FA11CB3A36D00107178 /* QueMusic-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 376D5F9C1CB3A36D00107178 /* QueMusic-2.mp3 */; };
+		376D5FA21CB3A36D00107178 /* QueMusic-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 376D5F9D1CB3A36D00107178 /* QueMusic-3.mp3 */; };
 		376D77261B93E8AB0049FCB1 /* icontest.png in Resources */ = {isa = PBXBuildFile; fileRef = 376D77251B93E8AB0049FCB1 /* icontest.png */; };
 		3798BDE11C9F82E60094CC9C /* Behaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE01C9F82E60094CC9C /* Behaviour.m */; };
 		3798BDE51C9F83E80094CC9C /* BehaviourDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE41C9F83E80094CC9C /* BehaviourDao.m */; };
@@ -406,6 +411,11 @@
 		3761D22F1BA80C5700677222 /* 5-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-1.png"; sourceTree = "<group>"; };
 		3761D2311BA80C6700677222 /* 8-1-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8-1-2.png"; sourceTree = "<group>"; };
 		376D5F971CB3A17900107178 /* bxbookdw.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = bxbookdw.sqlite; sourceTree = "<group>"; };
+		376D5F991CB3A36D00107178 /* QueImage-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QueImage-1.png"; sourceTree = "<group>"; };
+		376D5F9A1CB3A36D00107178 /* QueImage-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QueImage-2.png"; sourceTree = "<group>"; };
+		376D5F9B1CB3A36D00107178 /* QueMusic-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "QueMusic-1.mp3"; sourceTree = "<group>"; };
+		376D5F9C1CB3A36D00107178 /* QueMusic-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "QueMusic-2.mp3"; sourceTree = "<group>"; };
+		376D5F9D1CB3A36D00107178 /* QueMusic-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "QueMusic-3.mp3"; sourceTree = "<group>"; };
 		376D77251B93E8AB0049FCB1 /* icontest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icontest.png; sourceTree = "<group>"; };
 		3798BDE01C9F82E60094CC9C /* Behaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behaviour.m; sourceTree = "<group>"; };
 		3798BDE21C9F82F20094CC9C /* Behaviour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
@@ -654,6 +664,7 @@
 		3740C8481B5777E60061DA84 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				3753B0C91CABA059004C30DB /* Movedraw */,
 				37AC87F11CA148F000B0BC30 /* card */,
 				37D8C78C1C97D1C8005EEAE0 /* CDSideBarController.h */,
 				37D8C78D1C97D1C8005EEAE0 /* CDSideBarController.m */,
@@ -705,6 +716,11 @@
 		37430FF21B8706980068C389 /* GameResource */ = {
 			isa = PBXGroup;
 			children = (
+				376D5F991CB3A36D00107178 /* QueImage-1.png */,
+				376D5F9A1CB3A36D00107178 /* QueImage-2.png */,
+				376D5F9B1CB3A36D00107178 /* QueMusic-1.mp3 */,
+				376D5F9C1CB3A36D00107178 /* QueMusic-2.mp3 */,
+				376D5F9D1CB3A36D00107178 /* QueMusic-3.mp3 */,
 			);
 			name = GameResource;
 			sourceTree = "<group>";
@@ -1060,7 +1076,6 @@
 		37E098611B4BCB7800EB8DC0 /* BCBookDW */ = {
 			isa = PBXGroup;
 			children = (
-				3753B0C91CABA059004C30DB /* Movedraw */,
 				3751FFA51B58A6DE00FC4621 /* Entity */,
 				3740C8481B5777E60061DA84 /* Util */,
 				3740C8441B5755F40061DA84 /* Dao */,
@@ -1208,7 +1223,9 @@
 				00B40DBF1BA69E3A0082726E /* 我的好友-2.png in Resources */,
 				37DFFD8A1BABB690002AD1DA /* 4.m4a in Resources */,
 				375E07041BAE930A004795AB /* 7-2-2.png in Resources */,
+				376D5F9E1CB3A36D00107178 /* QueImage-1.png in Resources */,
 				37DFFD901BABB690002AD1DA /* 10.m4a in Resources */,
+				376D5FA21CB3A36D00107178 /* QueMusic-3.mp3 in Resources */,
 				37CC088E1CABB4E9004613CB /* award2.png in Resources */,
 				37DFFD571BABAFA5002AD1DA /* 1.m4a in Resources */,
 				37CC08911CABB4E9004613CB /* award5.png in Resources */,
@@ -1227,6 +1244,7 @@
 				00B40DC11BA69E480082726E /* 伙伴排行-2.png in Resources */,
 				37DFFD911BABB690002AD1DA /* 11.m4a in Resources */,
 				00B40D951BA69C9F0082726E /* 3-2.png in Resources */,
+				376D5FA01CB3A36D00107178 /* QueMusic-1.mp3 in Resources */,
 				37DFFD8C1BABB690002AD1DA /* 6.m4a in Resources */,
 				37DFFD961BABB690002AD1DA /* 16.m4a in Resources */,
 				00B40DB91BA69E150082726E /* 修改密码-2.png in Resources */,
@@ -1253,8 +1271,10 @@
 				37CC089E1CABB502004613CB /* zongzi4.png in Resources */,
 				370C33841CA288160032205D /* playon.png in Resources */,
 				37DFFD981BABB690002AD1DA /* 18.m4a in Resources */,
+				376D5FA11CB3A36D00107178 /* QueMusic-2.mp3 in Resources */,
 				00B40DB31BA69DE90082726E /* 评论列表.png in Resources */,
 				37CC08901CABB4E9004613CB /* award1.png in Resources */,
+				376D5F9F1CB3A36D00107178 /* QueImage-2.png in Resources */,
 				37E098701B4BCB7800EB8DC0 /* Images.xcassets in Resources */,
 				00B40DA91BA69D940082726E /* 10-2.png in Resources */,
 				37DFFDA31BABE165002AD1DA /* 兔爷－评价标准GIF.gif in Resources */,
