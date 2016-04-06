@@ -13,12 +13,13 @@
 /*开发者在页面操作中，用这几个值*/
 User *userTaskChoice;//当前登录用户
 int taskChoiceId;
-int finishgameId1;//当前完成的游戏关卡号
+//int finishgameId1;//当前完成的游戏关卡号
 - (void)viewDidLoad {
     [super viewDidLoad];
     userTaskChoice = self.user;
-    finishgameId1=self.finishgameId;
+   // finishgameId1=self.finishgameId;
     NSLog(@"golden:%d",_user.golden);
+    
     
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
@@ -92,7 +93,7 @@ int finishgameId1;//当前完成的游戏关卡号
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         Information * information= [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
         information.user = userTaskChoice;
-        information.finishgameId4=finishgameId1;
+      //  information.finishgameId4=finishgameId1;
         [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:information animated:YES completion:nil];
     }
@@ -101,7 +102,7 @@ int finishgameId1;//当前完成的游戏关卡号
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Information * information= [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
     information.user = userTaskChoice;
-    information.finishgameId4=finishgameId1;
+  //  information.finishgameId4=finishgameId1;
     [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:information animated:YES completion:nil];
 }

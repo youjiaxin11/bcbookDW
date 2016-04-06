@@ -14,5 +14,5 @@
 
 @property (assign, nonatomic) User *user;//当前登录用户
 @property (strong, nonatomic) IBOutlet UIButton *button;
-@property (assign, nonatomic) int finishgameId;//当前完成的游戏关卡号
+//@property (assign, nonatomic) int finishgameId;//当前完成的游戏关卡号
 @end

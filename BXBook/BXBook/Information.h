@@ -15,5 +15,5 @@
 
 @property (assign, nonatomic) User* user;//当前登录用户
 //@property (weak, nonatomic) IBOutlet UITextView *introduce;
-@property (assign, nonatomic) int finishgameId4;//当前完成的游戏关卡号
+//@property (assign, nonatomic) int finishgameId4;//当前完成的游戏关卡号
 @end

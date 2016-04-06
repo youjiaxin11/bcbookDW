@@ -14,5 +14,5 @@
 
 @interface GameChoice : BaseControl
 @property (assign, nonatomic) User* user;//当前登录用户
-@property (assign, nonatomic) int finishgameId2;//当前完成的游戏关卡号
+//@property (assign, nonatomic) int finishgameId2;//当前完成的游戏关卡号
 @end

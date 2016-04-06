@@ -19,9 +19,11 @@
 @synthesize user,presentaward,baward1,baward2,baward3,baward4,baward5,baward6;
 
 User *userMybag;
+//int finishgameIdm1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     userMybag = self.user;
+    //finishgameIdm1=self.finishgameIdm;
     baward1.hidden=YES;
     baward2.hidden=YES;
     baward3.hidden=YES;
@@ -29,9 +31,7 @@ User *userMybag;
     baward5.hidden=YES;
     baward6.hidden=YES;
     presentaward.hidden=YES;
-    
-    
-    //记录行为数据
+       //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userMybag.userId;

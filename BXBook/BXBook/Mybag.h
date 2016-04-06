@@ -21,9 +21,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *baward4;
 @property (strong, nonatomic) IBOutlet UITextField *baward5;
 @property (strong, nonatomic) IBOutlet UITextField *presentaward;
-
 @property (strong, nonatomic) IBOutlet UITextField *baward6;
+//@property (assign, nonatomic) int finishgameIdm;//已完成关卡
 - (IBAction)Makezongzi:(UIButton *)sender;
+
 
 
 

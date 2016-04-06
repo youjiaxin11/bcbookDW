@@ -429,7 +429,7 @@ int exitshoot = 0;
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TaskChoice *nextpage = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskChoice"];
     nextpage.user = userShoot;
-    nextpage.finishgameId=gameShoot.gameId;
+   // nextpage.finishgameId=gameShoot.gameId;
     [nextpage setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:nextpage animated:YES completion:nil];
 }

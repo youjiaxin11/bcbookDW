@@ -23,7 +23,7 @@ int dice1Num = 3;
 User *userGameChoice;
 //Game *gameGameChoice;//当前游戏对象，存有所有题目及答案
 //Game *gameGameChoice1;//当前游戏对象，存有所有题目及答案
-int finishgameId3;//当前完成的游戏关卡号
+//int finishgameId3;//当前完成的游戏关卡号
 int count1=0;//游戏关卡是否全部通过的标志位
 int taskchoice;
 int finalChoice;
@@ -32,8 +32,8 @@ int change =0;
     change = 0;
     [super viewDidLoad];
     userGameChoice = self.user;
-    finishgameId3=self.finishgameId2;
-    NSLog(@"$$$$$$$$:%d",finishgameId3);
+   // finishgameId3=self.finishgameId2;
+   // NSLog(@"$$$$$$$$:%d",finishgameId3);
     NSLog(@"gamechoice：从上个页面传过来的角色：%d", _user.role);
     self.starRateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(600, 280, 200, 60) numberOfStars:2];
     self.starRateView.scorePercent = 0.5;
@@ -157,55 +157,55 @@ int change =0;
     
     finalChoice = [self judgeFinalResult:(int)dice1Num star:(float)self.starRateView.scorePercent];
     NSLog(@"finalChoice:%d",finalChoice);
-    if(finishgameId3==1)
-    {
-    userGameChoice.finishId1=1;
-    }
-    else if(finishgameId3==2)
-    {
-        userGameChoice.finishId2=1;
-    }
-    else if(finishgameId3==3)
-    {
-        userGameChoice.finishId3=1;
-    }
-   else if(finishgameId3==4)
-    {
-        userGameChoice.finishId4=1;
-    }
-    else if(finishgameId3==5)
-    {
-        userGameChoice.finishId5=1;
-    }
-    else if(finishgameId3==6)
-    {
-        userGameChoice.finishId6=1;
-    }
-    else if(finishgameId3==7)
-    {
-        userGameChoice.finishId7=1;
-    }
-    else if(finishgameId3==8)
-    {
-        userGameChoice.finishId8=1;
-    }
-    else if(finishgameId3==9)
-    {
-        userGameChoice.finishId9=1;
-    }
-    else if(finishgameId3==10)
-    {
-        userGameChoice.finishId10=1;
-    }
-    else if(finishgameId3==11)
-    {
-        userGameChoice.finishId11=1;
-    }
-    else if(finishgameId3==12)
-    {
-        userGameChoice.finishId12=1;
-    }
-    [UserDao updatefinishId:userGameChoice];
+//    if(finishgameId3==1)
+//    {
+//    userGameChoice.finishId1=1;
+//    }
+//    else if(finishgameId3==2)
+//    {
+//        userGameChoice.finishId2=1;
+//    }
+//    else if(finishgameId3==3)
+//    {
+//        userGameChoice.finishId3=1;
+//    }
+//   else if(finishgameId3==4)
+//    {
+//        userGameChoice.finishId4=1;
+//    }
+//    else if(finishgameId3==5)
+//    {
+//        userGameChoice.finishId5=1;
+//    }
+//    else if(finishgameId3==6)
+//    {
+//        userGameChoice.finishId6=1;
+//    }
+//    else if(finishgameId3==7)
+//    {
+//        userGameChoice.finishId7=1;
+//    }
+//    else if(finishgameId3==8)
+//    {
+//        userGameChoice.finishId8=1;
+//    }
+//    else if(finishgameId3==9)
+//    {
+//        userGameChoice.finishId9=1;
+//    }
+//    else if(finishgameId3==10)
+//    {
+//        userGameChoice.finishId10=1;
+//    }
+//    else if(finishgameId3==11)
+//    {
+//        userGameChoice.finishId11=1;
+//    }
+//    else if(finishgameId3==12)
+//    {
+//        userGameChoice.finishId12=1;
+//    }
+//    [UserDao updatefinishId:userGameChoice];
     // gameGameChoice = [GameDao findGameByGameId:finalChoice];
    // if(finishgameId3==gameGameChoice.gameId){
     //  gameGameChoice.finishId=1;
@@ -266,7 +266,7 @@ int change =0;
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
         information.user = userGameChoice;
-        information.finishgameId4=finishgameId3;
+   //     information.finishgameId4=finishgameId3;
         [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:information animated:YES completion:nil];    }
 }
@@ -285,7 +285,7 @@ int change =0;
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
     information.user = userGameChoice;
-    information.finishgameId4=finishgameId3;
+   // information.finishgameId4=finishgameId3;
     [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:information animated:YES completion:nil];    
 

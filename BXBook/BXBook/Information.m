@@ -28,13 +28,13 @@ UITextView *informationIntroduce;
 int firstLogin = 0;//首次登录
 int taskCard = 0;//点击选择任务卡
 
-int finishgameId5;//当前完成的游戏关卡号
+//int finishgameId5;//当前完成的游戏关卡号
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     userInformation = self.user;
    // informationIntroduce = self.introduce;
-    finishgameId5=self.finishgameId4;
+ //   finishgameId5=self.finishgameId4;
     if( userInformation.loginTimes==1)
     {
         firstLogin = 1;
@@ -149,7 +149,7 @@ int finishgameId5;//当前完成的游戏关卡号
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
     gamechoice.user = userInformation;
-    gamechoice.finishgameId2=finishgameId5;
+  //  gamechoice.finishgameId2=finishgameId5;
     [gamechoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:gamechoice animated:YES completion:nil];
 }

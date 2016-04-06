@@ -213,7 +213,7 @@ int exitdragonboat = 0; //判断是否强行退出
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TaskChoice *taskchoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskChoice"];
     taskchoice.user = userDragonBoat;
-    taskchoice.finishgameId=gameIdDragonBoat;
+   // taskchoice.finishgameId=gameIdDragonBoat;
     [taskchoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:taskchoice animated:YES completion:nil];
 }
@@ -306,6 +306,56 @@ int exitdragonboat = 0; //判断是否强行退出
 }
 - (void) prompsucess{
     // 通关跳转
+    if(gameIdDragonBoat==1)
+    {
+        userDragonBoat.finishId1=1;
+    }
+    else if(gameIdDragonBoat==2)
+    {
+        userDragonBoat .finishId2=1;
+    }
+    else if(gameIdDragonBoat==3)
+    {
+       userDragonBoat.finishId3=1;
+    }
+    else if(gameIdDragonBoat==4)
+    {
+        userDragonBoat.finishId4=1;
+    }
+    else if(gameIdDragonBoat==5)
+    {
+       userDragonBoat.finishId5=1;
+    }
+    else if(gameIdDragonBoat==6)
+    {
+        userDragonBoat.finishId6=1;
+    }
+    else if(gameIdDragonBoat==7)
+    {
+        userDragonBoat.finishId7=1;
+    }
+    else if(gameIdDragonBoat==8)
+    {
+        userDragonBoat.finishId8=1;
+    }
+    else if(gameIdDragonBoat==9)
+    {
+       userDragonBoat.finishId9=1;
+    }
+    else if(gameIdDragonBoat==10)
+    {
+        userDragonBoat.finishId10=1;
+    }
+    else if(gameIdDragonBoat==11)
+    {
+       userDragonBoat.finishId11=1;
+    }
+    else if(gameIdDragonBoat==12)
+    {
+        userDragonBoat.finishId12=1;
+    }
+    [UserDao updatefinishId:userDragonBoat];
+
     [self.view endEditing:YES];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"恭喜你，共用时%d秒，击败电脑，闯关成功!\n制作粽子的奖励已经放到你的背包中，快快加油闯关集齐奖励吧！\n请选择查看我的背包,前往一站到底或者开启任务",_DBFinalTimeUsing]  delegate:self  cancelButtonTitle:@"开启任务" otherButtonTitles:@"我的背包", @"一站到底",nil];
     alert.tag = 21;
@@ -329,6 +379,7 @@ int exitdragonboat = 0; //判断是否强行退出
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Mybag*mybag= [mainStoryboard instantiateViewControllerWithIdentifier:@"Mybag"];
     mybag.user = userDragonBoat;
+   // mybag.finishgameIdm=gameIdDragonBoat;
     [mybag setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:mybag animated:YES completion:nil];
 }
