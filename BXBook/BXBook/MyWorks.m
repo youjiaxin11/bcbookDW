@@ -19,6 +19,7 @@
 #import "CardViewPic.h"
 #import "CardViewVid.h"
 #import "CardViewAud.h"
+#import "NotebookController.h"
 
 
 @interface MyWorks () <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate>
@@ -274,6 +275,18 @@ MPMoviePlayerController *moviePlay;
         uploadaudio.task = nil;
         [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userMyWorks;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
     }
 }
 

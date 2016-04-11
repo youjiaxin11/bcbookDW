@@ -18,15 +18,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // 设定位置和大小
-    CGRect frame = CGRectMake(0,0,0,0);
-    frame.size = [UIImage imageNamed:@"0欢迎页GIF2.gif"].size;
-    // 读取gif图片数据
-    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"0欢迎页GIF2" ofType:@"gif"]];
-    // view生成
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];
-    webView.userInteractionEnabled = NO;//用户不可交互
-    [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-    [self.view addSubview:webView];
+//    CGRect frame = CGRectMake(0,0,0,0);
+//    frame.size = [UIImage imageNamed:@"0欢迎页GIF2.gif"].size;
+//    // 读取gif图片数据
+//    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"0欢迎页GIF2" ofType:@"gif"]];
+//    // view生成
+//    UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];
+//    webView.userInteractionEnabled = NO;//用户不可交互
+//    [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+//    [self.view addSubview:webView];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
         // 这里判断是否第一次

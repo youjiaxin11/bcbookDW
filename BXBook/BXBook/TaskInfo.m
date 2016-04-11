@@ -11,6 +11,7 @@
 #import "Cheats.h"
 #import "PlayMusicImpl.h"
 #import <AVFoundation/AVFoundation.h>
+#import "NotebookController.h"
 
 @interface TaskInfo()<AVAudioPlayerDelegate>
 
@@ -120,6 +121,18 @@ Task* taskTaskinfo;
         uploadaudio.task = nil;
         [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userTaskinfo;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
     }
 }
 

@@ -7,6 +7,10 @@
 //
 
 #import "DragonBoat.h"
+#import "UploadAudio.h"
+#import "UploadPhoto.h"
+#import "UploadVideo.h"
+#import "NotebookController.h"
 
 @interface DragonBoat()
 {
@@ -383,4 +387,57 @@ int exitdragonboat = 0; //判断是否强行退出
     [mybag setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:mybag animated:YES completion:nil];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
+}
+- (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userDragonBoat.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"DragonBoat-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (index == 0) {
+        UploadPhoto *uploadphoto = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadPhoto"];
+        uploadphoto.user = userDragonBoat;
+        uploadphoto.task = nil;
+        [uploadphoto setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadphoto animated:YES completion:nil];
+    }else if (index == 1){
+        UploadVideo *uploadvideo = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadVideo"];
+        uploadvideo.user = userDragonBoat;
+        uploadvideo.task = nil;
+        [uploadvideo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadvideo animated:YES completion:nil];
+    }else if (index == 2){
+        UploadAudio *uploadaudio = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadAudio"];
+        uploadaudio.user = userDragonBoat;
+        uploadaudio.task = nil;
+        [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userDragonBoat;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
+    }
+}
+
 @end

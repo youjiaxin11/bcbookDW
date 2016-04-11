@@ -8,6 +8,10 @@
 
 #import "LineNineQuestion.h"
 #import "Questions.h"
+#import "UploadAudio.h"
+#import "UploadPhoto.h"
+#import "UploadVideo.h"
+#import "NotebookController.h"
 
 @implementation LineNineQuestion
 
@@ -281,6 +285,59 @@ static int answerTime;
 //        [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
 //    }
 //}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
+}
+- (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userLineNineQuestion.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"LineNineQuestion-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (index == 0) {
+        UploadPhoto *uploadphoto = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadPhoto"];
+        uploadphoto.user = userLineNineQuestion;
+        uploadphoto.task = nil;
+        [uploadphoto setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadphoto animated:YES completion:nil];
+    }else if (index == 1){
+        UploadVideo *uploadvideo = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadVideo"];
+        uploadvideo.user = userLineNineQuestion;
+        uploadvideo.task = nil;
+        [uploadvideo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadvideo animated:YES completion:nil];
+    }else if (index == 2){
+        UploadAudio *uploadaudio = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadAudio"];
+        uploadaudio.user = userLineNineQuestion;
+        uploadaudio.task = nil;
+        [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userLineNineQuestion;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
+    }
+}
+
 
 @end
 

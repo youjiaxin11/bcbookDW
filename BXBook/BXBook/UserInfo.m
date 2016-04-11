@@ -11,6 +11,7 @@
 #import "UploadAudio.h"
 #import "UploadPhoto.h"
 #import "UploadVideo.h"
+#import "NotebookController.h"
 
 @implementation UserInfo
 
@@ -85,6 +86,18 @@ User* userUserInfo;
         uploadaudio.task = nil;
         [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userUserInfo;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
     }
 }
 

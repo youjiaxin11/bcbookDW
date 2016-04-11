@@ -199,6 +199,40 @@ static User *user;
     [switchState setBool:sender.isOn forKey:@"switchStatus"];
 }
 
+//游客模式
+- (IBAction)visitorLogin:(id)sender {
+    user = [[User alloc]init];
+    user = [UserDao findUserByLoginName:@"visitor"];
+    NSLog(@"游客：%@",user.realName);
+    user.loginTimes++;
+    //数据库更新登录次数
+    [UserDao updateUserLoginTimes:user];
+    
+    //获取当前时间
+    NSString* timeNow = [TimeUtil getTimeNow];
+    NSLog(@"locationString:%@",timeNow);
+    UserLogin* userlogin = [[UserLogin alloc]init];
+    //保存在数据库
+    [UserDao insertUserLogin:user.userId loginTime:timeNow logoutTime:NULL loginState:1];
+    
+    
+    //记录行为数据
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userlogin.userId;
+    behaviour.doWhat = @"登录";
+    behaviour.doWhere = @"LoginView-(IBAction)login:(id)sender";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+    
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
+    information.user = user;
+    [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:information animated:YES completion:nil];
+    
+}
+
 //点击屏幕，退出键盘
 - (IBAction)backgroundTap:(id)sender{
     [self.loginNameText resignFirstResponder];

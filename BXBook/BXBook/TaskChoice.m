@@ -7,6 +7,7 @@
 //
 
 #import "TaskChoice.h"
+#import "NotebookController.h"
 
 @implementation TaskChoice
 
@@ -69,6 +70,18 @@ int taskChoiceId;
         uploadaudio.task = nil;
         [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userTaskChoice;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
     }
 }
 

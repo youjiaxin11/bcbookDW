@@ -9,6 +9,7 @@
 #import "Information.h"
 #import "PlayMusicImpl.h"
 #import <AVFoundation/AVFoundation.h>
+#import "NotebookController.h"
 
 @interface Information()<AVAudioPlayerDelegate>
 
@@ -54,16 +55,16 @@ int taskCard = 0;//点击选择任务卡
     [BehaviourDao addBehaviour:behaviour];
 
     
-    // 设定位置和大小
-    CGRect frame = CGRectMake(0,0,0,0);
-    frame.size = [UIImage imageNamed:@"兔爷－规则介绍GIF.gif"].size;
-    // 读取gif图片数据
-    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"兔爷－规则介绍GIF" ofType:@"gif"]];
-    // view生成
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];
-    webView.userInteractionEnabled = NO;//用户不可交互
-    [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-    [self.view addSubview:webView];
+//    // 设定位置和大小
+//    CGRect frame = CGRectMake(0,0,0,0);
+//    frame.size = [UIImage imageNamed:@"兔爷－规则介绍GIF.gif"].size;
+//    // 读取gif图片数据
+//    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"兔爷－规则介绍GIF" ofType:@"gif"]];
+//    // view生成
+//    UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];
+//    webView.userInteractionEnabled = NO;//用户不可交互
+//    [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+//    [self.view addSubview:webView];
     
     //返回按钮
     UIButton *goBackBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, 130, 45)];
@@ -129,6 +130,12 @@ int taskCard = 0;//点击选择任务卡
         uploadaudio.task = nil;
         [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:uploadaudio animated:YES completion:nil];
+    } else if (index == 3){
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        notebookController.user = userInformation;
+        notebookController.task = nil;
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:notebookController animated:YES completion:nil];
     }
 }
 

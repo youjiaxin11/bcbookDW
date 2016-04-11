@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "FamilyDinnerQuestion.h"
+#import "UploadAudio.h"
+#import "UploadPhoto.h"
+#import "UploadVideo.h"
+#import "NotebookController.h"
 
 @implementation FamilyDinnerQuestion
 User *userFamilyDinnerQuestion;//当前登录用户
@@ -127,6 +131,59 @@ Questions *question1;
 //出现在本页的所有弹框的具体属性设置
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     [self QuestionInterface1];    
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
+}
+- (void)menuButtonClicked:(int)index{
+    
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userFamilyDinnerQuestion.userId;
+    behaviour.doWhat = @"浏览";
+    behaviour.doWhere = @"FamilyDinnerQuestion-(void)menuButtonClicked:(int)index";
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (index == 0) {
+        UploadPhoto *uploadphoto = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadPhoto"];
+        uploadphoto.user = userFamilyDinnerQuestion;
+        uploadphoto.task = nil;
+        [uploadphoto setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadphoto animated:YES completion:nil];
+    }else if (index == 1){
+        UploadVideo *uploadvideo = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadVideo"];
+        uploadvideo.user = userFamilyDinnerQuestion;
+        uploadvideo.task = nil;
+        [uploadvideo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadvideo animated:YES completion:nil];
+    }else if (index == 2){
+        UploadAudio *uploadaudio = [mainStoryboard instantiateViewControllerWithIdentifier:@"UploadAudio"];
+        uploadaudio.user = userFamilyDinnerQuestion;
+        uploadaudio.task = nil;
+        [uploadaudio setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:uploadaudio animated:YES completion:nil];
+    }else if (index == 3){
+        
+        NotebookController *notebookController = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotebookController"];
+        
+        notebookController.user = userFamilyDinnerQuestion;
+        
+        notebookController.task = nil;
+        
+        [notebookController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:notebookController animated:YES completion:nil];
+        
+    }
 }
 
 

@@ -28,7 +28,7 @@
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     
     //测拉
-    NSArray *imageList = @[[UIImage imageNamed:@"menuChat.png"], [UIImage imageNamed:@"menuUsers.png"], [UIImage imageNamed:@"menuMap.png"], [UIImage imageNamed:@"menuClose.png"]];
+    NSArray *imageList = @[[UIImage imageNamed:@"menuChat.png"], [UIImage imageNamed:@"menuUsers.png"], [UIImage imageNamed:@"menuMap.png"], [UIImage imageNamed:@"menuMap.png"],[UIImage imageNamed:@"menuClose.png"]];
     sideBar = [[CDSideBarController alloc] initWithImages:imageList];
     sideBar.delegate = self;
 }
