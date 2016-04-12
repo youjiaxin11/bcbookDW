@@ -79,15 +79,15 @@ int taskCard = 0;//点击选择任务卡
     
     // textview 改变字体的行间距
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 4;// 字体的行间距
+    paragraphStyle.lineSpacing = 10;// 字体的行间距
     
-    informationIntroduce = [[UITextView alloc]initWithFrame:CGRectMake(350, 180, 550, 300)];
+    informationIntroduce = [[UITextView alloc]initWithFrame:CGRectMake(360, 230, 510, 300)];
     [informationIntroduce setBackgroundColor:[UIColor clearColor]];
     NSDictionary *attributes = @{
                                  NSFontAttributeName:[UIFont systemFontOfSize:25],
                                  NSParagraphStyleAttributeName:paragraphStyle
                                  };
-    informationIntroduce.attributedText = [[NSAttributedString alloc] initWithString:@"6个关卡，2个难度等级。\n连线题、拼图题和射击题。\n1颗星：每个小游戏获得1枚金币。\n2颗星：每个小游戏获得2枚金币。\n每个任务卡消耗2枚金币。\n上传作品，获得3枚金币。\n作品收到的赞越多，金币数也越多。" attributes:attributes];
+    informationIntroduce.attributedText = [[NSAttributedString alloc] initWithString:@"        大家好，在闯关游戏中，每关都包含九宫格、做香囊和赛龙舟三个小游戏，每过一关，你将获得制作粽子的道具哟。在任务卡中，可以观看端午微课，上传作品。如果有什么心情想要分享，试试点击右上角的按钮吧！" attributes:attributes];
     
     [self.view addSubview:informationIntroduce];
     

@@ -133,6 +133,20 @@
     [alert show];
 }
 
+//DragonBoat
+- (void) promptCheatsDragonBoat:(NSString*) message{
+    [self.view endEditing:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:self cancelButtonTitle:@"继续答题" otherButtonTitles:@"通关秘籍", nil];
+    alert.tag = 20;
+    [alert show];
+}
+
+//没有通关秘籍的提示框
+- (void) promptNoCheats:(NSString*) message{
+    [self.view endEditing:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:self cancelButtonTitle:@"继续答题" otherButtonTitles:nil, nil];
+    [alert show];
+}
 
 #pragma mark 请求TCK服务器
 #pragma _partUrl 接口路径，只需要后面一截

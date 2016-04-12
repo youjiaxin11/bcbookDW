@@ -17,5 +17,6 @@
 @property (assign, nonatomic) int taskChoiceId;//选择任务卡的id
 @property (weak, nonatomic) IBOutlet UITextView *taskMessageText;
 @property (weak, nonatomic) IBOutlet UIButton *goToTaskInfo;
+@property (strong, nonatomic) IBOutlet UITextView *evaluateText;
 @property (strong, nonatomic) CWStarRateView *starRateView;
 @end

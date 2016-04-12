@@ -73,11 +73,11 @@ int jump2;
     if (FamilyDinnerRightNum4  == 1) {
       [self backgroundImage4];
     }
-    if(answerFamilyDinnerTotalNum==3)
-    {
-        [self promptLine4:@"恭喜你，已经具有进入下一关资格！请选择继续邀请成员或者直接开启下一关"];jump1=1;
-        
-    }
+//    if(answerFamilyDinnerTotalNum==3)
+//    {
+//        [self promptLine4:@"恭喜你，已经具有进入下一关资格！请选择继续邀请成员或者直接开启下一关"];jump1=1;
+//        
+//    }
     if(answerFamilyDinnerTotalNum==4)
     {
         [self promptLine3:@"恭喜你，闯关成功！"];jump2=1;
@@ -101,7 +101,9 @@ int jump2;
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(jump1==1){
         if(buttonIndex==0); else if(buttonIndex==1) [self nextpage1];}
-    if(jump2==1) [self nextpage1];
+    if(jump2==1) {//显示邀请全的图片
+        [self showFinallyImage];
+    }
     if (exitfamilydinner == 1) {//如果强行退出
         if(buttonIndex==0){
             //记录行为数据
@@ -127,6 +129,21 @@ int jump2;
     }
     
 }
+
+//显示邀请全的图片
+- (void)showFinallyImage{
+    UIImage *image = [UIImage imageNamed:@"d5-2.jpg"];
+    self.finallyImage.image = image;
+    self.finallyImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.finallyImage.hidden = false;
+    
+    self.nextGameButton.hidden = false;
+}
+
+- (IBAction)gotoNextGame:(id)sender {
+    [self nextpage1];
+}
+
 //跳转到下一页
 -(void)nextpage1{
     Questions* que = [questionsFamilyDinner objectAtIndex:9];
@@ -210,7 +227,7 @@ int jump2;
 - (void)backgroundImage1
 {
     
-    UIImage *buttonImage1 = [UIImage imageNamed:@"Cheat1"];//修改后需要改图片名称
+    UIImage *buttonImage1 = [UIImage imageNamed:@"拼图1"];//修改后需要改图片名称
     [self.fbutton setBackgroundImage:buttonImage1 forState:UIControlStateNormal];
     
     
@@ -218,21 +235,21 @@ int jump2;
 - (void)backgroundImage2
 {
     
-    UIImage *buttonImage2 = [UIImage imageNamed:@"Cheat2"];//修改后需要改图片名称
+    UIImage *buttonImage2 = [UIImage imageNamed:@"拼图2"];//修改后需要改图片名称
     [self.mbutton setBackgroundImage:buttonImage2 forState:UIControlStateNormal];
 }
 
 - (void)backgroundImage3
 {
     
-    UIImage *buttonImage3 = [UIImage imageNamed:@"Cheat3"];//修改后需要改图片名称
+    UIImage *buttonImage3 = [UIImage imageNamed:@"拼图3"];//修改后需要改图片名称
     [self.gfbutton setBackgroundImage:buttonImage3 forState:UIControlStateNormal];
 }
 
 - (void)backgroundImage4
 {
     
-    UIImage *buttonImage4 = [UIImage imageNamed:@"Cheat4"];//修改后需要改图片名称
+    UIImage *buttonImage4 = [UIImage imageNamed:@"拼图4"];//修改后需要改图片名称
     [self.gmbutton setBackgroundImage:buttonImage4 forState:UIControlStateNormal];
 }
 

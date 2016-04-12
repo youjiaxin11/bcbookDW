@@ -76,6 +76,12 @@ typedef void(^ResponseCallback)(NSMutableDictionary*);
 - (void) promptShootNotFinish:(NSString*) message;
 - (void) promptGoldenNotEnough:(NSString*) message;
 
+//DragonBoat
+- (void) promptCheatsDragonBoat:(NSString*) message;
+
+//没有通关秘籍的提示框
+- (void) promptNoCheats:(NSString*) message;
+
 #pragma mark 请求TCK服务器
 #pragma _partUrl 接口路径，只需要后面一截
 #pragma _param 参数，多个参数用&隔开

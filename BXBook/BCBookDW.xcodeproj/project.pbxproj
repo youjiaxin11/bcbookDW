@@ -58,6 +58,8 @@
 		3740C84B1B57780C0061DA84 /* SqliteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740C84A1B57780C0061DA84 /* SqliteUtil.m */; };
 		3740C84E1B579F750061DA84 /* BaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740C84D1B579F750061DA84 /* BaseControl.m */; };
 		3740C8521B57A5BD0061DA84 /* Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740C8511B57A5BD0061DA84 /* Information.m */; };
+		3745C06E1CBCBDA300D7065F /* d18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3745C06D1CBCBDA300D7065F /* d18.jpg */; };
+		3745C0701CBCC31B00D7065F /* d0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3745C06F1CBCC31B00D7065F /* d0.jpg */; };
 		37485E9A1C7AD113000D4FC1 /* Questions.m in Sources */ = {isa = PBXBuildFile; fileRef = 37485E991C7AD113000D4FC1 /* Questions.m */; };
 		37485E9C1C7AD33D000D4FC1 /* QuestionsDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 37485E9B1C7AD33D000D4FC1 /* QuestionsDao.m */; };
 		37485E9F1C7AE011000D4FC1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37485E9E1C7AE011000D4FC1 /* libstdc++.tbd */; };
@@ -306,6 +308,8 @@
 		3740C84F1B579F860061DA84 /* BaseControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseControl.h; sourceTree = "<group>"; };
 		3740C8501B57A5B10061DA84 /* Information.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Information.h; sourceTree = "<group>"; };
 		3740C8511B57A5BD0061DA84 /* Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Information.m; sourceTree = "<group>"; };
+		3745C06D1CBCBDA300D7065F /* d18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d18.jpg; sourceTree = "<group>"; };
+		3745C06F1CBCC31B00D7065F /* d0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d0.jpg; sourceTree = "<group>"; };
 		37485E981C7AD104000D4FC1 /* Questions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Questions.h; sourceTree = "<group>"; };
 		37485E991C7AD113000D4FC1 /* Questions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Questions.m; sourceTree = "<group>"; };
 		37485E9B1C7AD33D000D4FC1 /* QuestionsDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsDao.m; sourceTree = "<group>"; };
@@ -797,6 +801,7 @@
 		37597D9D1CBB1EE600BC14E5 /* ArtNew */ = {
 			isa = PBXGroup;
 			children = (
+				3745C06F1CBCC31B00D7065F /* d0.jpg */,
 				37597D9E1CBB1EFF00BC14E5 /* d00.jpg */,
 				37597D9F1CBB1EFF00BC14E5 /* d1.jpg */,
 				37597DA01CBB1EFF00BC14E5 /* d2.jpg */,
@@ -814,6 +819,7 @@
 				37597DAC1CBB1EFF00BC14E5 /* d13.jpg */,
 				37597DAD1CBB1EFF00BC14E5 /* d16.jpg */,
 				37597DAE1CBB1EFF00BC14E5 /* d17.jpg */,
+				3745C06D1CBCBDA300D7065F /* d18.jpg */,
 				37597DAF1CBB1EFF00BC14E5 /* d19.jpg */,
 				37597DB01CBB1EFF00BC14E5 /* d20.jpg */,
 				37597DB11CBB1EFF00BC14E5 /* d21.jpg */,
@@ -943,8 +949,8 @@
 				37B7757A1C55C4C9004AC862 /* FamilyDinner.m */,
 				F4F48F401C8416BB007470ED /* FamilyDinnerQuestion.h */,
 				F4F48F411C8416F9007470ED /* FamilyDinnerQuestion.m */,
-				37B7757C1C55C4D9004AC862 /* DragonBoat.m */,
 				37B775851C55C679004AC862 /* DragonBoat.h */,
+				37B7757C1C55C4D9004AC862 /* DragonBoat.m */,
 			);
 			name = NewGame;
 			sourceTree = "<group>";
@@ -1226,6 +1232,7 @@
 				376D5F981CB3A17900107178 /* bxbookdw.sqlite in Resources */,
 				370E77DB1C8821FC0066152E /* 拼图6.png in Resources */,
 				37597DB41CBB1EFF00BC14E5 /* d1.jpg in Resources */,
+				3745C0701CBCC31B00D7065F /* d0.jpg in Resources */,
 				370C338C1CA292780032205D /* testAud.caf in Resources */,
 				37597DBB1CBB1EFF00BC14E5 /* d7.jpg in Resources */,
 				37CC089D1CABB502004613CB /* zongzi3.png in Resources */,
@@ -1276,6 +1283,7 @@
 				37DFFDA21BABE165002AD1DA /* 兔爷－规则介绍GIF.gif in Resources */,
 				37D8C7971C97D1EB005EEAE0 /* menuIcon.png in Resources */,
 				37D8C7951C97D1EB005EEAE0 /* menuChat.png in Resources */,
+				3745C06E1CBCBDA300D7065F /* d18.jpg in Resources */,
 				37597DBC1CBB1EFF00BC14E5 /* d8.jpg in Resources */,
 				37597DBE1CBB1EFF00BC14E5 /* d10.jpg in Resources */,
 				37DFFD8B1BABB690002AD1DA /* 5.m4a in Resources */,

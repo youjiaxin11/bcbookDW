@@ -18,8 +18,23 @@ Task* taskTaskIntroduction;
     [super viewDidLoad];
     userTaskIntroduction = self.user;
     taskTaskIntroduction = [TaskDao findTaskByTaskId:_taskChoiceId];
-    [_taskMessageText setText:taskTaskIntroduction.taskMessage];
-    NSLog(@"taskintruduction：%@", userTaskIntroduction.loginName);
+//    [_taskMessageText setText:taskTaskIntroduction.taskMessage];
+    NSString *three = taskTaskIntroduction.evaluation1;
+    NSString *four = taskTaskIntroduction.evaluation2;
+    NSString *five = taskTaskIntroduction.evaluation3;
+    NSString *str1 = [three stringByAppendingString:[NSString stringWithFormat:@"\n%@", four]];
+    NSString *str2 = [str1 stringByAppendingString:[NSString stringWithFormat:@"\n%@", five]];
+//    [_evaluateText setText:str2];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 10;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:24],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+    _evaluateText.attributedText = [[NSAttributedString alloc] initWithString:str2 attributes:attributes];
+    _taskMessageText.attributedText = [[NSAttributedString alloc] initWithString:taskTaskIntroduction.taskMessage attributes:attributes];
     
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
@@ -83,11 +98,17 @@ Task* taskTaskIntroduction;
 }
 - (IBAction)goToTaskInfo:(id)sender {
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    TaskInfo *taskinfo = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskInfo"];
+//    TaskInfo *taskinfo = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskInfo"];
+//    taskinfo.user = userTaskIntroduction;
+//    taskinfo.taskChoiceId = _taskChoiceId;
+//    [taskinfo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+//    [self presentViewController:taskinfo animated:YES completion:nil];
+    Activity *taskinfo = [mainStoryboard instantiateViewControllerWithIdentifier:@"Activity"];
     taskinfo.user = userTaskIntroduction;
-    taskinfo.taskChoiceId = _taskChoiceId;
+    taskinfo.task = taskTaskIntroduction;
     [taskinfo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:taskinfo animated:YES completion:nil];
+
 }
 //左滑返回上一页
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender

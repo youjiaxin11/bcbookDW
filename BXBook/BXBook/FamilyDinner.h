@@ -13,7 +13,6 @@
 @property (assign, nonatomic) int gameIdFamilyDinner;//关卡及难度数，1-12
 @property (assign, nonatomic) User *user;//当前登录用户
 @property(nonatomic,strong)NSMutableArray *questionsFamilyDinner;//用一个数组来保存当前关卡下的所有题目
-@property (strong, nonatomic) IBOutlet UIButton *submitFamilyDinnerBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *fbutton;
 @property (weak, nonatomic) IBOutlet UIButton *mbutton;
@@ -25,4 +24,9 @@
 @property (assign, nonatomic)int fquestionRightNum3;
 @property (assign, nonatomic)int fquestionRightNum4;
 @property (assign, nonatomic) int findex;
+
+@property (strong, nonatomic) IBOutlet UIImageView *finallyImage;
+@property (strong, nonatomic) IBOutlet UIButton *nextGameButton;
+
+
 @end

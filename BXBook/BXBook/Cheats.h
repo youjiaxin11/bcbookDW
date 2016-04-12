@@ -11,10 +11,13 @@
 @interface Cheats : BaseControl
 
 @property (assign, nonatomic) User *user;//当前登录用户
-@property (assign, nonatomic) Game *game;//存放数据表中关卡表game的实体类和对象
+@property (assign, nonatomic) Game *game;//存放数据表中关卡表game的实体类和对象（已不用）
 @property (assign, nonatomic) Task *task;
-@property (assign, nonatomic) int flag1cheat;
-@property (assign, nonatomic) int index;
+@property (assign, nonatomic) int helpId;
+@property (assign, nonatomic) int index;//(已不用）
+@property (assign, nonatomic) int flag1cheat;//(已不用）
+
 -(void)btnClickVideo:(int)helpId;
 -(void)playVideo;
+
 @end
