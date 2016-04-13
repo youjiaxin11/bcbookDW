@@ -46,4 +46,6 @@
 + (int) updatefinishId:(User*)user;
 //更新已经得到的奖励
 + (int) updateaward:(User*)user ;
+//更新用户登录时长
++ (int) updateUserLoginLength:(int)userLoginId loginLength:(NSString*)_loginLength;
 @end

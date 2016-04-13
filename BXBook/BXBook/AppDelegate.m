@@ -49,13 +49,32 @@ int loginState = 0;
         int loginId = [[array objectAtIndex:0] intValue];
         NSLog(@"login id :  %d", loginId);
         [UserDao updateUserLoginLogoutTime:loginId logoutTime:timeNow];
+        
+        UserLogin * userLogin = [UserDao findUserLoginByuserloginId:loginId];
+     
+        //更新登录时长
+        NSMutableArray* userLoginArray  = [UserDao findUserLoginByuserId:userLogin.userId];
+        NSTimeInterval timeAll = 0;
+        for (int i = 0; i<[userLoginArray count]; i++) {
+            NSLog(@"输出时间" );
+            UserLogin* ul = [[UserLogin alloc]init];
+            ul = [userLoginArray objectAtIndex:i];
+            NSTimeInterval time = 0;
+            if(ul.loginTime == nil || ul.logoutTime == nil || [ul.loginTime isEqualToString: @""] || [ul.logoutTime isEqualToString:@""]){
+            }else{
+                time = [TimeUtil allDateContent:ul.loginTime date2:ul.logoutTime];
+            }
+            timeAll = timeAll + time;
+        }
+        NSString* timeContent = [TimeUtil computeDateContent:timeAll];
+        [UserDao updateUserLoginLength:userLogin.userId loginLength:timeContent];
         loginState = 1;
         
         NSLog(@"程序在后台被默默关闭");
         
         //记录行为数据
         Behaviour *behaviour = [[Behaviour alloc]init];
-        behaviour.userId = loginId;
+        behaviour.userId = userLogin.userId;
         behaviour.doWhat = @"退出";
         behaviour.doWhere = @"AppDelegate-(void)applicationDidEnterBackground:(UIApplication *)application";
         behaviour.doWhen = timeNow;
@@ -120,14 +139,35 @@ int loginState = 0;
     NSLog(@"login id :  %d", loginId);
     [UserDao updateUserLoginLogoutTime:loginId logoutTime:timeNow];
   //  [userDefaults removeObjectForKey:@"userInfo1"];
-    
+    UserLogin * userLogin = [UserDao findUserLoginByuserloginId:loginId];
+
     loginState = 1;
+    
+    //更新登录时长
+    NSMutableArray* userLoginArray  = [UserDao findUserLoginByuserId:userLogin.userId];
+    NSTimeInterval timeAll = 0;
+    for (int i = 0; i<[userLoginArray count]; i++) {
+        NSLog(@"输出时间" );
+        UserLogin* ul = [[UserLogin alloc]init];
+        ul = [userLoginArray objectAtIndex:i];
+        NSTimeInterval time = 0;
+        if(ul.loginTime == nil || ul.logoutTime == nil || [ul.loginTime isEqualToString: @""] || [ul.logoutTime isEqualToString:@""]){
+        }else{
+            time = [TimeUtil allDateContent:ul.loginTime date2:ul.logoutTime];
+        }
+        timeAll = timeAll + time;
+    }
+    NSString* timeContent = [TimeUtil computeDateContent:timeAll];
+    NSLog(@"登录时长：%@",timeContent);
+   
+    [UserDao updateUserLoginLength:userLogin.userId loginLength:timeContent];
+    
     
     NSLog(@"程序强制关闭");
     
     //记录行为数据
     Behaviour *behaviour = [[Behaviour alloc]init];
-    behaviour.userId = loginId;
+    behaviour.userId = userLogin.userId;
     behaviour.doWhat = @"退出";
     behaviour.doWhere = @"AppDelegate-(void)applicationWillTerminate:(UIApplication *)application";
     behaviour.doWhen = timeNow;

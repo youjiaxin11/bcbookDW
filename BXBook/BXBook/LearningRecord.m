@@ -158,24 +158,7 @@ User* userLearningRecord;
     }
 }
 
-//登录时长计算
--(NSString*)computeLoginTime:(int)userId {
-    NSMutableArray* userLoginArray  = [UserDao findUserLoginByuserId:userId];
-    NSTimeInterval timeAll = 0;
-    for (int i = 0; i<[userLoginArray count]; i++) {
-        NSLog(@"输出时间" );
-        UserLogin* ul = [[UserLogin alloc]init];
-        ul = [userLoginArray objectAtIndex:i];
-        NSTimeInterval time = 0;
-        if(ul.loginTime == nil || ul.logoutTime == nil || [ul.loginTime isEqualToString: @""] || [ul.logoutTime isEqualToString:@""]){
-        }else{
-            time = [TimeUtil allDateContent:ul.loginTime date2:ul.logoutTime];
-        }
-        timeAll = timeAll + time;
-    }
-    NSString* timeContent = [TimeUtil computeDateContent:timeAll];
-    return timeContent;
-}
+
 
 -(int)computeOfflineWorkCount:(int)userId{
     NSMutableArray* array = [[NSMutableArray alloc] init];

@@ -60,12 +60,18 @@ MPMoviePlayerController *moviePlay;
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
     
+//    
+//    if (YES) {
+//        self.count = 3;
+//    }else {
+//        self.count = 3;//卡片个数
+//    }
+//
     
-    if (YES) {
-        self.count = 3;
-    }else {
-        self.count = 3;//卡片个数
-    }
+    NSArray *workArray = [MyWorkDao getAllMyWork];
+    myworks = [[NSMutableArray alloc]init];
+    [myworks addObjectsFromArray:workArray];
+    self.count = myworks.count;
     
     //设置颜色数组数据源
     self.index = 0;
@@ -121,10 +127,23 @@ MPMoviePlayerController *moviePlay;
     mywork3.uploadTime = @"2016年3月23日6:08";
     mywork3.type = 3;
     
-    myworks = [[NSMutableArray alloc]init];
-    [myworks addObject:mywork1];
-    [myworks addObject:mywork2];
-    [myworks addObject:mywork3];
+   
+//    self.count = myworks.count;
+//    NSLog(@"---count == %ld",(long)self.count);
+//    if (self.count > 0) {
+//        NSLog(@"我的所有作品：%@",myworks);
+//        MyWork *work = [[MyWork alloc]init];
+//        work = myworks[0];
+//        for ( int i =0; i<self.count; i++) {
+//            work = myworks[i];
+//            NSLog(@"我的第%d个作品：%@",i,work);
+//            NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",work.workId,work.userId,work.uploadTime,work.taskTitle,work.type,work.filePath);
+//        }
+//    }
+    
+//    [myworks addObject:mywork1];
+//    [myworks addObject:mywork2];
+//    [myworks addObject:mywork3];
     
     
     //设置要现实的文字数组数据源
@@ -184,20 +203,43 @@ MPMoviePlayerController *moviePlay;
 #pragma mark - ZLSwipeableViewDataSource
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
     NSLog(@"!!!!!填充卡片view适配");
+    NSLog(@"index的数值是多少？ ＝＝ %ld",(long)self.index);
+
     
     if (self.index<0) {
         self.index = 0;
     }
-    if (self.index<self.count) {
+    if (self.index < self.count) {
+//        NSLog(@"－－－－准备加载作品");
+        MyWork *myworkShow = [myworks objectAtIndex:self.index];
+        NSLog(@"作品信息");
+        NSLog(@"我的第%ld个作品：%@",self.index+1,myworkShow);
+        NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",myworkShow.workId,myworkShow.userId,myworkShow.uploadTime,myworkShow.taskTitle,myworkShow.type,myworkShow.filePath);
         
-        MyWork* myworkShow = [myworks objectAtIndex:self.index];
         NSString* str1 = [@"任务名称:" stringByAppendingString:myworkShow.taskTitle];
-        NSString* str2 = [str1 stringByAppendingString:@"  提交时间:"];
+        NSString* str2 = [str1 stringByAppendingString:@" 提交时间:"];
         NSString* str3 = [str2 stringByAppendingString:myworkShow.uploadTime];
         if (myworkShow.type == 1) {//图片
+            
+            NSLog(@"－－－－准备加载图片");
             CardViewPic *view = [[CardViewPic alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
-            view.cardImage = [UIImage imageNamed:@"拼图5.png"];
+            
+            //这里:用路径加载图片
+            NSLog(@"图片路径：%@",myworkShow.filePath);
+            //NSURL *url = [NSURL URLWithString:myworkShow.filePath];
+            //NSData * imagData = [[NSData alloc] initWithContentsOfFile:@"拼图5.png"];
+            //UIImage *imag = [UIImage imageNamed:@"拼图5.png"];
+            UIImage *imag = [UIImage imageWithContentsOfFile:@"/Users/sunzhong/Library/Developer/CoreSimulator/Devices/3A6306D8-F6A2-4CC5-A321-96764AEFA841/data/Containers/Data/Application/41795EFF-DEF8-4FFF-A580-5ED59EF5614D/Documents/admin+包粽子（劳技）+2016-04-13 11/12/39+photo.png"];
+            //UIImage *imag = [[UIImage alloc] initWithData:imagData];
+            //view.cardImage = imag;
+            
+            UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30,50,1024-60,768-60)];
+            cardImageView.image = imag;
+            [self.view addSubview:cardImageView];
+            
+            //view.cardImage = [UIImage imageWithContentsOfFile:@"/Users/sunzhong/Library/Developer/CoreSimulator/Devices/3A6306D8-F6A2-4CC5-A321-96764AEFA841/data/Containers/Data/Application/41795EFF-DEF8-4FFF-A580-5ED59EF5614D/Documents/admin+包粽子（劳技）+2016-04-13 11/12/39+photo.png"];
+ //           view.cardImage = [UIImage imageNamed:@"拼图5.png"];
             view.infoText = str3;
             self.index++;
             return view;
@@ -205,7 +247,11 @@ MPMoviePlayerController *moviePlay;
             CardViewVid *view = [[CardViewVid alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
             view.infoText = str3;
-          //  view.filePath = [self.filePaths objectAtIndex:self.index];
+            
+            //把路径:给这里
+            //view.filePath = [self.fiePaths objectAtIndex:self.index];
+            
+            view.filePath = myworkShow.filePath;
             self.index++;
 //            view.userInteractionEnabled = YES;
 //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];

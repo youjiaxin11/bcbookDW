@@ -108,7 +108,7 @@ int exitdragonboat = 0; //判断是否强行退出
                 userDragonBoat.golden++;
                 NSLog(@"golden:%d",userDragonBoat.golden);
             }else{
-                userDragonBoat.golden = userDragonBoat.golden + 2;
+                userDragonBoat.golden = userDragonBoat.golden + 1;
                 NSLog(@"golden:%d",userDragonBoat.golden);
             }
             [UserDao updateUser:userDragonBoat];

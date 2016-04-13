@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MyWork : NSObject
+@interface MyWork : NSObject<NSCoding>
 
 @property int workId;// 主键自增长
 @property int userId;//用户id

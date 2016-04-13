@@ -177,6 +177,12 @@ static User *user;
         
         NSString* timeNow = [TimeUtil getTimeNow];
         [UserDao updateUserLoginLogoutTime:userLoginId1 logoutTime:timeNow];
+        
+        
+        NSString* timecontent = [self computeLoginTime:user.userId];
+        [UserDao updateUserLoginLength:user.userId loginLength:timecontent];
+        NSLog(@"更新登录时长");
+        
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ViewController *viewcontroller = [mainStoryboard instantiateViewControllerWithIdentifier:@"Index"];
         [viewcontroller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];

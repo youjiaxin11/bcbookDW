@@ -147,7 +147,7 @@ int jump2;
 //跳转到下一页
 -(void)nextpage1{
     Questions* que = [questionsFamilyDinner objectAtIndex:9];
-    if(que.gameId%2==0)userFamilyDinner.golden=userFamilyDinner.golden+2;
+    if(que.gameId%2==0)userFamilyDinner.golden=userFamilyDinner.golden+1;
     if(que.gameId%2==1) userFamilyDinner.golden=userFamilyDinner.golden+1;
     [UserDao updateUser:userFamilyDinner];
     

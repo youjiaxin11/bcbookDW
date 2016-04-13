@@ -24,11 +24,20 @@ NSString* str1_video;
 NSString* str2_video;
 NSString* str3_video;
 NSString* str4_video;
+NSString* taskTitle_video;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     userUploadVideo = self.user;
     taskUploadVideo = self.task;
+    
+    if (taskUploadVideo == nil) {
+        taskTitle_video = @"随手拍";
+    }else{
+        taskTitle_video = taskUploadVideo.taskTitle;
+    }
+    NSLog(@"tasktitle:%@",taskTitle_video);
+
     contentimageview.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [contentimageview addGestureRecognizer:singleTap];
@@ -124,11 +133,21 @@ NSString* str4_video;
         //保存到本地沙盒
         //保存在本机沙盒
         str1_video = [userUploadVideo.loginName stringByAppendingString:@"+"];
-        str2_video = [str1_video stringByAppendingString:[NSString stringWithFormat:@"%d+", taskUploadVideo.taskId]];
+        str2_video = [str1_video stringByAppendingString:[NSString stringWithFormat:@"%@+", taskTitle_video]];
         str3_video = [str2_video stringByAppendingString:timeNow];
         str4_video = [str3_video stringByAppendingString:@"+video.mp4"];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
         NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:str4_video];   // 保存文件的名称
+        
+        MyWork *work = [[MyWork alloc]init];
+        work.workId = 100;
+        work.userId = userUploadVideo.userId;
+        work.taskTitle = taskTitle_video;
+        work.type = 2;
+        work.uploadTime = timeNow;
+        work.filePath = filePath;
+        
+        //[MyWorkDao addMyWork:work];
      //   [UIImagePNGRepresentation(chosenImage) writeToFile: filePath  atomically:YES];
         NSData  *myData = [[NSData  alloc] initWithContentsOfFile: urlStr ];
         [myData writeToFile:filePath atomically: YES ];

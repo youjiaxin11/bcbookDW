@@ -48,13 +48,13 @@
     //显示文字2
     UITextView *infoTextView = [[UITextView alloc] initWithFrame:CGRectMake(30,10,frameWidth-60,40)];
     infoTextView.backgroundColor = [UIColor clearColor];
-    infoTextView.font = [UIFont fontWithName:@"Arial" size:24];
+    infoTextView.font = [UIFont fontWithName:@"Arial" size:20];
   //  self.infoText = @"demo";
     infoTextView.text = self.infoText;
     [self addSubview:infoTextView];
 
     //测试用例
-    filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
+  //  filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
     
     NSURL *sourceMovieURL = [NSURL fileURLWithPath:filePath];
  

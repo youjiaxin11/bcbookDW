@@ -28,4 +28,5 @@
 @synthesize loginTimes,answerRightPer,answerRightTimes,answerTimes;
 @synthesize  finishId1,finishId2,finishId3,finishId4,finishId5,finishId6,finishId7,finishId8,finishId9,finishId10,finishId11,finishId12;//12关游戏关卡
 @synthesize award1,award2,award3,award4,award5,award6;//6种通关奖励
+@synthesize loginLength;
 @end

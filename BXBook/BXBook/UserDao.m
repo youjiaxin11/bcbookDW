@@ -103,6 +103,11 @@
             user.award4=sqlite3_column_int(statement, 34);
             user.award5=sqlite3_column_int(statement, 35);
             user.award6=sqlite3_column_int(statement, 36);
+            if ((char *)sqlite3_column_text(statement, 37) == nil) {
+                user.loginLength = (NSString*)nil;
+            }else {
+                user.loginLength = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 37)];
+            }
         }
     }
     sqlite3_finalize(statement);//结束之前清除statement对象
@@ -316,6 +321,24 @@
     {
         sqlite3_step(statement);
         NSLog(@"aaa");
+    }
+    sqlite3_finalize(statement);//结束之前清除statement对象
+    sqlite3_close(database);//关闭数据库
+    return success;
+}
+
+
+
+
++ (int) updateUserLoginLength:(int)userId loginLength:(NSString*)_loginLength{
+    int success = 1;
+    NSString *query = [NSString stringWithFormat:@"UPDATE user SET loginLength = '%@' WHERE userId = '%d'", _loginLength, userId];
+    sqlite3* database = [SqliteUtil openDatabase];
+    sqlite3_stmt *statement;
+    int result = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil);
+    if (result == SQLITE_OK)
+    {
+        sqlite3_step(statement);
     }
     sqlite3_finalize(statement);//结束之前清除statement对象
     sqlite3_close(database);//关闭数据库

@@ -299,7 +299,7 @@ static int lineNineAnswerTimes;
 //跳转到下一页
 -(void)nextpage1{
 
-    if(gameIdLineNine%2==0)userLineNine.golden=userLineNine.golden+2;
+    if(gameIdLineNine%2==0)userLineNine.golden=userLineNine.golden+1;
     if(gameIdLineNine%2==1) userLineNine.golden=userLineNine.golden+1;
     [UserDao updateUser:userLineNine];
 

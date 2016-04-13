@@ -39,7 +39,9 @@
 #import "Behaviour.h"
 #import "BehaviourDao.h"
 #import "MyWork.h"
-
+#import "MyWorkDao.h"
+#import "Note.h"
+#import "NoteDao.h"
 
 typedef void(^ResponseCallback)(NSMutableDictionary*);
 
@@ -94,5 +96,8 @@ typedef void(^ResponseCallback)(NSMutableDictionary*);
 
 //#pragma mark 获取导航条上级控制器
 //- (BaseControl*)getNavigationControl;
+
+//登录时长计算
+-(NSString*)computeLoginTime:(int)userId;
 
 @end

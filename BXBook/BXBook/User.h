@@ -47,4 +47,5 @@
 @property int award4;//通关奖励4
 @property int award5;//通关奖励5
 @property int award6;//通关奖励6
+@property NSString* loginLength;//登录时长
 @end

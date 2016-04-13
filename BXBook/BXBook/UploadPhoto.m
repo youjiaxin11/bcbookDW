@@ -19,12 +19,19 @@ NSString* str1_photo;
 NSString* str2_photo;
 NSString* str3_photo;
 NSString* str4_photo;
+NSString* taskTitle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     userUploadPhoto = self.user;
     taskUploadPhoto = self.task;
-    NSLog(@"@photo : %@",userUploadPhoto.loginName);
+    if (taskUploadPhoto == nil) {
+        taskTitle = @"思维图";
+    }else{
+        taskTitle = taskUploadPhoto.taskTitle;
+    }
+    NSLog(@"photo : %@",userUploadPhoto.loginName);
+    NSLog(@"任务名：%@",taskTitle);
 
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
@@ -80,13 +87,27 @@ NSString* str4_photo;
      //   NSString* timeNow = [TimeUtil getTimeNow];
         //保存在本机沙盒
         str1_photo = [userUploadPhoto.loginName stringByAppendingString:@"+"];
-        str2_photo = [str1_photo stringByAppendingString:[NSString stringWithFormat:@"%d+", taskUploadPhoto.taskId]];
+        str2_photo = [str1_photo stringByAppendingString:[NSString stringWithFormat:@"%@+", taskTitle]];
         str3_photo = [str2_photo stringByAppendingString:timeNow];
         str4_photo = [str3_photo stringByAppendingString:@"+photo.png"];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
         NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:str4_photo];   // 保存文件的名称
-        [UIImagePNGRepresentation(chosenImage)writeToFile: filePath  atomically:YES];
+        NSData *imagData = UIImagePNGRepresentation(chosenImage);
+        [imagData writeToFile: filePath  atomically:YES];
         
+        
+        MyWork *work = [[MyWork alloc]init];
+        work.workId = 100;
+        work.userId = userUploadPhoto.userId;
+        work.taskTitle = taskTitle;
+        work.type = 1;
+        work.uploadTime = timeNow;
+        work.filePath = filePath;
+        
+        NSLog(@"----即将上传的作品");
+        NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",work.workId,work.userId,work.uploadTime,work.taskTitle,work.type,work.filePath);
+        
+        [MyWorkDao addMyWork:work.workId andUserId:work.userId andTaskTitle:work.taskTitle andUploadTime:work.uploadTime andType:work.type andFilePath:work.filePath];
        
         [WorkDao insertWork:userUploadPhoto.userId taskId:taskUploadPhoto.taskId taskUrl:nil recPN:0 recCN:0 golden:0 uplT:timeNow score:0 loca:0];
     }
