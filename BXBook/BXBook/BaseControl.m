@@ -28,7 +28,7 @@
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     
     //测拉
-    NSArray *imageList = @[[UIImage imageNamed:@"menuChat.png"], [UIImage imageNamed:@"menuUsers.png"], [UIImage imageNamed:@"menuMap.png"], [UIImage imageNamed:@"menuMap.png"],[UIImage imageNamed:@"menuClose.png"]];
+    NSArray *imageList = @[[UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"],[UIImage imageNamed:@"menuClose.png"]];
     sideBar = [[CDSideBarController alloc] initWithImages:imageList];
     sideBar.delegate = self;
 }
@@ -184,6 +184,71 @@
     NSString* timeContent = [TimeUtil computeDateContent:timeAll];
     return timeContent;
 }
+
+
+
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
+{
+    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
+    [alertView close];
+}
+
+//向提示视图添加一些自定义内容 happy
+- (UIView *)createDemoView:(NSString*)text image:(UIImage*)image
+{
+    //UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 290, 200)];
+    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 300)];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 400, 300)];
+    [imageView setImage:image];
+    [demoView addSubview:imageView];
+    
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(50, 50, 400, 300)];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 5;// 字体的行间距
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:18],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+    textView.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    [textView setBackgroundColor:[UIColor clearColor]];
+    [demoView addSubview:textView];
+
+    
+    return demoView;
+}
+
+
+
+
+- (void)createSelfPrompt:(NSString*)text image:(UIImage*)image{
+    [self.view endEditing:YES];
+    //[self promptMoon:@"点击月亮呈现出的文字"];
+    // Here we need to pass a full frame 这里我们需要跳转到一个全框架
+    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+    
+    // Add some custom content to the alert view 向提示视图添加一些自定义内容
+    [alertView setContainerView:[self createDemoView:text image:image]];
+    
+    // Modify the parameters 修改参数
+    [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"确定", nil]];//修改按钮标题
+    [alertView setDelegate:self];
+    
+    // You may use a Block, rather than a delegate. 你可以用一个Block（闭包：就是能够读取其它函数内部变量的函数），而不是一个Delegate
+    [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
+        [alertView close];
+    }];
+    
+    [alertView setUseMotionEffects:true];
+    
+    // And launch the dialog
+    [alertView show];
+    
+}
+
 
 
 @end

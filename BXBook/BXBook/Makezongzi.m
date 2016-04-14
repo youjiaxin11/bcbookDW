@@ -89,7 +89,7 @@ int step=0;
         
     }
     else {
-        [self prompt:@"很抱歉你的制作顺序不正确，请再试试吧！" ];
+        [self createSelfPrompt:@"很抱歉你的制作顺序不正确，请再试试吧！" image:[UIImage imageNamed:@"sad.jpg"]];
         step=0;
         step1.text=nil;
         step2.text=nil;

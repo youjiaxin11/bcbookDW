@@ -309,11 +309,11 @@ User *userMybag;
 - (IBAction)Makezongzi:(UIButton *)sender {
     if(userMybag.award1>=1&&userMybag.award2>=1&&userMybag.award3>=1&&userMybag.award4>=1&&userMybag.award5>=1&&userMybag.award6>=1)
     { [self nextpage1];}
-    else [self prompt:@"很抱歉你还没有齐集制作粽子的所有奖励材料，请去闯关赢去奖励吧！"];
+    else {
+        [self createSelfPrompt:@"很抱歉你还没有齐集制作粽子的所有奖励材料，请去闯关赢去奖励吧！" image:[UIImage imageNamed:@"sad.jpg"]];
+    }
 }
 
-//-(void)singlecount{
-//}
 
 -(void)allcount{
     //前台显示六种奖励的个数

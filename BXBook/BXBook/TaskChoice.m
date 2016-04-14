@@ -87,6 +87,8 @@ int taskChoiceId;
 
 //跳转到下一页
 - (IBAction)nextPage:(id)sender{
+    
+    
     UIButton* button1 = (UIButton*)sender;
     taskChoiceId = (int)[button1 tag];
     NSLog(@"id:%d",taskChoiceId);

@@ -173,6 +173,7 @@ static int lineNineAnswerTimes;
             [self backgroundImageForCard : 9];
         }
         if (ifFinished == 1){
+          //  [self createSelfPrompt:@"恭喜你，连成一线！查看完整拼图" image:[UIImage imageNamed:@"happy.jpg"]];
             [self prompt:@"恭喜你，连成一线！查看完整拼图"]; //提示已经可以看完整拼图
         }
         //}

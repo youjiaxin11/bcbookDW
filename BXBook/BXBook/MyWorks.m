@@ -351,7 +351,8 @@ MPMoviePlayerController *moviePlay;
     //测试用例
     NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
     if (urlStr == nil) {
-        [self prompt:@"未上传视频"];
+        [self createSelfPrompt:@"未上传视频" image:[UIImage imageNamed:@"sad.jpg"]];
+        //[self prompt:];
     }else{
         //VideoPlay* videoplay;
         //[videoplay Play:urlStr];

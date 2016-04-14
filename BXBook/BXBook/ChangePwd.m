@@ -58,14 +58,14 @@ User* userChangePwd;
     [BehaviourDao addBehaviour:behaviour];
     
     if (_oldPwdText.text == nil || _pwdText == nil || _pwdText2 == nil || [_oldPwdText.text isEqualToString:@""] || [_pwdText.text isEqualToString:@""] || [_pwdText2.text isEqualToString:@""]) {
-        [self prompt:@"输入不完整"];
+        [self createSelfPrompt:@"输入不完整" image:[UIImage imageNamed:@"sad.jpg"]];
     } else if([_pwdText.text isEqualToString:_pwdText2.text]){
         NSLog(@"11111:%d",[UserDao changePassword:userChangePwd.loginName pwd:_pwdText.text] );
         if([UserDao changePassword:userChangePwd.loginName pwd:_pwdText.text] == 1){
-             [self prompt:@"密码修改成功"];
-        }else [self prompt:@"密码修改失败"];
+            [self createSelfPrompt:@"密码修改成功" image:[UIImage imageNamed:@"happy.jpg"]];
+        }else [self createSelfPrompt:@"密码修改失败" image:[UIImage imageNamed:@"sad.jpg"]];
     }else
-        [self prompt:@"两次输入的新密码不一致"];
+        [self createSelfPrompt:@"两次输入的新密码不一致" image:[UIImage imageNamed:@"sad.jpg"]];
     
 }
 

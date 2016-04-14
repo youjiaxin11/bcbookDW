@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseControl.h"
 #import "LoginView.h"
-#import "CustomIOSAlertView.h"
+
 
 @interface ViewController : BaseControl
 @property (strong, nonatomic) IBOutlet UIButton *begin;

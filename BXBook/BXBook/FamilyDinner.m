@@ -80,22 +80,14 @@ int jump2;
 //    }
     if(answerFamilyDinnerTotalNum==4)
     {
-        [self promptLine3:@"恭喜你，闯关成功！"];jump2=1;
+        [self promptLine3:@"恭喜你，闯关成功！"];
+       // [self cre];
+        jump2=1;
+        
     }
     //第一步：用户答题次数和题目被答次数加1
     
-    //第二步：判断答案正误
-    //if(正确)
-    //计算用户得到的金币数
-    //用户答题正确次数和该题目被正确答题次数加1
-    //...各种弹框及跳转
-    
-    //   else if(未答题)
-    //   else if(答题错误)
-    
-    //第三步：更新数据库信息
-    //更新用户信息
-    //更新question表，所有题目的正确率等信息
+
 }
 //出现在本页的所有弹框的具体属性设置
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -227,7 +219,7 @@ int jump2;
 - (void)backgroundImage1
 {
     
-    UIImage *buttonImage1 = [UIImage imageNamed:@"拼图1"];//修改后需要改图片名称
+    UIImage *buttonImage1 = [UIImage imageNamed:@"素材.png"];//修改后需要改图片名称
     [self.fbutton setBackgroundImage:buttonImage1 forState:UIControlStateNormal];
     
     
@@ -235,21 +227,21 @@ int jump2;
 - (void)backgroundImage2
 {
     
-    UIImage *buttonImage2 = [UIImage imageNamed:@"拼图2"];//修改后需要改图片名称
+    UIImage *buttonImage2 = [UIImage imageNamed:@"丽丽.png"];//修改后需要改图片名称
     [self.mbutton setBackgroundImage:buttonImage2 forState:UIControlStateNormal];
 }
 
 - (void)backgroundImage3
 {
     
-    UIImage *buttonImage3 = [UIImage imageNamed:@"拼图3"];//修改后需要改图片名称
+    UIImage *buttonImage3 = [UIImage imageNamed:@"小宇.png"];//修改后需要改图片名称
     [self.gfbutton setBackgroundImage:buttonImage3 forState:UIControlStateNormal];
 }
 
 - (void)backgroundImage4
 {
     
-    UIImage *buttonImage4 = [UIImage imageNamed:@"拼图4"];//修改后需要改图片名称
+    UIImage *buttonImage4 = [UIImage imageNamed:@"美美.png"];//修改后需要改图片名称
     [self.gmbutton setBackgroundImage:buttonImage4 forState:UIControlStateNormal];
 }
 

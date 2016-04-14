@@ -148,11 +148,11 @@ static int answerTime;
     //判断是否出现通关秘籍按钮
     if (lineNineQuestion.helpId != 0){//有通关秘籍则在界面上显示通关秘籍按钮
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(20, 60, 100, 100);
+        btn.frame = CGRectMake(30, 80, 120, 60);
         
         //设置button标题及其颜色
-        [btn setTitle:@"通关秘籍" forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
+        [btn setTitle:@"通 关 秘 籍" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
         
         //设置button填充图片
         [btn setBackgroundImage:[UIImage imageNamed:@"buttonBkg.png"] forState:UIControlStateNormal];
@@ -341,6 +341,7 @@ static int answerTime;
         cheatQuestionJump = 1;//跳转到答对弹框
         
         [self prompt:@"恭喜你，答对啦！"];
+
     }else {
         NSLog(@"错误");
         if (lineNineQuestion.helpId == 0) {

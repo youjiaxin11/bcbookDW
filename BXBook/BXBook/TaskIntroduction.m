@@ -8,11 +8,13 @@
 
 #import "TaskIntroduction.h"
 #import "NotebookController.h"
+#import "VideoPlay.h"
 
 @implementation TaskIntroduction
 
 User* userTaskIntroduction;
 Task* taskTaskIntroduction;
+MPMoviePlayerViewController *movie;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,17 +99,30 @@ Task* taskTaskIntroduction;
     }
 }
 - (IBAction)goToTaskInfo:(id)sender {
-    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    TaskInfo *taskinfo = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskInfo"];
-//    taskinfo.user = userTaskIntroduction;
-//    taskinfo.taskChoiceId = _taskChoiceId;
-//    [taskinfo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-//    [self presentViewController:taskinfo animated:YES completion:nil];
-    Activity *taskinfo = [mainStoryboard instantiateViewControllerWithIdentifier:@"Activity"];
-    taskinfo.user = userTaskIntroduction;
-    taskinfo.task = taskTaskIntroduction;
-    [taskinfo setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    [self presentViewController:taskinfo animated:YES completion:nil];
+    
+    NSLog(@"golden:%d",_user.golden);
+    
+    if (_user.golden >= 2 ) {
+        _user.golden-=2;
+        
+        NSLog(@"此处保存金币数量");
+        //此处保存金币数量
+        
+        [UserDao updateUser:_user];
+        
+        NSLog(@"golden:%d",_user.golden);
+        
+        //下一页
+        UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        Activity *activity = [mainStoryboard instantiateViewControllerWithIdentifier:@"Activity"];
+        activity.user = userTaskIntroduction;
+        activity.task = taskTaskIntroduction;
+        [activity setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:activity animated:YES completion:nil];
+    }else{
+        [self createSelfPrompt:@"你的金币不足，不能开启任务，快去闯关获取金币吧！" image:[UIImage imageNamed:@"sad.jpg"]];
+    }
+
 
 }
 //左滑返回上一页
@@ -121,5 +136,56 @@ Task* taskTaskIntroduction;
 - (IBAction)goBack:(id)sender {
      [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)studyMicroClass:(id)sender {
+    Help* help = [HelpDao findHelpByHelpId:taskTaskIntroduction.helpId];
+    //更新通关秘籍浏览人次
+    if (help.viewTimes>=0) {
+        help.viewTimes++;
+    }else{
+        help.viewTimes=1;
+    }
+    [HelpDao updateHelpViewTimes:help];
+    [self playVideo];
+    //记录行为数据
+    NSString* timeNow = [TimeUtil getTimeNow];
+    Behaviour *behaviour = [[Behaviour alloc]init];
+    behaviour.userId = userTaskIntroduction.userId;
+    behaviour.doWhat = @"查看微课";
+    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"TaskIntroduction-(IBAction)studyMicroClass:(id)sender-任务id:%d", taskTaskIntroduction.taskId];
+    behaviour.doWhen = timeNow;
+    [BehaviourDao addBehaviour:behaviour];
+    
+}
+
+-(void)playVideo{
+    
+    
+    NSString* helpIdNowStr = [NSString stringWithFormat:@"%d", taskTaskIntroduction.helpId];
+    NSString* fileName = [@"Weike" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
+    NSLog(@"weike :%@",path);
+    //视频URL
+    NSURL *url = [NSURL fileURLWithPath:path];
+    //视频播放对象
+    movie = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+    [self presentMoviePlayerViewControllerAnimated:movie];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(myMovieFinishedCallback:)
+                                                 name: MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    
+}
+
+-(void)myMovieFinishedCallback:(NSNotification *)aNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:nil];
+    [movie  dismissMoviePlayerViewControllerAnimated];
+    [movie.moviePlayer stop];
+    movie.moviePlayer.initialPlaybackTime = -1.0;
+    movie = nil;
+}
+
 
 @end

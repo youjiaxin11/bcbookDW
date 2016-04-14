@@ -26,7 +26,7 @@ Task *taskCheats;
 //int cheatflag;
 //int index1;
 //int helpIdNow = 1;//记录当前题目的helpId，初始默认为1
-MPMoviePlayerViewController *movie;
+//MPMoviePlayerViewController *movie;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,9 +73,9 @@ MPMoviePlayerViewController *movie;
     Help* help = [HelpDao findHelpByHelpId:helpId];
     NSLog(@"helpId:%d.helpType:%d",helpId, help.helpType);
     if (help.helpType == 1) {//答题对应的文字形式通关秘籍
-        UITextView *textView =[[UITextView alloc]initWithFrame:CGRectMake(140, 110, 768, 576)];
+        UITextView *textView =[[UITextView alloc]initWithFrame:CGRectMake(180, 220, 700, 500)];
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.lineSpacing = 6;// 字体的行间距
+        paragraphStyle.lineSpacing = 10;// 字体的行间距
         
         NSDictionary *attributes = @{
                                      NSFontAttributeName:[UIFont systemFontOfSize:28],
@@ -94,14 +94,14 @@ MPMoviePlayerViewController *movie;
         //        NSString* fileName2 = [fileName stringByAppendingString:@".png"];
         //        [imageView setImage:[UIImage imageNamed:fileName2]];
         //        [self.view addSubview:imageView];
-    }else if (help.helpType == 2){//任务卡里面的对应的微课
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.frame = CGRectMake(400, 360, 200, 70);
-        [btn setTitle:@"点击播放微课" forState:UIControlStateNormal];
-        [btn setTitle:@"点击播放微课" forState:UIControlStateHighlighted];
-        [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:28]];
-        [btn addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:btn];
+//    }else if (help.helpType == 2){//任务卡里面的对应的微课
+//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        btn.frame = CGRectMake(400, 360, 200, 70);
+//        [btn setTitle:@"点击播放微课" forState:UIControlStateNormal];
+//        [btn setTitle:@"点击播放微课" forState:UIControlStateHighlighted];
+//        [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:28]];
+//        [btn addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
+//        [self.view addSubview:btn];
     }
     
     //更新通关秘籍浏览人次
@@ -164,43 +164,43 @@ MPMoviePlayerViewController *movie;
         
     }
 }
--(void)playVideo{
-    
-    //记录行为数据
-    NSString* timeNow = [TimeUtil getTimeNow];
-    Behaviour *behaviour = [[Behaviour alloc]init];
-    behaviour.userId = userCheats.userId;
-    behaviour.doWhat = @"查看微课";
-    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Cheats-(void)playVideo-任务id:%d", taskCheats.taskId];
-    behaviour.doWhen = timeNow;
-    [BehaviourDao addBehaviour:behaviour];
-    
-    NSString* helpIdNowStr = [NSString stringWithFormat:@"%d", helpId];
-    NSString* fileName = [@"Cheat" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
-    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
- //   NSString *path = [[NSBundle mainBundle] pathForResource:@"Cheat18" ofType:@"mp4"];
-    //视频URL
-    NSURL *url = [NSURL fileURLWithPath:path];
-    //视频播放对象
-    movie = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
-    [self presentMoviePlayerViewControllerAnimated:movie];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(myMovieFinishedCallback:)
-                                                 name: MPMoviePlayerPlaybackDidFinishNotification
-                                               object:nil];
-    
-}
-
--(void)myMovieFinishedCallback:(NSNotification *)aNotification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-                                                  object:nil];
-    [movie  dismissMoviePlayerViewControllerAnimated];
-    [movie.moviePlayer stop];
-    movie.moviePlayer.initialPlaybackTime = -1.0;
-    movie = nil;
-}
+//-(void)playVideo{
+//    
+//    //记录行为数据
+//    NSString* timeNow = [TimeUtil getTimeNow];
+//    Behaviour *behaviour = [[Behaviour alloc]init];
+//    behaviour.userId = userCheats.userId;
+//    behaviour.doWhat = @"查看微课";
+//    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Cheats-(void)playVideo-任务id:%d", taskCheats.taskId];
+//    behaviour.doWhen = timeNow;
+//    [BehaviourDao addBehaviour:behaviour];
+//    
+//    NSString* helpIdNowStr = [NSString stringWithFormat:@"%d", helpId];
+//    NSString* fileName = [@"Weike" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
+//    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
+// //   NSString *path = [[NSBundle mainBundle] pathForResource:@"Cheat18" ofType:@"mp4"];
+//    //视频URL
+//    NSURL *url = [NSURL fileURLWithPath:path];
+//    //视频播放对象
+//    movie = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+//    [self presentMoviePlayerViewControllerAnimated:movie];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(myMovieFinishedCallback:)
+//                                                 name: MPMoviePlayerPlaybackDidFinishNotification
+//                                               object:nil];
+//    
+//}
+//
+//-(void)myMovieFinishedCallback:(NSNotification *)aNotification
+//{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+//                                                  object:nil];
+//    [movie  dismissMoviePlayerViewControllerAnimated];
+//    [movie.moviePlayer stop];
+//    movie.moviePlayer.initialPlaybackTime = -1.0;
+//    movie = nil;
+//}
 
 //左滑返回上一页
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender

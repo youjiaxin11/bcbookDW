@@ -146,7 +146,7 @@ NSString* taskTitle;
 
 //上传作品
 - (IBAction)uploadWorks:(id)sender{
-    [self prompt:@"已保存在本地相册，服务器正在建设中"];
+        [self createSelfPrompt:@"已保存在本地，服务器正在建设中" image:[UIImage imageNamed:@"happy.jpg"]];
     
 }
 

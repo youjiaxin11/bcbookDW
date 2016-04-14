@@ -52,51 +52,10 @@
 
 - (IBAction)clickMoon:(id)sender {
     
-    [self moonCheat];
+    [self createSelfPrompt:@"hahaha" image:[UIImage imageNamed:@"示例.jpg"]];
 }
 
-- (void)moonCheat{
-    //[self promptMoon:@"点击月亮呈现出的文字"];
-    // Here we need to pass a full frame 这里我们需要跳转到一个全框架
-    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
-    
-    // Add some custom content to the alert view 向提示视图添加一些自定义内容
-    [alertView setContainerView:[self createDemoView]];
-    
-    // Modify the parameters 修改参数
-    [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"好的", nil]];//修改按钮标题
-    [alertView setDelegate:self];
-    
-    // You may use a Block, rather than a delegate. 你可以用一个Block（闭包：就是能够读取其它函数内部变量的函数），而不是一个Delegate
-    [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
-        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
-        [alertView close];
-    }];
-    
-    [alertView setUseMotionEffects:true];
-    
-    // And launch the dialog
-    [alertView show];
 
-}
-
-- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
-{
-    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
-    [alertView close];
-}
-
-- (UIView *)createDemoView//向提示视图添加一些自定义内容
-{
-    //UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 290, 200)];
-    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 458, 432)];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 458, 432)];
-    [imageView setImage:[UIImage imageNamed:@"demo"]];
-    [demoView addSubview:imageView];
-    
-    return demoView;
-}
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -118,7 +77,7 @@
     //animation.type = kCATransitionMoveIn;//从左向右覆盖原图
     //animation.type = kCATransitionPush;//推出
     //animation.type = kCATransitionReveal;//跟推出差不多
-
+    
     //animation.subtype = kCATransitionFromRight;
     animation.subtype = kCATransitionFromLeft;// 默认值
     //animation.subtype = kCATransitionFromTop;
@@ -128,5 +87,4 @@
     
     [self presentViewController:viewController animated:NO completion:nil];
 }
-
 @end

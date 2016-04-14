@@ -98,6 +98,8 @@ NSString* taskTitle_note;
             [NoteDao updateNote:note];
         }
     
+    [self createSelfPrompt:@"保存成功！" image:[UIImage imageNamed:@"happy.jpg"]];
+    
 }
 - (IBAction)clearNote:(id)sender {
     noteTextView.text = nil;

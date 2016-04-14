@@ -42,6 +42,7 @@
 #import "MyWorkDao.h"
 #import "Note.h"
 #import "NoteDao.h"
+#import "CustomIOSAlertView.h"
 
 typedef void(^ResponseCallback)(NSMutableDictionary*);
 
@@ -99,5 +100,9 @@ typedef void(^ResponseCallback)(NSMutableDictionary*);
 
 //登录时长计算
 -(NSString*)computeLoginTime:(int)userId;
+
+//向提示视图添加一些自定义内容
+- (void)createSelfPrompt:(NSString*)text image:(UIImage*)image;
+
 
 @end

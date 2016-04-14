@@ -55,7 +55,7 @@ NSString* taskTitle_video;
 
 -(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
     if (urlStr == nil) {
-        [self prompt:@"未上传视频"];
+            [self createSelfPrompt:@"未上传视频" image:[UIImage imageNamed:@"sad.jpg"]];
     }else{
         //VideoPlay* videoplay;
         //[videoplay Play:urlStr];
@@ -200,7 +200,7 @@ NSString* taskTitle_video;
 
 //上传作品
 - (IBAction)uploadWorks:(id)sender{
-    [self prompt:@"已保存在本地相册，服务器正在建设中"];
+        [self createSelfPrompt:@"已保存在本地，服务器正在建设中" image:[UIImage imageNamed:@"happy.jpg"]];
 }
 
 
@@ -215,9 +215,9 @@ NSString* taskTitle_video;
 
 -(void) imageSavedToPhotosAlbum:(UIImage*)image didFinishSavingWithError:(NSError*)error contexInfo:(void*) contextInfo{
     if (!error) {
-        [self prompt:@"成功保存到本地相册"];
+       //[self createSelfPrompt:@"成功保存到本地相册" image:[UIImage imageNamed:@"happy.jpg"]];
     }else {
-        [self prompt:[error description]];
+        //[self createSelfPrompt:[error description] image:[UIImage imageNamed:@"sad.jpg"]];
     }
 }
 

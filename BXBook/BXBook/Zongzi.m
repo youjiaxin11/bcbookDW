@@ -30,7 +30,9 @@ User *userZongzi;
     behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Zongzi-(void)viewDidLoad"];
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
-    [self prompt:@"恭喜你成功制作一个粽子啦！" ];
+    
+    //[self prompt:@"恭喜你成功制作一个粽子啦！" ];
+    [self createSelfPrompt:@"恭喜你成功制作一个粽子啦" image:[UIImage imageNamed:@"happy.jpg"]];
     UIImage *image1=[UIImage imageNamed:@"zongzi"];
     [buttonz setBackgroundImage:image1 forState:UIControlStateNormal];
     
