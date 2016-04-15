@@ -17,7 +17,7 @@
 @end
 
 @implementation Zongzi
-@synthesize user,buttonz;
+@synthesize user;
 User *userZongzi;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,10 +31,18 @@ User *userZongzi;
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
     
-    //[self prompt:@"恭喜你成功制作一个粽子啦！" ];
-    [self createSelfPrompt:@"恭喜你成功制作一个粽子啦" image:[UIImage imageNamed:@"happy.jpg"]];
-    UIImage *image1=[UIImage imageNamed:@"zongzi"];
-    [buttonz setBackgroundImage:image1 forState:UIControlStateNormal];
+    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"zongzi" ofType:@"gif"]];
+    // view生成
+   // _ZongziGif = [[UIWebView alloc] init];
+    _ZongziGif.userInteractionEnabled = NO;//用户不可交互
+    [_ZongziGif loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+    [_ZongziGif setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:_ZongziGif];
+    
+//    //[self prompt:@"恭喜你成功制作一个粽子啦！" ];
+//    [self createSelfPrompt:@"恭喜你成功制作一个粽子啦" image:[UIImage imageNamed:@"happy.jpg"]];
+//    UIImage *image1=[UIImage imageNamed:@"zongzi"];
+//    [buttonz setBackgroundImage:image1 forState:UIControlStateNormal];
     
     
     

@@ -28,7 +28,7 @@
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     
     //测拉
-    NSArray *imageList = @[[UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"],[UIImage imageNamed:@"menuClose.png"]];
+    NSArray *imageList = @[[UIImage imageNamed:@"side1.png"], [UIImage imageNamed:@"side2.png"], [UIImage imageNamed:@"side3.png"], [UIImage imageNamed:@"side4.png"],[UIImage imageNamed:@"menuClose.png"]];
     sideBar = [[CDSideBarController alloc] initWithImages:imageList];
     sideBar.delegate = self;
 }
@@ -194,7 +194,7 @@
     [alertView close];
 }
 
-//向提示视图添加一些自定义内容 happy
+//向提示视图添加一些自定义内容
 - (UIView *)createDemoView:(NSString*)text image:(UIImage*)image
 {
     //UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 290, 200)];
@@ -204,12 +204,12 @@
     [imageView setImage:image];
     [demoView addSubview:imageView];
     
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(50, 50, 400, 300)];
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(60, 80, 300, 240)];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 5;// 字体的行间距
     NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:18],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:20],
                                  NSParagraphStyleAttributeName:paragraphStyle
                                  };
     textView.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];

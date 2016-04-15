@@ -21,13 +21,33 @@ MPMoviePlayerViewController *movie;
     userTaskIntroduction = self.user;
     taskTaskIntroduction = [TaskDao findTaskByTaskId:_taskChoiceId];
 //    [_taskMessageText setText:taskTaskIntroduction.taskMessage];
+    
     NSString *three = taskTaskIntroduction.evaluation1;
     NSString *four = taskTaskIntroduction.evaluation2;
     NSString *five = taskTaskIntroduction.evaluation3;
+    NSString* message = taskTaskIntroduction.taskMessage;
+    NSString* taskTitle = taskTaskIntroduction.taskTitle;
+    if ([three isEqualToString:@""] || three == nil ) {
+        three = @"三颗星：无";
+    }
+    if ([four isEqualToString:@""] || four == nil ) {
+        four = @"四颗星：无";
+    }
+    if ([five isEqualToString:@""] || five == nil ) {
+        five = @"五颗星：无";
+    }
+    if ([message isEqualToString:@""] || message == nil ) {
+        message = @"无";
+    }
+    if ([taskTitle isEqualToString:@""] || taskTitle == nil ) {
+        taskTitle = @"无";
+    }
     NSString *str1 = [three stringByAppendingString:[NSString stringWithFormat:@"\n%@", four]];
     NSString *str2 = [str1 stringByAppendingString:[NSString stringWithFormat:@"\n%@", five]];
 //    [_evaluateText setText:str2];
     
+    NSString* str3 = [@"任务名称：" stringByAppendingString:taskTitle];
+    NSString* str4 = [str3 stringByAppendingString:[NSString stringWithFormat:@"\n任务说明：%@",message]];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 10;// 字体的行间距
     
@@ -36,7 +56,7 @@ MPMoviePlayerViewController *movie;
                                  NSParagraphStyleAttributeName:paragraphStyle
                                  };
     _evaluateText.attributedText = [[NSAttributedString alloc] initWithString:str2 attributes:attributes];
-    _taskMessageText.attributedText = [[NSAttributedString alloc] initWithString:taskTaskIntroduction.taskMessage attributes:attributes];
+    _taskMessageText.attributedText = [[NSAttributedString alloc] initWithString:str4 attributes:attributes];
     
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
@@ -137,23 +157,28 @@ MPMoviePlayerViewController *movie;
      [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)studyMicroClass:(id)sender {
-    Help* help = [HelpDao findHelpByHelpId:taskTaskIntroduction.helpId];
-    //更新通关秘籍浏览人次
-    if (help.viewTimes>=0) {
-        help.viewTimes++;
+    if (taskTaskIntroduction.helpId == 0) {
+        [self createSelfPrompt:@"很抱歉，此任务卡没有通关秘籍" image:[UIImage imageNamed:@"sad.jpg"]];
     }else{
-        help.viewTimes=1;
+        Help* help = [HelpDao findHelpByHelpId:taskTaskIntroduction.helpId];
+        //更新通关秘籍浏览人次
+        if (help.viewTimes>=0) {
+            help.viewTimes++;
+        }else{
+            help.viewTimes=1;
+        }
+        [HelpDao updateHelpViewTimes:help];
+        [self playVideo];
+        //记录行为数据
+        NSString* timeNow = [TimeUtil getTimeNow];
+        Behaviour *behaviour = [[Behaviour alloc]init];
+        behaviour.userId = userTaskIntroduction.userId;
+        behaviour.doWhat = @"查看微课";
+        behaviour.doWhere = [[NSString alloc ]initWithFormat:@"TaskIntroduction-(IBAction)studyMicroClass:(id)sender-任务id:%d", taskTaskIntroduction.taskId];
+        behaviour.doWhen = timeNow;
+        [BehaviourDao addBehaviour:behaviour];
     }
-    [HelpDao updateHelpViewTimes:help];
-    [self playVideo];
-    //记录行为数据
-    NSString* timeNow = [TimeUtil getTimeNow];
-    Behaviour *behaviour = [[Behaviour alloc]init];
-    behaviour.userId = userTaskIntroduction.userId;
-    behaviour.doWhat = @"查看微课";
-    behaviour.doWhere = [[NSString alloc ]initWithFormat:@"TaskIntroduction-(IBAction)studyMicroClass:(id)sender-任务id:%d", taskTaskIntroduction.taskId];
-    behaviour.doWhen = timeNow;
-    [BehaviourDao addBehaviour:behaviour];
+   
     
 }
 
@@ -164,15 +189,20 @@ MPMoviePlayerViewController *movie;
     NSString* fileName = [@"Weike" stringByAppendingString:helpIdNowStr];//根据helpId动态拼接文件名
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
     NSLog(@"weike :%@",path);
-    //视频URL
-    NSURL *url = [NSURL fileURLWithPath:path];
-    //视频播放对象
-    movie = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
-    [self presentMoviePlayerViewControllerAnimated:movie];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(myMovieFinishedCallback:)
-                                                 name: MPMoviePlayerPlaybackDidFinishNotification
-                                               object:nil];
+    if ([path isEqualToString:@""] || path == nil) {
+       [self createSelfPrompt:@"很抱歉，此任务卡没有通关秘籍" image:[UIImage imageNamed:@"sad.jpg"]];
+    }else{
+        //视频URL
+        NSURL *url = [NSURL fileURLWithPath:path];
+        //视频播放对象
+        movie = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+        [self presentMoviePlayerViewControllerAnimated:movie];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(myMovieFinishedCallback:)
+                                                     name: MPMoviePlayerPlaybackDidFinishNotification
+                                                   object:nil];
+    }
+    
     
 }
 

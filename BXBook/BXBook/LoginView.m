@@ -42,7 +42,7 @@ static User *user;
 //点击登录按钮，判断用户是否正确，是则跳转
 - (IBAction)login:(id)sender {
     if (_loginNameText.text == nil || _passwordText == nil || [_loginNameText.text isEqualToString:@""] || [_passwordText.text isEqualToString:@""]) {
-        [self createSelfPrompt:@"输入不完整" image:[UIImage imageNamed:@"sad.jpg"]];
+        [self createSelfPrompt:@"很抱歉，你的输入不完整" image:[UIImage imageNamed:@"sad.jpg"]];
 
     } else {
         //
@@ -96,10 +96,10 @@ static User *user;
         [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:information animated:YES completion:nil];
     }else if (isExist == 2){
-        [self createSelfPrompt:@"密码错误" image:[UIImage imageNamed:@"sad.jpg"]];
+        [self createSelfPrompt:@"很抱歉，密码错误" image:[UIImage imageNamed:@"sad.jpg"]];
 
     }else if (isExist == 3){
-        [self createSelfPrompt:@"用户名不存在" image:[UIImage imageNamed:@"sad.jpg"]];
+        [self createSelfPrompt:@"很抱歉，用户名不存在" image:[UIImage imageNamed:@"sad.jpg"]];
 
     }}
     

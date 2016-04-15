@@ -7,13 +7,13 @@
 	<key>CFBundleExecutable</key>
 	<string>BCBookDW</string>
 	<key>CFBundleIconFile</key>
-	<string>LOGO.png</string>
+	<string>LOGO.jpg</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.cnu.BCBookDW</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>BCBookDW</string>
+	<string>端午文化</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
