@@ -6,10 +6,15 @@
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>BCBookDW</string>
-	<key>CFBundleIconFile</key>
-	<string>LOGO.jpg</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>LOGO-152.png</string>
+		<string>LOGO-120.png</string>
+		<string>LOGO-76.png</string>
+		<string>LOGO.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.cnu.BCBookDW</string>
+	<string>com.cnubx.BCBookDw</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -34,6 +39,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
