@@ -45,9 +45,9 @@
     UIColor* cardColor = self.cardColor;
     
     //显示图片
-  //  self.cardImage = [UIImage imageNamed:@"topics8.png"];
-    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30,50,frameWidth-60,frameHeight-60)];
-
+ //   self.cardImage = [UIImage imageNamed:@"LOGO.png"];
+    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(120,50,frameWidth-280,frameHeight-60)];
+  //  UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30,50,300,200)];
     
     UIGraphicsBeginImageContext(CGSizeMake(cardImageView.frame.size.width, cardImageView.frame.size.height));
     CGRect thumbnailRect = CGRectZero;

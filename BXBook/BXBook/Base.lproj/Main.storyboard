@@ -439,6 +439,17 @@
                                 <rect key="frame" x="-8" y="-8" width="1024" height="768"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsA-2R-11Q">
+                                <rect key="frame" x="520" y="543" width="156" height="49"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="上一个" backgroundImage="buttonBkg.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reloadButtonAction:" destination="nrz-fd-tlN" eventType="touchUpInside" id="aia-eT-Mak"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVg-80-LLs" customClass="ZLSwipeableView">
                                 <rect key="frame" x="212" y="158" width="730" height="370"/>
                                 <animations/>
@@ -453,17 +464,6 @@
                                 </state>
                                 <connections>
                                     <action selector="goBack:" destination="nrz-fd-tlN" eventType="touchUpInside" id="yM1-7b-qBE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsA-2R-11Q">
-                                <rect key="frame" x="538" y="545" width="119" height="45"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="重  看" backgroundImage="buttonBkg.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="reloadButtonAction:" destination="nrz-fd-tlN" eventType="touchUpInside" id="aia-eT-Mak"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1563,7 +1563,7 @@
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13x-iT-2ue">
-                                <rect key="frame" x="437" y="642" width="150" height="51"/>
+                                <rect key="frame" x="437" y="642" width="150" height="45"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal">
@@ -1576,7 +1576,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEV-rc-1lD">
                                 <rect key="frame" x="318" y="536" width="52" height="45"/>
                                 <animations/>
-                                <state key="normal">
+                                <state key="normal" backgroundImage="pauseon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1586,22 +1586,18 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heK-7g-29o">
                                 <rect key="frame" x="395" y="536" width="51" height="45"/>
                                 <animations/>
-                                <state key="normal">
+                                <state key="normal" backgroundImage="playon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="resumeClick:" destination="N0F-IB-vPp" eventType="touchUpInside" id="eo1-nd-lh4"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="92m-6T-cAr">
-                                <rect key="frame" x="594" y="574" width="188" height="2"/>
-                                <animations/>
-                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBA-Sw-Gxh">
                                 <rect key="frame" x="249" y="536" width="49" height="45"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal">
+                                <state key="normal" backgroundImage="record.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1622,13 +1618,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5v1-IK-MGp">
                                 <rect key="frame" x="471" y="534" width="51" height="47"/>
                                 <animations/>
-                                <state key="normal">
+                                <state key="normal" backgroundImage="stop.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="stopClick:" destination="N0F-IB-vPp" eventType="touchUpInside" id="Ync-E6-Qwi"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="92m-6T-cAr">
+                                <rect key="frame" x="557" y="557" width="188" height="2"/>
+                                <animations/>
+                            </progressView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3369,6 +3369,10 @@
         <image name="d7.jpg" width="1024" height="768"/>
         <image name="d8.jpg" width="1024" height="768"/>
         <image name="d9.jpg" width="1024" height="768"/>
+        <image name="pauseon.png" width="58" height="57"/>
+        <image name="playon.png" width="58" height="57"/>
+        <image name="record.png" width="58" height="57"/>
+        <image name="stop.png" width="58" height="57"/>
         <image name="射击达人－音乐按钮.png" width="95" height="96"/>
         <image name="拼图背景.png" width="207" height="139"/>
         <image name="示例.jpg" width="338" height="220"/>

@@ -62,20 +62,22 @@
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:movieAsset];
     player = [AVPlayer playerWithPlayerItem:playerItem];
     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    playerLayer.frame = CGRectMake(55, 20, frameWidth-100,frameHeight-80);
+    playerLayer.frame = CGRectMake(10, 50, frameWidth-100,frameHeight-60);
     playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     
     [self.layer addSublayer:playerLayer];
     
     
-    UIButton* start = [[UIButton alloc] initWithFrame:CGRectMake(300,430,73,70)];
+    UIButton* start = [[UIButton alloc] initWithFrame:CGRectMake(560,frameHeight-160,73,70)];
     [start setBackgroundImage:[UIImage imageNamed:@"playon.png"] forState:normal];
     [start addTarget:self action:@selector(actionStart:) forControlEvents:UIControlEventTouchUpInside];
+    start.clipsToBounds = YES;
     [self addSubview:start];
     
-    UIButton* pause = [[UIButton alloc] initWithFrame:CGRectMake(380,430,73,70)];
+    UIButton* pause = [[UIButton alloc] initWithFrame:CGRectMake(560,frameHeight-80,73,70)];
     [pause setBackgroundImage:[UIImage imageNamed:@"pauseon.png"] forState:normal];
     [pause addTarget:self action:@selector(actionPause:) forControlEvents:UIControlEventTouchUpInside];
+     start.clipsToBounds = YES;
     [self addSubview:pause];
 
 

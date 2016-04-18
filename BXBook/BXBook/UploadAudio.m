@@ -34,11 +34,13 @@ NSString* taskTitle_audio;
     NSString* timeNow = [TimeUtil getTimeNow];
     NSLog(@"%@%d",userUploadAudio.loginName,taskUploadAudio.taskId);
     str1 = [userUploadAudio.loginName stringByAppendingString:@"+"];
-    str2 = [str1 stringByAppendingString:[NSString stringWithFormat:@"%d+", taskUploadAudio.taskId]];
+    str2 = [str1 stringByAppendingString:[NSString stringWithFormat:@"%@+",taskTitle_audio]];
     str3 = [str2 stringByAppendingString:timeNow];
     str4 = [str3 stringByAppendingString:@"+audio.caf"];
     [self setAudioSession];
     NSLog(@"@audio : %@",userUploadAudio.loginName);
+    
+
     
     //记录行为数据
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -52,7 +54,7 @@ NSString* taskTitle_audio;
 
 //上传作品
 - (IBAction)uploadWorks:(id)sender{
-    [self createSelfPrompt:@"已保存在本地，服务器正在建设中" image:[UIImage imageNamed:@"happy.jpg"]];
+    [self createSelfPrompt:@"已保存在本地，去“我的作品”中查看吧！" image:[UIImage imageNamed:@"happy.jpg"]];
 }
 
 
@@ -237,13 +239,13 @@ NSString* taskTitle_audio;
     NSLog(@"录音完成!");
     
     NSString* timeNow = [TimeUtil getTimeNow];
-    str1 = [userUploadAudio.loginName stringByAppendingString:@"+"];
-    str2 = [str1 stringByAppendingString:[NSString stringWithFormat:@"%@+", taskTitle_audio]];
-    str3 = [str2 stringByAppendingString:timeNow];
-    str4 = [str3 stringByAppendingString:@"+audio.caf"];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:str4];   // 保存文件的名称
+//    str1 = [userUploadAudio.loginName stringByAppendingString:@"+"];
+//    str2 = [str1 stringByAppendingString:[NSString stringWithFormat:@"%@+", taskTitle_audio]];
+//    str3 = [str2 stringByAppendingString:timeNow];
+//    str4 = [str3 stringByAppendingString:@"+audio.caf"];
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+//    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:str4];   // 保存文件的名称
     
     MyWork *work = [[MyWork alloc]init];
     work.workId = 100;
@@ -251,10 +253,11 @@ NSString* taskTitle_audio;
     work.taskTitle = taskTitle_audio;
     work.type = 3;
     work.uploadTime = timeNow;
-    work.filePath = filePath;
+    work.filePath = str4;
     
-    //[MyWorkDao addMyWork:work];
-    
+    NSLog(@"----即将上传音频的作品");
+    NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",work.workId,work.userId,work.uploadTime,work.taskTitle,work.type,work.filePath);
+    [MyWorkDao addMyWork:work.workId andUserId:work.userId andTaskTitle:work.taskTitle andUploadTime:work.uploadTime andType:work.type andFilePath:work.filePath];
     //获取当前时间
 //    NSString* timeNow = [TimeUtil getTimeNow];
     [WorkDao insertWork:userUploadAudio.userId taskId:taskUploadAudio.taskId taskUrl:nil recPN:0 recCN:0 golden:0 uplT:timeNow score:0 loca:0];

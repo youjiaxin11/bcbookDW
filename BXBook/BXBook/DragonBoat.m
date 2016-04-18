@@ -372,7 +372,7 @@ int exitdragonboat = 0; //判断是否强行退出
     [UserDao updatefinishId:userDragonBoat];
     
     [self.view endEditing:YES];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"恭喜你，共用时%d秒\n击败电脑，闯关成功!\n制作粽子的奖励已经放到你的背包中，快快加油闯关集齐奖励吧！",_DBFinalTimeUsing]  delegate:self  cancelButtonTitle:@"开启任务" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"恭喜你，共用时%d秒\n击败电脑，闯关成功!\n制作粽子的奖励已经放到“我的背包”中，快快加油闯关集齐奖励吧！",_DBFinalTimeUsing]  delegate:self  cancelButtonTitle:@"开启任务" otherButtonTitles:nil];
     alert.tag = 21;
     [alert show];
     

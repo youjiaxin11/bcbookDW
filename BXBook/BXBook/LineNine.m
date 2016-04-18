@@ -187,7 +187,7 @@ static int lineNineAnswerTimes;
 - (void)backgroundImageForCard:(int) num
 {
     
-    NSString *whichPuzzle = @"拼图";
+    NSString *whichPuzzle = @"拼图-";
     //把参数num转化为NSString类型，以便字符串拼接
     NSString *stringNum = [NSString stringWithFormat:@"%d",num];
     

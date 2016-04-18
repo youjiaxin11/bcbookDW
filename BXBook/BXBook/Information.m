@@ -75,7 +75,7 @@ int taskCard = 0;//点击选择任务卡
     [self.view addSubview:goBackBtn];
     
     //播放音乐
-    [self play];
+ //   [self play];
     
     // textview 改变字体的行间距
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

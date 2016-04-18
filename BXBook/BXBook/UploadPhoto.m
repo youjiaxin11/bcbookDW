@@ -102,7 +102,7 @@ NSString* taskTitle;
         work.taskTitle = taskTitle;
         work.type = 1;
         work.uploadTime = timeNow;
-        work.filePath = filePath;
+        work.filePath = str4_photo;
         
         NSLog(@"----即将上传的作品");
         NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",work.workId,work.userId,work.uploadTime,work.taskTitle,work.type,work.filePath);
@@ -146,7 +146,7 @@ NSString* taskTitle;
 
 //上传作品
 - (IBAction)uploadWorks:(id)sender{
-        [self createSelfPrompt:@"已保存在本地，服务器正在建设中" image:[UIImage imageNamed:@"happy.jpg"]];
+        [self createSelfPrompt:@"已保存在本地，去“我的作品”中查看吧！" image:[UIImage imageNamed:@"happy.jpg"]];
     
 }
 

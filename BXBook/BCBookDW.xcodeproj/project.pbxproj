@@ -15,21 +15,10 @@
 		37069FC31B6B665000FA952A /* Cheats.m in Sources */ = {isa = PBXBuildFile; fileRef = 37069FC21B6B665000FA952A /* Cheats.m */; };
 		37069FC61B6B670B00FA952A /* PlayMusicImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37069FC51B6B670B00FA952A /* PlayMusicImpl.m */; };
 		370C337E1CA282C20032205D /* CardViewAud.m in Sources */ = {isa = PBXBuildFile; fileRef = 370C337D1CA282C20032205D /* CardViewAud.m */; };
-		370C33831CA288160032205D /* pauseon.png in Resources */ = {isa = PBXBuildFile; fileRef = 370C33801CA288160032205D /* pauseon.png */; };
-		370C33841CA288160032205D /* playon.png in Resources */ = {isa = PBXBuildFile; fileRef = 370C33811CA288160032205D /* playon.png */; };
 		370C33881CA28ABB0032205D /* workAud.png in Resources */ = {isa = PBXBuildFile; fileRef = 370C33871CA28ABB0032205D /* workAud.png */; };
 		370C338C1CA292780032205D /* testAud.caf in Resources */ = {isa = PBXBuildFile; fileRef = 370C338B1CA292780032205D /* testAud.caf */; };
 		370E77D41C8820820066152E /* LineNineQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 370E77D31C8820820066152E /* LineNineQuestion.m */; };
 		371C67C11CBFB10E0061008D /* 拼图背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C01CBFB10E0061008D /* 拼图背景.png */; };
-		371C67CB1CBFB4250061008D /* 拼图1.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C21CBFB4250061008D /* 拼图1.png */; };
-		371C67CC1CBFB4250061008D /* 拼图2.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C31CBFB4250061008D /* 拼图2.png */; };
-		371C67CD1CBFB4250061008D /* 拼图3.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C41CBFB4250061008D /* 拼图3.png */; };
-		371C67CE1CBFB4250061008D /* 拼图4.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C51CBFB4250061008D /* 拼图4.png */; };
-		371C67CF1CBFB4250061008D /* 拼图5.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C61CBFB4250061008D /* 拼图5.png */; };
-		371C67D01CBFB4250061008D /* 拼图6.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C71CBFB4250061008D /* 拼图6.png */; };
-		371C67D11CBFB4250061008D /* 拼图7.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C81CBFB4250061008D /* 拼图7.png */; };
-		371C67D21CBFB4250061008D /* 拼图8.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67C91CBFB4250061008D /* 拼图8.png */; };
-		371C67D31CBFB4250061008D /* 拼图9.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67CA1CBFB4250061008D /* 拼图9.png */; };
 		371C67DC1CBFBDB70061008D /* d6-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 371C67DB1CBFBDB70061008D /* d6-1.jpg */; };
 		371C67E81CBFC69C0061008D /* 美美.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67E41CBFC69C0061008D /* 美美.png */; };
 		371C67E91CBFC69C0061008D /* 素材.png in Resources */ = {isa = PBXBuildFile; fileRef = 371C67E51CBFC69C0061008D /* 素材.png */; };
@@ -141,6 +130,19 @@
 		37742B7F1CC0BF2C00F740EA /* d27.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37742B7E1CC0BF2C00F740EA /* d27.jpg */; };
 		37742B871CC0C2D300F740EA /* d0-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37742B861CC0C2D300F740EA /* d0-1.jpg */; };
 		37742B891CC0CD5700F740EA /* d8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37742B881CC0CD5700F740EA /* d8.jpg */; };
+		3791BAA61CC46A4F00259FF1 /* pauseon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAA21CC46A4F00259FF1 /* pauseon.png */; };
+		3791BAA71CC46A4F00259FF1 /* playon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAA31CC46A4F00259FF1 /* playon.png */; };
+		3791BAA81CC46A4F00259FF1 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAA41CC46A4F00259FF1 /* record.png */; };
+		3791BAA91CC46A4F00259FF1 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAA51CC46A4F00259FF1 /* stop.png */; };
+		3791BAB31CC4D97D00259FF1 /* 拼图-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAAA1CC4D97D00259FF1 /* 拼图-1.png */; };
+		3791BAB41CC4D97D00259FF1 /* 拼图-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAAB1CC4D97D00259FF1 /* 拼图-2.png */; };
+		3791BAB51CC4D97D00259FF1 /* 拼图-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAAC1CC4D97D00259FF1 /* 拼图-3.png */; };
+		3791BAB61CC4D97D00259FF1 /* 拼图-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAAD1CC4D97D00259FF1 /* 拼图-4.png */; };
+		3791BAB71CC4D97D00259FF1 /* 拼图-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAAE1CC4D97D00259FF1 /* 拼图-5.png */; };
+		3791BAB81CC4D97D00259FF1 /* 拼图-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAAF1CC4D97D00259FF1 /* 拼图-6.png */; };
+		3791BAB91CC4D97D00259FF1 /* 拼图-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAB01CC4D97D00259FF1 /* 拼图-7.png */; };
+		3791BABA1CC4D97D00259FF1 /* 拼图-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAB11CC4D97D00259FF1 /* 拼图-8.png */; };
+		3791BABB1CC4D97D00259FF1 /* 拼图-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3791BAB21CC4D97D00259FF1 /* 拼图-9.png */; };
 		3798BDE11C9F82E60094CC9C /* Behaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE01C9F82E60094CC9C /* Behaviour.m */; };
 		3798BDE51C9F83E80094CC9C /* BehaviourDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798BDE41C9F83E80094CC9C /* BehaviourDao.m */; };
 		379BF0911CC0E20900136338 /* LOGO-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 379BF08E1CC0E20900136338 /* LOGO-76.png */; };
@@ -242,22 +244,11 @@
 		37069FC51B6B670B00FA952A /* PlayMusicImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusicImpl.m; sourceTree = "<group>"; };
 		370C337C1CA282B20032205D /* CardViewAud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardViewAud.h; sourceTree = "<group>"; };
 		370C337D1CA282C20032205D /* CardViewAud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewAud.m; sourceTree = "<group>"; };
-		370C33801CA288160032205D /* pauseon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseon.png; sourceTree = "<group>"; };
-		370C33811CA288160032205D /* playon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playon.png; sourceTree = "<group>"; };
 		370C33871CA28ABB0032205D /* workAud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workAud.png; sourceTree = "<group>"; };
 		370C338B1CA292780032205D /* testAud.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testAud.caf; sourceTree = "<group>"; };
 		370E77D21C8820700066152E /* LineNineQuestion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineNineQuestion.h; sourceTree = "<group>"; };
 		370E77D31C8820820066152E /* LineNineQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNineQuestion.m; sourceTree = "<group>"; };
 		371C67C01CBFB10E0061008D /* 拼图背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图背景.png"; sourceTree = "<group>"; };
-		371C67C21CBFB4250061008D /* 拼图1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图1.png"; sourceTree = "<group>"; };
-		371C67C31CBFB4250061008D /* 拼图2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图2.png"; sourceTree = "<group>"; };
-		371C67C41CBFB4250061008D /* 拼图3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图3.png"; sourceTree = "<group>"; };
-		371C67C51CBFB4250061008D /* 拼图4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图4.png"; sourceTree = "<group>"; };
-		371C67C61CBFB4250061008D /* 拼图5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图5.png"; sourceTree = "<group>"; };
-		371C67C71CBFB4250061008D /* 拼图6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图6.png"; sourceTree = "<group>"; };
-		371C67C81CBFB4250061008D /* 拼图7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图7.png"; sourceTree = "<group>"; };
-		371C67C91CBFB4250061008D /* 拼图8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图8.png"; sourceTree = "<group>"; };
-		371C67CA1CBFB4250061008D /* 拼图9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图9.png"; sourceTree = "<group>"; };
 		371C67DB1CBFBDB70061008D /* d6-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "d6-1.jpg"; sourceTree = "<group>"; };
 		371C67E41CBFC69C0061008D /* 美美.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "美美.png"; sourceTree = "<group>"; };
 		371C67E51CBFC69C0061008D /* 素材.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "素材.png"; sourceTree = "<group>"; };
@@ -431,6 +422,19 @@
 		37742B7E1CC0BF2C00F740EA /* d27.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d27.jpg; sourceTree = "<group>"; };
 		37742B861CC0C2D300F740EA /* d0-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "d0-1.jpg"; sourceTree = "<group>"; };
 		37742B881CC0CD5700F740EA /* d8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d8.jpg; sourceTree = "<group>"; };
+		3791BAA21CC46A4F00259FF1 /* pauseon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseon.png; sourceTree = "<group>"; };
+		3791BAA31CC46A4F00259FF1 /* playon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playon.png; sourceTree = "<group>"; };
+		3791BAA41CC46A4F00259FF1 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		3791BAA51CC46A4F00259FF1 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		3791BAAA1CC4D97D00259FF1 /* 拼图-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-1.png"; sourceTree = "<group>"; };
+		3791BAAB1CC4D97D00259FF1 /* 拼图-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-2.png"; sourceTree = "<group>"; };
+		3791BAAC1CC4D97D00259FF1 /* 拼图-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-3.png"; sourceTree = "<group>"; };
+		3791BAAD1CC4D97D00259FF1 /* 拼图-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-4.png"; sourceTree = "<group>"; };
+		3791BAAE1CC4D97D00259FF1 /* 拼图-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-5.png"; sourceTree = "<group>"; };
+		3791BAAF1CC4D97D00259FF1 /* 拼图-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-6.png"; sourceTree = "<group>"; };
+		3791BAB01CC4D97D00259FF1 /* 拼图-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-7.png"; sourceTree = "<group>"; };
+		3791BAB11CC4D97D00259FF1 /* 拼图-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-8.png"; sourceTree = "<group>"; };
+		3791BAB21CC4D97D00259FF1 /* 拼图-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拼图-9.png"; sourceTree = "<group>"; };
 		3798BDE01C9F82E60094CC9C /* Behaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behaviour.m; sourceTree = "<group>"; };
 		3798BDE21C9F82F20094CC9C /* Behaviour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		3798BDE31C9F83D80094CC9C /* BehaviourDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BehaviourDao.h; sourceTree = "<group>"; };
@@ -567,15 +571,15 @@
 		371C67D41CBFB42B0061008D /* 拼图 */ = {
 			isa = PBXGroup;
 			children = (
-				371C67C21CBFB4250061008D /* 拼图1.png */,
-				371C67C31CBFB4250061008D /* 拼图2.png */,
-				371C67C41CBFB4250061008D /* 拼图3.png */,
-				371C67C51CBFB4250061008D /* 拼图4.png */,
-				371C67C61CBFB4250061008D /* 拼图5.png */,
-				371C67C71CBFB4250061008D /* 拼图6.png */,
-				371C67C81CBFB4250061008D /* 拼图7.png */,
-				371C67C91CBFB4250061008D /* 拼图8.png */,
-				371C67CA1CBFB4250061008D /* 拼图9.png */,
+				3791BAAA1CC4D97D00259FF1 /* 拼图-1.png */,
+				3791BAAB1CC4D97D00259FF1 /* 拼图-2.png */,
+				3791BAAC1CC4D97D00259FF1 /* 拼图-3.png */,
+				3791BAAD1CC4D97D00259FF1 /* 拼图-4.png */,
+				3791BAAE1CC4D97D00259FF1 /* 拼图-5.png */,
+				3791BAAF1CC4D97D00259FF1 /* 拼图-6.png */,
+				3791BAB01CC4D97D00259FF1 /* 拼图-7.png */,
+				3791BAB11CC4D97D00259FF1 /* 拼图-8.png */,
+				3791BAB21CC4D97D00259FF1 /* 拼图-9.png */,
 				371C67C01CBFB10E0061008D /* 拼图背景.png */,
 			);
 			name = "拼图";
@@ -875,9 +879,11 @@
 		37742B761CC0B17100F740EA /* 音频按钮 */ = {
 			isa = PBXGroup;
 			children = (
+				3791BAA21CC46A4F00259FF1 /* pauseon.png */,
+				3791BAA31CC46A4F00259FF1 /* playon.png */,
+				3791BAA41CC46A4F00259FF1 /* record.png */,
+				3791BAA51CC46A4F00259FF1 /* stop.png */,
 				370C33871CA28ABB0032205D /* workAud.png */,
-				370C33801CA288160032205D /* pauseon.png */,
-				370C33811CA288160032205D /* playon.png */,
 				37A63FFD1B9EA25900D84680 /* 音乐按钮.png */,
 			);
 			name = "音频按钮";
@@ -1270,51 +1276,53 @@
 			files = (
 				37DFFD951BABB690002AD1DA /* 15.m4a in Resources */,
 				371C67C11CBFB10E0061008D /* 拼图背景.png in Resources */,
+				3791BAB81CC4D97D00259FF1 /* 拼图-6.png in Resources */,
 				372626931CA2A4E400750099 /* buttonBkg.png in Resources */,
 				37D8C7961C97D1EB005EEAE0 /* menuClose.png in Resources */,
 				371C67EF1CBFCA4E0061008D /* d4-1.jpg in Resources */,
 				37DFFD881BABB690002AD1DA /* 2.m4a in Resources */,
 				379CD8F51CBF31CD000B9F8B /* d5-2.jpg in Resources */,
 				37742B7F1CC0BF2C00F740EA /* d27.jpg in Resources */,
-				371C67D11CBFB4250061008D /* 拼图7.png in Resources */,
 				37742B6D1CC0973900F740EA /* award2.png in Resources */,
-				371C67D21CBFB4250061008D /* 拼图8.png in Resources */,
-				370C33831CA288160032205D /* pauseon.png in Resources */,
+				3791BAA81CC46A4F00259FF1 /* record.png in Resources */,
 				37597DB51CBB1EFF00BC14E5 /* d2.jpg in Resources */,
 				37597DBF1CBB1EFF00BC14E5 /* d11.jpg in Resources */,
+				3791BAB61CC4D97D00259FF1 /* 拼图-4.png in Resources */,
 				37742B7B1CC0BC2800F740EA /* zongzi.gif in Resources */,
 				37597DBD1CBB1EFF00BC14E5 /* d9.jpg in Resources */,
 				379CD8F81CBF31CD000B9F8B /* d23.jpg in Resources */,
 				379BF0971CC0E64B00136338 /* LOGO-152.png in Resources */,
-				371C67CE1CBFB4250061008D /* 拼图4.png in Resources */,
 				37597DC51CBB1EFF00BC14E5 /* d20.jpg in Resources */,
 				379CD90C1CBF8538000B9F8B /* d16.jpg in Resources */,
 				37597DC61CBB1EFF00BC14E5 /* d21.jpg in Resources */,
 				37597DC71CBB1EFF00BC14E5 /* d22.jpg in Resources */,
 				37DFFD991BABB690002AD1DA /* 19.m4a in Resources */,
-				371C67CD1CBFB4250061008D /* 拼图3.png in Resources */,
 				37D8C7881C97D021005EEAE0 /* FriendCell.xib in Resources */,
 				37DFFD931BABB690002AD1DA /* 13.m4a in Resources */,
+				3791BAB31CC4D97D00259FF1 /* 拼图-1.png in Resources */,
 				3755AFFC1B85A3F500AA02B9 /* b27_icon_star_gray@2x.png in Resources */,
+				3791BAA61CC46A4F00259FF1 /* pauseon.png in Resources */,
 				37DFFD8A1BABB690002AD1DA /* 4.m4a in Resources */,
 				37742B4B1CC0860C00F740EA /* d3.jpg in Resources */,
 				376D5F9E1CB3A36D00107178 /* QueImage-1.png in Resources */,
 				37DFFD901BABB690002AD1DA /* 10.m4a in Resources */,
 				376D5FA21CB3A36D00107178 /* QueMusic-3.mp3 in Resources */,
+				3791BAB41CC4D97D00259FF1 /* 拼图-2.png in Resources */,
 				37DFFD571BABAFA5002AD1DA /* 1.m4a in Resources */,
 				371C67EA1CBFC69C0061008D /* 小宇.png in Resources */,
 				37DFFD891BABB690002AD1DA /* 3.m4a in Resources */,
-				371C67CC1CBFB4250061008D /* 拼图2.png in Resources */,
 				3745C0701CBCC31B00D7065F /* d0.jpg in Resources */,
 				3751CF171CBE38C2008B654E /* bxbookdw.sqlite in Resources */,
 				370C338C1CA292780032205D /* testAud.caf in Resources */,
+				3791BAA91CC46A4F00259FF1 /* stop.png in Resources */,
+				3791BAB91CC4D97D00259FF1 /* 拼图-7.png in Resources */,
 				37E0986E1B4BCB7800EB8DC0 /* Main.storyboard in Resources */,
 				37DFFD911BABB690002AD1DA /* 11.m4a in Resources */,
 				37742B7D1CC0BDCF00F740EA /* d1.jpg in Resources */,
 				379CD9091CBF8538000B9F8B /* d7.jpg in Resources */,
 				379BF0921CC0E20900136338 /* LOGO-120.png in Resources */,
+				3791BABB1CC4D97D00259FF1 /* 拼图-9.png in Resources */,
 				376D5FA01CB3A36D00107178 /* QueMusic-1.mp3 in Resources */,
-				371C67CB1CBFB4250061008D /* 拼图1.png in Resources */,
 				37742B731CC0B13600F740EA /* sad.jpg in Resources */,
 				37DFFD8C1BABB690002AD1DA /* 6.m4a in Resources */,
 				371C67E91CBFC69C0061008D /* 素材.png in Resources */,
@@ -1323,6 +1331,7 @@
 				37742B701CC0973900F740EA /* award5.png in Resources */,
 				371C67F01CBFCA4E0061008D /* d5-1.jpg in Resources */,
 				37742B5A1CC0884C00F740EA /* side3.png in Resources */,
+				3791BAB51CC4D97D00259FF1 /* 拼图-3.png in Resources */,
 				370C33881CA28ABB0032205D /* workAud.png in Resources */,
 				37DFFD8D1BABB690002AD1DA /* 7.m4a in Resources */,
 				379CD8F71CBF31CD000B9F8B /* d17-1.jpg in Resources */,
@@ -1337,21 +1346,20 @@
 				37742B711CC0973900F740EA /* award6.png in Resources */,
 				37742B781CC0B66300F740EA /* d25.jpg in Resources */,
 				37DFFD8E1BABB690002AD1DA /* 8.m4a in Resources */,
-				371C67CF1CBFB4250061008D /* 拼图5.png in Resources */,
 				37DFFD921BABB690002AD1DA /* 12.m4a in Resources */,
-				370C33841CA288160032205D /* playon.png in Resources */,
 				37DFFD981BABB690002AD1DA /* 18.m4a in Resources */,
 				376D5FA11CB3A36D00107178 /* QueMusic-2.mp3 in Resources */,
 				37742B871CC0C2D300F740EA /* d0-1.jpg in Resources */,
 				376D5F9F1CB3A36D00107178 /* QueImage-2.png in Resources */,
 				37742B591CC0884C00F740EA /* side2.png in Resources */,
-				371C67D31CBFB4250061008D /* 拼图9.png in Resources */,
 				37742B891CC0CD5700F740EA /* d8.jpg in Resources */,
 				37E098701B4BCB7800EB8DC0 /* Images.xcassets in Resources */,
+				3791BAB71CC4D97D00259FF1 /* 拼图-5.png in Resources */,
 				37742B6F1CC0973900F740EA /* award4.png in Resources */,
 				379CD90B1CBF8538000B9F8B /* d12.jpg in Resources */,
 				37AC88081CA15A3C00B0BC30 /* test.mp4 in Resources */,
 				379CD8FB1CBF31CD000B9F8B /* d26.jpg in Resources */,
+				3791BABA1CC4D97D00259FF1 /* 拼图-8.png in Resources */,
 				371C67F41CBFD5100061008D /* d4-2.jpg in Resources */,
 				37A63FFE1B9EA25900D84680 /* 音乐按钮.png in Resources */,
 				37DFFD971BABB690002AD1DA /* 17.m4a in Resources */,
@@ -1364,7 +1372,7 @@
 				37597DBE1CBB1EFF00BC14E5 /* d10.jpg in Resources */,
 				37DFFD8B1BABB690002AD1DA /* 5.m4a in Resources */,
 				37742B651CC095FB00F740EA /* d24.jpg in Resources */,
-				371C67D01CBFB4250061008D /* 拼图6.png in Resources */,
+				3791BAA71CC46A4F00259FF1 /* playon.png in Resources */,
 				37742B551CC0875C00F740EA /* side1.png in Resources */,
 				379BF0951CC0E58300136338 /* LOGO.png in Resources */,
 				371C67E81CBFC69C0061008D /* 美美.png in Resources */,
@@ -1619,8 +1627,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiaxin You (2JKNTB9955)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiaxin You (2JKNTB9955)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BXBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1634,8 +1642,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiaxin You (2JKNTB9955)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiaxin You (2JKNTB9955)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BXBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

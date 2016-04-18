@@ -9,7 +9,7 @@
 #import "CardViewAud.h"
 
 @implementation CardViewAud
-
+@synthesize data;
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -27,6 +27,7 @@
         self.layer.shadowOffset = shadowOffset;
         self.layer.shadowRadius = shadowBlurRadius;
         self.layer.shouldRasterize = YES;
+       // self.audioPlayer = [[AVAudioPlayer alloc]init];
     }
     return self;
 }
@@ -46,7 +47,7 @@
     
     //显示图片
     //  self.cardImage = [UIImage imageNamed:@"topics8.png"];
-    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(50,60,frameWidth-80,frameHeight-150)];
+    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 50, frameWidth-300,frameHeight-70)];
     
     
     UIGraphicsBeginImageContext(CGSizeMake(cardImageView.frame.size.width, cardImageView.frame.size.height));
@@ -62,6 +63,7 @@
     
     cardImageView.contentMode = UIViewContentModeCenter;
     [cardImageView setImage:newImage];
+    cardImageView.clipsToBounds = YES;
     [self addSubview:cardImageView];
     
     
@@ -73,14 +75,16 @@
     infoTextView.text = self.infoText;
     [self addSubview:infoTextView];
     
-    UIButton* start = [[UIButton alloc] initWithFrame:CGRectMake(300,430,73,70)];
+    UIButton* start = [[UIButton alloc] initWithFrame:CGRectMake(560,frameHeight-160,73,70)];
     [start setBackgroundImage:[UIImage imageNamed:@"playon.png"] forState:normal];
     [start addTarget:self action:@selector(actionStart:) forControlEvents:UIControlEventTouchUpInside];
+    start.clipsToBounds = YES;
     [self addSubview:start];
     
-    UIButton* pause = [[UIButton alloc] initWithFrame:CGRectMake(380,430,73,70)];
+    UIButton* pause = [[UIButton alloc] initWithFrame:CGRectMake(560,frameHeight-80,73,70)];
     [pause setBackgroundImage:[UIImage imageNamed:@"pauseon.png"] forState:normal];
     [pause addTarget:self action:@selector(actionPause:) forControlEvents:UIControlEventTouchUpInside];
+    start.clipsToBounds = YES;
     [self addSubview:pause];
     
     NSLog(@"this audio demo!!!");
@@ -102,7 +106,7 @@
 }
 
 -(void)actionStart:(id)sender{
-    if (![self.audioPlayer isPlaying]) {
+      if (![self.audioPlayer isPlaying]) {
         [self.audioPlayer play];
     }
     NSLog(@"播放!");
@@ -118,10 +122,20 @@
  *  @return 播放器
  */
 -(AVAudioPlayer *)audioPlayer{
+    
     if (!_audioPlayer) {
-        //测试用例
-        self.filePath = [[NSBundle mainBundle] pathForResource:@"testAud" ofType:@"caf"];
-        NSURL *url = [NSURL fileURLWithPath:self.filePath];
+//        self.fileName = [[NSBundle mainBundle] pathForResource:@"testAud" ofType:@"caf"];
+        //获得路径
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+        NSString* filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:self.fileName];
+        
+
+
+//
+        NSLog(@"录音路径：%@",filePath);
+        NSLog(@"音频播放器：%@",filePath);
+        
+        NSURL *url = [NSURL fileURLWithPath:filePath];
         NSError *error=nil;
         _audioPlayer=[[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
         _audioPlayer.numberOfLoops=0;

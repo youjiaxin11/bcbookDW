@@ -18,5 +18,6 @@
 @property UIImage *cardImage;
 @property NSString *infoText;
 @property (nonatomic,strong) AVAudioPlayer *audioPlayer;//音频播放器，用于播放录音文件
-@property (strong ,nonatomic) NSString *filePath;
+@property (strong ,nonatomic) NSString *fileName;
+@property (strong ,nonatomic) NSData *data;
 @end

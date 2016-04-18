@@ -145,12 +145,16 @@ NSString* taskTitle_video;
         work.taskTitle = taskTitle_video;
         work.type = 2;
         work.uploadTime = timeNow;
-        work.filePath = filePath;
+        work.filePath = str4_video;
         
         //[MyWorkDao addMyWork:work];
      //   [UIImagePNGRepresentation(chosenImage) writeToFile: filePath  atomically:YES];
         NSData  *myData = [[NSData  alloc] initWithContentsOfFile: urlStr ];
         [myData writeToFile:filePath atomically: YES ];
+        
+        NSLog(@"----即将上传视频的作品");
+        NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",work.workId,work.userId,work.uploadTime,work.taskTitle,work.type,work.filePath);
+        [MyWorkDao addMyWork:work.workId andUserId:work.userId andTaskTitle:work.taskTitle andUploadTime:work.uploadTime andType:work.type andFilePath:work.filePath];
         
         //记录行为数据
         Behaviour *behaviour = [[Behaviour alloc]init];
@@ -200,7 +204,7 @@ NSString* taskTitle_video;
 
 //上传作品
 - (IBAction)uploadWorks:(id)sender{
-        [self createSelfPrompt:@"已保存在本地，服务器正在建设中" image:[UIImage imageNamed:@"happy.jpg"]];
+        [self createSelfPrompt:@"已保存在本地，去“我的作品”中查看吧！" image:[UIImage imageNamed:@"happy.jpg"]];
 }
 
 

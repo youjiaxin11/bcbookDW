@@ -44,6 +44,7 @@ NSMutableArray *workArr;
 NSMutableArray* myworks;
 MPMoviePlayerController *moviePlay;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     userMyWorks = self.user;
@@ -219,6 +220,13 @@ MPMoviePlayerController *moviePlay;
         NSString* str1 = [@"任务名称:" stringByAppendingString:myworkShow.taskTitle];
         NSString* str2 = [str1 stringByAppendingString:@" 提交时间:"];
         NSString* str3 = [str2 stringByAppendingString:myworkShow.uploadTime];
+        
+        
+        //获得路径
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+        NSString* filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:myworkShow.filePath];
+
+        NSLog(@"作品路径：%@",filePath);
         if (myworkShow.type == 1) {//图片
             
             NSLog(@"－－－－准备加载图片");
@@ -226,20 +234,15 @@ MPMoviePlayerController *moviePlay;
             view.cardColor = [self colorForName:self.colors[self.index]];
             
             //这里:用路径加载图片
-            NSLog(@"图片路径：%@",myworkShow.filePath);
-            //NSURL *url = [NSURL URLWithString:myworkShow.filePath];
-            //NSData * imagData = [[NSData alloc] initWithContentsOfFile:@"拼图5.png"];
-            //UIImage *imag = [UIImage imageNamed:@"拼图5.png"];
-            UIImage *imag = [UIImage imageWithContentsOfFile:@"/Users/sunzhong/Library/Developer/CoreSimulator/Devices/3A6306D8-F6A2-4CC5-A321-96764AEFA841/data/Containers/Data/Application/41795EFF-DEF8-4FFF-A580-5ED59EF5614D/Documents/admin+包粽子（劳技）+2016-04-13 11/12/39+photo.png"];
-            //UIImage *imag = [[UIImage alloc] initWithData:imagData];
-            //view.cardImage = imag;
+            NSLog(@"图片路径：%@",filePath);
             
-            UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30,50,1024-60,768-60)];
-            cardImageView.image = imag;
-            [self.view addSubview:cardImageView];
-            
-            //view.cardImage = [UIImage imageWithContentsOfFile:@"/Users/sunzhong/Library/Developer/CoreSimulator/Devices/3A6306D8-F6A2-4CC5-A321-96764AEFA841/data/Containers/Data/Application/41795EFF-DEF8-4FFF-A580-5ED59EF5614D/Documents/admin+包粽子（劳技）+2016-04-13 11/12/39+photo.png"];
- //           view.cardImage = [UIImage imageNamed:@"拼图5.png"];
+            NSData* data = [[NSData alloc] initWithContentsOfFile:filePath];
+            UIImage* img = nil;
+            if(data != nil)
+            {
+                img = [[UIImage alloc] initWithData:data];
+            }
+            view.cardImage = img;
             view.infoText = str3;
             self.index++;
             return view;
@@ -247,11 +250,8 @@ MPMoviePlayerController *moviePlay;
             CardViewVid *view = [[CardViewVid alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
             view.infoText = str3;
-            
-            //把路径:给这里
-            //view.filePath = [self.fiePaths objectAtIndex:self.index];
-            
-            view.filePath = myworkShow.filePath;
+
+            view.filePath = filePath;
             self.index++;
 //            view.userInteractionEnabled = YES;
 //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -263,6 +263,7 @@ MPMoviePlayerController *moviePlay;
             CardViewAud *view = [[CardViewAud alloc] initWithFrame:swipeableView.bounds];
             view.cardColor = [self colorForName:self.colors[self.index]];
             view.cardImage = [UIImage imageNamed:@"workAud.png"];
+            view.fileName = myworkShow.filePath;
             view.infoText = str3;
             self.index++;
             return view;
@@ -345,28 +346,27 @@ MPMoviePlayerController *moviePlay;
     }
 }
 
--(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
-    //MyWork* myworkShow = [myworks objectAtIndex:self.index];
-    //NSString *urlStr = myworkShow.filePath;
-    //测试用例
-    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
-    if (urlStr == nil) {
-        [self createSelfPrompt:@"未上传视频" image:[UIImage imageNamed:@"sad.jpg"]];
-        //[self prompt:];
-    }else{
-        //VideoPlay* videoplay;
-        //[videoplay Play:urlStr];
-        NSURL *url = [NSURL fileURLWithPath:urlStr];
-        //视频播放对象
-        moviePlay = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
-        [self presentMoviePlayerViewControllerAnimated:moviePlay];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(myMovieFinishedCallback:)
-                                                     name: MPMoviePlayerPlaybackDidFinishNotification
-                                                   object:nil];
-        moviePlay = nil;
-    }
-}
+//-(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
+//
+//
+//    
+//    if (filePath == nil) {
+//        [self createSelfPrompt:@"未上传视频" image:[UIImage imageNamed:@"sad.jpg"]];
+//        //[self prompt:];
+//    }else{
+//        //VideoPlay* videoplay;
+//        //[videoplay Play:urlStr];
+//        NSURL *url = [NSURL fileURLWithPath:filePath];
+//        //视频播放对象
+//        moviePlay = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+//        [self presentMoviePlayerViewControllerAnimated:moviePlay];
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(myMovieFinishedCallback:)
+//                                                     name: MPMoviePlayerPlaybackDidFinishNotification
+//                                                   object:nil];
+//        moviePlay = nil;
+//    }
+//}
 
 
 
