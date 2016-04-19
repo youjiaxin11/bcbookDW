@@ -104,5 +104,10 @@ typedef void(^ResponseCallback)(NSMutableDictionary*);
 //向提示视图添加一些自定义内容
 - (void)createSelfPrompt:(NSString*)text image:(UIImage*)image;
 
+- (void)createSelfPrompt2:(NSString*)text image:(UIImage*)image;
+
+- (void)createSelfPrompt3:(NSString*)text image:(UIImage*)image;
+
+- (void)createSelfPrompt4:(NSString*)text image:(UIImage*)image;
 
 @end

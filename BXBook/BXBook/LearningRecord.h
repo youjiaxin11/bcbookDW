@@ -19,9 +19,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *rankLbl;
 @property (strong, nonatomic) IBOutlet UILabel *loginTimesLbl;
 
--(int)computeOfflineWorkCount:(int)userId;
 
--(int)computeOnlineWorkCount:(int)userId;
+
+-(int)computeWorkCount:(int)userId;
 //登录时长计算
 -(NSString*)computeLoginTime:(int)userId;
 

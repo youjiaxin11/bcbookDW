@@ -173,7 +173,7 @@ static int lineNineAnswerTimes;
             [self backgroundImageForCard : 9];
         }
         if (ifFinished == 1){
-          //  [self createSelfPrompt:@"恭喜你，连成一线！查看完整拼图" image:[UIImage imageNamed:@"happy.jpg"]];
+           // [self createSelfPrompt:@"恭喜你，连成一线！查看完整拼图" image:[UIImage imageNamed:@"happy.jpg"]];
             [self prompt:@"恭喜你，连成一线！查看完整拼图"]; //提示已经可以看完整拼图
         }
         //}
@@ -353,7 +353,8 @@ static int lineNineAnswerTimes;
     
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         exitlinenine = 1;
-        [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+       // [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+        [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
     }
 }
 
@@ -373,11 +374,12 @@ static int lineNineAnswerTimes;
 }
 
 
-//出现在本页的所有弹框的具体属性设置
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    if (exitlinenine == 1) {//如果强行退出
-        if(buttonIndex==0){
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==0)
+     {
+       if (exitlinenine == 1){//如果强行退出
             //记录行为数据
             NSString* timeNow = [TimeUtil getTimeNow];
             Behaviour *behaviour = [[Behaviour alloc]init];
@@ -395,21 +397,66 @@ static int lineNineAnswerTimes;
             gamechoice.user = userLineNine;;
             [gamechoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
             [self presentViewController:gamechoice animated:YES completion:nil];
-        }
-    }
-    if (ifFinished == 1){
-        //所有拼图翻面
-        for (int allTurnBack = 1; allTurnBack <= [lineNineQuestionRight count]; allTurnBack++) {
-            [self backgroundImageForCard : allTurnBack];
-        }
+           exitlinenine = 0;
+       }else{
+           for (int allTurnBack = 1; allTurnBack <= [lineNineQuestionRight count]; allTurnBack++) {
+               [self backgroundImageForCard : allTurnBack];
+           }
+           
+
+       }
+    }else if (buttonIndex == 1){
+         [alertView close];
+     }
+    
+}
+    
+
+//出现在本页的所有弹框的具体属性设置
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+
+    if(buttonIndex==0)
+    {
+
         
-    }else{
-        [self notFinishedAndGoBack];
+        if (exitlinenine == 1){//如果强行退出
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userLineNine.userId;
+            behaviour.doWhat = @"游戏－退出";
+            behaviour.doWhere = @"LineNine-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
+            [self clearLineNineStateArray];//退出前把答题情况清零
+            ifFinished = 0;//退出前把是否可以跳到下一关的标志清零
+            
+            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
+            gamechoice.user = userLineNine;;
+            [gamechoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+            [self presentViewController:gamechoice animated:YES completion:nil];
+            exitlinenine = 0;
+        }else{
+            for (int allTurnBack = 1; allTurnBack <= [lineNineQuestionRight count]; allTurnBack++) {
+                [self backgroundImageForCard : allTurnBack];
+            }
+            
+            
+        }
     }
+//    else if (buttonIndex == 1){
+//       // [alertView ];
+//    }
+    
+
 }
 - (IBAction)goBack:(id)sender {
     exitlinenine = 1;
-    [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+    //[self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+    [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
 }
 
 

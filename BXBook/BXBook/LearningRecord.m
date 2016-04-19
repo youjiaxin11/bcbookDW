@@ -16,6 +16,9 @@
 @synthesize loginTimeLbl,loginTimesLbl,goldenlBL,rankLbl,rightLbl;
 
 User* userLearningRecord;
+int workImage = 0;
+int workVideo = 0;
+int workAudio = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,16 +62,16 @@ User* userLearningRecord;
     
     
     //左下图表
+    
     CBChartView *chart2 = [[CBChartView alloc] init];
     chart2.frame = CGRectMake(205, 500, 280, 160);
     [self.view addSubview:chart2];
-    chart2.xValues = @[@"本地",@"网络"];
-    if ([self computeOfflineWorkCount:userLearningRecord.userId] ==0 &&
-        [self computeOnlineWorkCount:userLearningRecord.userId]==0) {
-        chart2.yValues = @[@"0.1",@"0.1"];
-     //   chart2.yValues = @[@"3",@"2"];
+    chart2.xValues = @[@"图片",@"视频",@"音频"];
+    if (workAudio ==0 && workImage==0 && workVideo == 0) {
+        chart2.yValues = @[@"0.1",@"0.1",@"0.1"];
     }else{
-        chart2.yValues = @[[NSString stringWithFormat:@"%d",[self computeOfflineWorkCount:userLearningRecord.userId]],[NSString stringWithFormat:@"%d",[self computeOnlineWorkCount:userLearningRecord.userId]]];
+        [self computeWorkCount:userLearningRecord.userId];
+        chart2.yValues = @[[NSString stringWithFormat:@"%d",workImage],[NSString stringWithFormat:@"%d",workVideo],[NSString stringWithFormat:@"%d",workAudio]];
      //   chart2.yValues = @[@"5",@"2"];
         
     }
@@ -160,17 +163,23 @@ User* userLearningRecord;
 
 
 
--(int)computeOfflineWorkCount:(int)userId{
-    NSMutableArray* array = [[NSMutableArray alloc] init];
-    array = [WorkDao findWorkByUserId:userId];
-    return [array count];
+-(int)computeWorkCount:(int)userId{
+    NSArray *workArray = [MyWorkDao getAllMyWork];
+    for (int i = 0; i<workArray.count; i++) {
+        MyWork *mywork = workArray[i];
+        if (mywork.type == 1) {
+            workImage++;
+        }
+        if (mywork.type == 2) {
+            workVideo++;
+        }
+        if (mywork.type == 1) {
+            workAudio++;
+        }
+    }
+    return workArray.count;
 }
 
--(int)computeOnlineWorkCount:(int)userId{
-    NSMutableArray* array = [[NSMutableArray alloc] init];
-    array = [WorkDao findOnlineWorkByUserId:userId];
-    return [array count];
-}
 
 //计算某个人的所有任务得分
 -(NSArray*)computeUserTaskScore:(int)userId{

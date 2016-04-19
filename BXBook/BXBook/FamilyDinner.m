@@ -81,6 +81,7 @@ int jump2;
     if(answerFamilyDinnerTotalNum==4)
     {
         [self promptLine3:@"恭喜你，闯关成功！"];
+      //  [self createSelfPrompt:@"恭喜你，闯关成功！" image:[UIImage imageNamed:@"happy.jpg"]];
        // [self cre];
         jump2=1;
         
@@ -89,6 +90,41 @@ int jump2;
     
 
 }
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(jump1==1){
+        if(buttonIndex==0); else if(buttonIndex==1) [self nextpage1];}
+    if(jump2==1) {//显示邀请全的图片
+        [self showFinallyImage];
+    }
+    if (exitfamilydinner == 1) {//如果强行退出
+        if(buttonIndex==0){
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userFamilyDinner.userId;
+            behaviour.doWhat = @"游戏－退出";
+            behaviour.doWhere = @"FamilyDinner-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
+            answerFamilyDinnerTotalNum=0;
+            FamilyDinnerRightNum1=0;FamilyDinnerRightNum2=0;FamilyDinnerRightNum3=0;FamilyDinnerRightNum4=0;
+            fquestionIndex = 0;
+            
+            
+            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
+            gamechoice.user = userFamilyDinner;;
+            [gamechoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+            [self presentViewController:gamechoice animated:YES completion:nil];
+        }
+    }
+    
+
+}
+
 //出现在本页的所有弹框的具体属性设置
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(jump1==1){
@@ -164,7 +200,8 @@ int jump2;
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         exitfamilydinner = 1;
-        [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+      //  [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+        [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
     }
 
     
@@ -249,7 +286,8 @@ int jump2;
 
 - (IBAction)goBack:(id)sender {
     exitfamilydinner = 1;
-    [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+   // [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+    [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
     answerFamilyDinnerTotalNum=0;
     FamilyDinnerRightNum1=0;FamilyDinnerRightNum2=0;FamilyDinnerRightNum3=0;FamilyDinnerRightNum4=0;
     fquestionIndex = 0;

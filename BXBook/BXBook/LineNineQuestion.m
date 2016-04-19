@@ -340,14 +340,17 @@ static int answerTime;
         lineNineQuestion.rightTimes++;//题目正确次数＋1
         cheatQuestionJump = 1;//跳转到答对弹框
         
-        [self prompt:@"恭喜你，答对啦！"];
+        //[self prompt:@"恭喜你，答对啦！"];
+        [self createSelfPrompt:@"恭喜你，答对啦！" image:[UIImage imageNamed:@"happy.jpg"]];
 
     }else {
         NSLog(@"错误");
         if (lineNineQuestion.helpId == 0) {
-            [self promptNoCheats:@"很抱歉回答错误，请重新答题！"];
+            [self createSelfPrompt:@"很抱歉，回答错误，请重新答题！" image:[UIImage imageNamed:@"sad.jpg"]];
+          //  [self promptNoCheats:@"很抱歉回答错误，请重新答题！"];
         }else{
-            [self promptCheats:@"很抱歉，答错了！去看看通关秘籍吧！"];
+            [self createSelfPrompt3:@"很抱歉，答错了！去看看通关秘籍吧！" image:[UIImage imageNamed:@"sad.jpg"]];
+          //  [self promptCheats:@"很抱歉，答错了！去看看通关秘籍吧！"];
         }
         cheatQuestionJump = 2;
 
@@ -434,8 +437,8 @@ static int answerTime;
     
 }
 
-//提示框内容
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex//提示框按钮跳转
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [self stopAllMusic];
     
@@ -450,8 +453,9 @@ static int answerTime;
             [self lineNineCheat];
         }
     }
-
+    
 }
+
 
 //答对，返回LineNine界面
 - (void)goBackLineNine:(NSMutableArray*)myAnswerStateArray{

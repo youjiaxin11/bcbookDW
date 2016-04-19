@@ -188,12 +188,13 @@ int taskCard = 0;//点击选择任务卡
     taskCard = 1;
     //音乐暂停
     [self stop];
-    [self prompt2:@"建议先闯关答题，获得足够的金币才能做任务哟。确定要开启任务卡吗？"];
+    [self createSelfPrompt2:@"建议先闯关答题，获得足够的金币才能做任务哟。确定要开启任务卡吗？" image:[UIImage imageNamed:@"happy.jpg"]];
     
    
 }
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (taskCard == 1 ) {
         if(buttonIndex==0){
             UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -201,12 +202,14 @@ int taskCard = 0;//点击选择任务卡
             taskChoice.user = userInformation;
             [taskChoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
             [self presentViewController:taskChoice animated:YES completion:nil];
-           
+            
         }
     }
     taskCard = 0;
     firstLogin = 0;
+
 }
+
 
 //音乐播放控制
 - (void)play {

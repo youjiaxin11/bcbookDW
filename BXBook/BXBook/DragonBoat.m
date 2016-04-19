@@ -49,6 +49,34 @@ int exitdragonboat = 0; //判断是否强行退出
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
     
+    // 红色龙舟：设定位置和大小
+    CGRect frameRed = CGRectMake(0,50,600,360);
+    //frameRed.size = [UIImage imageNamed:@"红色龙舟GIF.gif"].size;
+    // 读取gif图片数据
+    NSData *gifRed = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"红色龙舟GIF" ofType:@"gif"]];
+    // view生成
+    UIWebView *webViewRed = [[UIWebView alloc] initWithFrame:frameRed];
+    webViewRed.userInteractionEnabled = NO;//用户不可交互
+    webViewRed.backgroundColor = [UIColor clearColor];//设置背景为透明色(其实是灰色的)
+    webViewRed.opaque = NO;//真正设置为透明
+    webViewRed.clipsToBounds = YES;
+    [webViewRed loadData:gifRed MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+    [self.view addSubview:webViewRed];
+    
+    
+    // 蓝色龙舟：设定位置和大小
+    CGRect frameBlue = CGRectMake(380,250,650,360);
+    //frameBlue.size = [UIImage imageNamed:@"蓝色龙舟GIF.gif"].size;
+    // 读取gif图片数据
+    NSData *gifBlue = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"蓝色龙舟GIF" ofType:@"gif"]];
+    // view生成
+    UIWebView *webViewBlue = [[UIWebView alloc] initWithFrame:frameBlue];
+    webViewBlue.userInteractionEnabled = NO;//用户不可交互
+    webViewBlue.backgroundColor = [UIColor clearColor];//设置背景为透明色(其实是灰色的)
+    webViewBlue.opaque = NO;//真正设置为透明
+    [webViewBlue loadData:gifBlue MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+    webViewBlue.clipsToBounds = YES;
+    [self.view addSubview:webViewBlue];
 }
 
 -(void)dataInitializationWhenViewDidLoad{
@@ -121,8 +149,10 @@ int exitdragonboat = 0; //判断是否强行退出
     }else{
         // 回答错误提醒
         if (_DBQuestionEntity.helpId == 0) {
-            [self promptNoCheats:@"很抱歉回答错误，请重新答题！"];
+            [self createSelfPrompt:@"很抱歉，回答错误，请重新答题！" image:[UIImage imageNamed:@"sad.jpg"]];
+//            [self promptNoCheats:@"很抱歉回答错误，请重新答题！"];
         }else{
+          //  [self createSelfPrompt3:@"很抱歉，答错了！去看看通关秘籍吧！" image:[UIImage imageNamed:@"sad.jpg"]];
             [self promptCheatsDragonBoat:@"很抱歉，答错了！去看看通关秘籍吧！"];
         }
     }
@@ -227,7 +257,8 @@ int exitdragonboat = 0; //判断是否强行退出
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         exitdragonboat = 1;
-        [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+       // [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+        [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
     }
 }
 
@@ -283,7 +314,8 @@ int exitdragonboat = 0; //判断是否强行退出
 
 - (IBAction)goBack:(id)sender {
     exitdragonboat = 1;
-    [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+    //[self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
+    [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
 }
 
 //跳到通关秘籍
@@ -380,15 +412,6 @@ int exitdragonboat = 0; //判断是否强行退出
 }
 
 
-//- (void) prompaward{
-//  [self.view endEditing:YES];
-//  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"恭喜你闯关成功！制作粽子的奖励已经放到你的背包中，快快加油闯关集齐奖励吧！"  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:@"看看我的背包", nil];
-//   alert.tag=56;
-//  [alert show];
-//
-
-//}
-
 //跳转到我的背包界面
 -(void)pagemybag{
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -451,4 +474,52 @@ int exitdragonboat = 0; //判断是否强行退出
     }
 }
 
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"tag：%ld", (long)alertView.tag) ;
+    
+    if (exitdragonboat == 0 && alertView.tag == 20) {
+        NSLog(@"提醒回答错啦");
+        if(buttonIndex == 1){
+            [self dragonBoatCheat];
+        }
+    }else if (exitdragonboat == 0 && alertView.tag == 21){
+        NSLog(@"最后一题回答完啦");
+        if (buttonIndex == 0) {
+            [self nextpage1];
+        }
+        
+        else if(buttonIndex==1){
+            
+            [self pagemybag];
+        }
+        
+        else [self nextpage1];
+    }else if (exitdragonboat == 0 && alertView.tag == 0){//无通关秘籍
+        NSLog(@"继续答题，什么也不做");
+    }else if (exitdragonboat == 1) {//如果强行退出
+        if(buttonIndex==0){
+            
+            //记录行为数据
+            NSString* timeNow = [TimeUtil getTimeNow];
+            Behaviour *behaviour = [[Behaviour alloc]init];
+            behaviour.userId = userDragonBoat.userId;
+            behaviour.doWhat = @"游戏－退出";
+            behaviour.doWhere = @"DragonBoat-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
+            behaviour.doWhen = timeNow;
+            [BehaviourDao addBehaviour:behaviour];
+            
+            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            GameChoice *gamechoice = [mainStoryboard instantiateViewControllerWithIdentifier:@"GameChoice"];
+            gamechoice.user = userDragonBoat;
+            [gamechoice setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+            [self presentViewController:gamechoice animated:YES completion:nil];
+        }
+    }else{
+        
+        NSLog(@"开启任务");
+        [self nextpage1];
+    }
+
+}
 @end

@@ -1808,7 +1808,7 @@
                                 <rect key="frame" x="375" y="438" width="89" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2848,12 +2848,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="d6-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="j24-8k-8lI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="d6-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="j24-8k-8lI">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <animations/>
                             </imageView>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9ha-Fw-l35">
-                                <rect key="frame" x="64" y="568" width="495" height="51"/>
+                                <rect key="frame" x="71" y="568" width="495" height="51"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal">
@@ -2864,7 +2864,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3x-BH-WDR">
-                                <rect key="frame" x="743" y="619" width="114" height="42"/>
+                                <rect key="frame" x="600" y="619" width="114" height="42"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="开始答题" backgroundImage="buttonBkg.png">
@@ -2875,7 +2875,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="y1x-3m-vTe">
-                                <rect key="frame" x="64" y="523" width="495" height="46"/>
+                                <rect key="frame" x="71" y="523" width="495" height="46"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal">
@@ -2886,7 +2886,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="点击计时开始游戏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCi-Te-Ved">
-                                <rect key="frame" x="735" y="583" width="226" height="31"/>
+                                <rect key="frame" x="600" y="580" width="226" height="31"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2904,7 +2904,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gkW-fC-Yuj">
-                                <rect key="frame" x="64" y="619" width="495" height="46"/>
+                                <rect key="frame" x="71" y="619" width="495" height="46"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal">
@@ -2914,18 +2914,18 @@
                                     <action selector="DBCheckAnswers:" destination="lYn-jG-T1r" eventType="touchUpInside" id="uSq-wk-n82"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZd-RM-Fcl">
-                                <rect key="frame" x="856" y="619" width="105" height="42"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZV-3G-2ZO">
-                                <rect key="frame" x="72" y="412" width="438" height="112"/>
+                                <rect key="frame" x="93" y="412" width="438" height="112"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZd-RM-Fcl">
+                                <rect key="frame" x="728" y="619" width="105" height="42"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -3210,20 +3210,12 @@
                                     <action selector="goBack:" destination="Aae-Sk-PPt" eventType="touchUpInside" id="aJP-LS-yYo"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-8Y-H33">
-                                <rect key="frame" x="304" y="271" width="440" height="415"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
-                    <connections>
-                        <outlet property="ZongziGif" destination="TXo-8Y-H33" id="eQg-Wv-S5J"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogR-Az-Oy2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3365,7 +3357,7 @@
         <image name="d4-1.jpg" width="1024" height="768"/>
         <image name="d4-2.jpg" width="1024" height="768"/>
         <image name="d5-1.jpg" width="1024" height="768"/>
-        <image name="d6-1.jpg" width="1024" height="768"/>
+        <image name="d6-1.png" width="1024" height="768"/>
         <image name="d7.jpg" width="1024" height="768"/>
         <image name="d8.jpg" width="1024" height="768"/>
         <image name="d9.jpg" width="1024" height="768"/>

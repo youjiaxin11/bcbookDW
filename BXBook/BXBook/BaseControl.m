@@ -224,7 +224,7 @@
 
 
 - (void)createSelfPrompt:(NSString*)text image:(UIImage*)image{
-    [self.view endEditing:YES];
+    //[self.view endEditing:YES];
     //[self promptMoon:@"点击月亮呈现出的文字"];
     // Here we need to pass a full frame 这里我们需要跳转到一个全框架
     CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
@@ -243,6 +243,104 @@
     }];
     
     [alertView setUseMotionEffects:true];
+    
+    
+//    [NSTimer scheduledTimerWithTimeInterval:1.5f
+//                                     target:self
+//                                   selector:@selector(timerFireMethod:)
+//                                   userInfo:alertView
+//                                    repeats:YES];
+    
+    // And launch the dialog
+    [alertView show];
+    
+}
+
+- (void)timerFireMethod:(NSTimer*)theTimer//弹出框
+{
+    UIAlertView *promptAlert = (UIAlertView*)[theTimer userInfo];
+    [promptAlert dismissWithClickedButtonIndex:0 animated:NO];
+    promptAlert =NULL;
+}
+
+
+
+- (void)createSelfPrompt2:(NSString*)text image:(UIImage*)image{
+    //[self.view endEditing:YES];
+    //[self promptMoon:@"点击月亮呈现出的文字"];
+    // Here we need to pass a full frame 这里我们需要跳转到一个全框架
+    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+    
+    // Add some custom content to the alert view 向提示视图添加一些自定义内容
+    [alertView setContainerView:[self createDemoView:text image:image]];
+    
+    // Modify the parameters 修改参数
+    [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"确定",@"取消", nil]];//修改按钮标题
+    [alertView setDelegate:self];
+    
+    // You may use a Block, rather than a delegate. 你可以用一个Block（闭包：就是能够读取其它函数内部变量的函数），而不是一个Delegate
+    [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
+        [alertView close];
+    }];
+    
+    [alertView setUseMotionEffects:true];
+    
+    
+    // And launch the dialog
+    [alertView show];
+    
+}
+
+- (void)createSelfPrompt3:(NSString*)text image:(UIImage*)image{
+    //[self.view endEditing:YES];
+    //[self promptMoon:@"点击月亮呈现出的文字"];
+    // Here we need to pass a full frame 这里我们需要跳转到一个全框架
+    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+    
+    // Add some custom content to the alert view 向提示视图添加一些自定义内容
+    [alertView setContainerView:[self createDemoView:text image:image]];
+    
+    // Modify the parameters 修改参数
+    [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"放弃答题",@"通关秘籍", nil]];//修改按钮标题
+    [alertView setDelegate:self];
+    
+    // You may use a Block, rather than a delegate. 你可以用一个Block（闭包：就是能够读取其它函数内部变量的函数），而不是一个Delegate
+    [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
+        [alertView close];
+    }];
+    
+    [alertView setUseMotionEffects:true];
+    
+    
+    // And launch the dialog
+    [alertView show];
+    
+}
+
+
+- (void)createSelfPrompt4:(NSString*)text image:(UIImage*)image{
+    //[self.view endEditing:YES];
+    //[self promptMoon:@"点击月亮呈现出的文字"];
+    // Here we need to pass a full frame 这里我们需要跳转到一个全框架
+    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+    
+    // Add some custom content to the alert view 向提示视图添加一些自定义内容
+    [alertView setContainerView:[self createDemoView:text image:image]];
+    
+    // Modify the parameters 修改参数
+    [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"再学一会",@"退出课程", nil]];//修改按钮标题
+    [alertView setDelegate:self];
+    
+    // You may use a Block, rather than a delegate. 你可以用一个Block（闭包：就是能够读取其它函数内部变量的函数），而不是一个Delegate
+    [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
+        [alertView close];
+    }];
+    
+    [alertView setUseMotionEffects:true];
+    
     
     // And launch the dialog
     [alertView show];

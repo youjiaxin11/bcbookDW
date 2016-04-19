@@ -109,54 +109,7 @@ MPMoviePlayerController *moviePlay;
         [self.colors addObject:color];
     }
     
-    MyWork* mywork1 = [[MyWork alloc]init];
-    mywork1.workId = 1;
-    mywork1.userId = userMyWorks.userId;
-    mywork1.taskTitle = @"包粽子";
-    mywork1.uploadTime = @"2016年3月21日6:08";
-    mywork1.type = 1;
-    MyWork* mywork2 = [[MyWork alloc]init];
-    mywork2.workId = 2;
-    mywork2.userId = userMyWorks.userId;
-    mywork2.taskTitle = @"五彩丝线";
-    mywork2.uploadTime = @"2016年3月22日6:08";
-    mywork2.type = 2;
-    MyWork* mywork3 = [[MyWork alloc]init];
-    mywork3.workId = 3;
-    mywork3.userId = userMyWorks.userId;
-    mywork3.taskTitle = @"赛龙舟";
-    mywork3.uploadTime = @"2016年3月23日6:08";
-    mywork3.type = 3;
-    
-   
-//    self.count = myworks.count;
-//    NSLog(@"---count == %ld",(long)self.count);
-//    if (self.count > 0) {
-//        NSLog(@"我的所有作品：%@",myworks);
-//        MyWork *work = [[MyWork alloc]init];
-//        work = myworks[0];
-//        for ( int i =0; i<self.count; i++) {
-//            work = myworks[i];
-//            NSLog(@"我的第%d个作品：%@",i,work);
-//            NSLog(@"作品信息：1:%d－－－2:%d－－－3:%@－－－4:%@－－－5:%d－－－6:%@",work.workId,work.userId,work.uploadTime,work.taskTitle,work.type,work.filePath);
-//        }
-//    }
-    
-//    [myworks addObject:mywork1];
-//    [myworks addObject:mywork2];
-//    [myworks addObject:mywork3];
-    
-    
-    //设置要现实的文字数组数据源
-//    self.texts = [[NSMutableArray alloc]initWithCapacity:self.count];
-//    for (int i = 0; i < self.count; i++) {
-//        //  NSString *text = [[NSString alloc]initWithString:[NSString stringWithFormat:@"%d",i]];
-//        NSString *text = @"1111";
-//        [self.texts addObject:text];
-//    }
-    
-    // ZLSwipeableView *swipeableView = [[ZLSwipeableView alloc] initWithFrame:self.view.frame];
-    // [self.view addSubview:swipeableView];
+
     
     [self.swipeableView setNeedsLayout];
     [self.swipeableView layoutIfNeeded];
@@ -253,9 +206,6 @@ MPMoviePlayerController *moviePlay;
 
             view.filePath = filePath;
             self.index++;
-//            view.userInteractionEnabled = YES;
-//            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-//            [view addGestureRecognizer:singleTap];
             return view;
 
         }else if (myworkShow.type == 3){//录音
@@ -346,41 +296,6 @@ MPMoviePlayerController *moviePlay;
     }
 }
 
-//-(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
-//
-//
-//    
-//    if (filePath == nil) {
-//        [self createSelfPrompt:@"未上传视频" image:[UIImage imageNamed:@"sad.jpg"]];
-//        //[self prompt:];
-//    }else{
-//        //VideoPlay* videoplay;
-//        //[videoplay Play:urlStr];
-//        NSURL *url = [NSURL fileURLWithPath:filePath];
-//        //视频播放对象
-//        moviePlay = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
-//        [self presentMoviePlayerViewControllerAnimated:moviePlay];
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(myMovieFinishedCallback:)
-//                                                     name: MPMoviePlayerPlaybackDidFinishNotification
-//                                                   object:nil];
-//        moviePlay = nil;
-//    }
-//}
-
-
-
-
--(void)myMovieFinishedCallback:(NSNotification *)aNotification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-                                                  object:nil];
-    //    [moviePlay  dismissMoviePlayerViewControllerAnimated];
-    //    [moviePlay.moviePlayer stop];
-    //    moviePlay.moviePlayer.initialPlaybackTime = -1.0;
-    moviePlay = nil;
-}
 - (IBAction)goBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

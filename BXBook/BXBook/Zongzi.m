@@ -31,29 +31,25 @@ User *userZongzi;
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
     
-    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"zongzi" ofType:@"gif"]];
+    // 设定位置和大小
+    CGRect frame = CGRectMake(140,300,600,500);
+    //frame.size = [UIImage imageNamed:@"粽子gif2.gif"].size;
+    // 读取gif图片数据
+    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"粽子gif2" ofType:@"gif"]];
     // view生成
-   // _ZongziGif = [[UIWebView alloc] init];
-    _ZongziGif.userInteractionEnabled = NO;//用户不可交互
-    [_ZongziGif loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-    [_ZongziGif setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:_ZongziGif];
-    
-//    //[self prompt:@"恭喜你成功制作一个粽子啦！" ];
-//    [self createSelfPrompt:@"恭喜你成功制作一个粽子啦" image:[UIImage imageNamed:@"happy.jpg"]];
-//    UIImage *image1=[UIImage imageNamed:@"zongzi"];
-//    [buttonz setBackgroundImage:image1 forState:UIControlStateNormal];
-    
-    
-    
-}
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];
+    webView.userInteractionEnabled = NO;//用户不可交互
+    webView.backgroundColor = [UIColor clearColor];//设置背景为透明色(其实是灰色的)
+    webView.opaque = NO;//真正设置为透明
+    [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+    [self.view addSubview:webView];}
 //左滑返回上一页
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-       UserCenter *usercenter = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserCenter"];
-       usercenter.user = userZongzi;
+        UserCenter *usercenter = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserCenter"];
+        usercenter.user = userZongzi;
         [usercenter setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self presentViewController:usercenter animated:YES completion:nil];
     }

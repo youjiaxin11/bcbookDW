@@ -123,11 +123,12 @@ static User *user;
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     LearningRecord *record = [[LearningRecord alloc]init];
-    int works = [record computeOfflineWorkCount:user.userId];
+    int works = [record computeWorkCount:user.userId];
     int finishNums = [self computeFinishGameNums];
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         NSString* message = [NSString stringWithFormat:@"亲爱的同学，\n你已通过了%d关，\n完成了%d个作品，\n得到了%d个游戏币，\n在小伙伴中排行第%d名，\n你还要继续学习吗？",finishNums,works,user.golden,user.rank];
-        [self prompt3:message];
+        [self createSelfPrompt4:message image:[UIImage imageNamed:@"happy.jpg"]];
+
     }
 }
 
@@ -174,7 +175,9 @@ static User *user;
 }
 
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if(buttonIndex==1){
         
         
@@ -198,9 +201,8 @@ static User *user;
         behaviour.doWhere = @"LoginView-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex";
         behaviour.doWhen = timeNow;
         [BehaviourDao addBehaviour:behaviour];
-
-    }
-}
+        
+    }}
 
 //保存switch按钮改变的结果
 - (IBAction)switchDidChange:(UISwitch *)sender {
@@ -249,10 +251,10 @@ static User *user;
 }
 - (IBAction)goBack:(id)sender {
     LearningRecord *record = [[LearningRecord alloc]init];
-    int works = [record computeOfflineWorkCount:user.userId];
+    int works = [record computeWorkCount:user.userId];
     int finishNums = [self computeFinishGameNums];
         NSString* message = [NSString stringWithFormat:@"亲爱的同学，\n你已通过了%d关，\n完成了%d个作品，\n得到了%d个游戏币，\n在小伙伴中排行第%d名，\n你还要继续学习吗？",finishNums,works,user.golden,user.rank];
-        [self prompt3:message];
+    [self createSelfPrompt4:message image:[UIImage imageNamed:@"happy.jpg"]];
     
 
 }

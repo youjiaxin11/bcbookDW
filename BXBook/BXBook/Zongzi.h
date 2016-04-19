@@ -10,7 +10,5 @@
 #import "Makezongzi.h"
 @interface Zongzi: BaseControl
 @property (assign, nonatomic) User *user;//当前登录用户
-@property (strong, nonatomic) IBOutlet UIWebView *ZongziGif;
-
 
 @end

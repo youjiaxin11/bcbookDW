@@ -111,7 +111,7 @@ Questions *question1;
         NSLog(@"%d",familydinnerQuestionIndex);
         NSLog(@"right:%d",question1.answerRight);
         NSLog(@"findex:%d",fanswerQuestionIndex);
-        [self promptLine3:@"恭喜你，回答正确！"];
+         [self createSelfPrompt:@"恭喜你，答对啦！" image:[UIImage imageNamed:@"happy.jpg"]];
         cheatQuestionJump = 1;
         if(familydinnerQuestionIndex==9) FamilyDinnerRightNum11=1;
         if(familydinnerQuestionIndex==10) FamilyDinnerRightNum12=1;
@@ -124,9 +124,9 @@ Questions *question1;
     }
     else {
         if (question1.helpId == 0) {
-            [self promptNoCheats:@"很抱歉回答错误，请重新答题！"];
+            [self createSelfPrompt:@"很抱歉，回答错误，请重新答题！" image:[UIImage imageNamed:@"sad.jpg"]];
         }else{
-            [self promptCheats:@"很抱歉，答错了！去看看通关秘籍吧！"];
+            [self createSelfPrompt3:@"很抱歉，答错了！去看看通关秘籍吧！" image:[UIImage imageNamed:@"sad.jpg"]];
         }
         cheatQuestionJump = 2;
         familydinnerQuestionIndex=0;
@@ -155,8 +155,8 @@ Questions *question1;
     
 }
 
-//出现在本页的所有弹框的具体属性设置
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if(cheatQuestionJump == 1){//答对
         [self QuestionInterface1];
     }
@@ -168,6 +168,7 @@ Questions *question1;
             [self familyDinnerCheat];
         }
     }
+    
 }
 
 //跳到通关秘籍
