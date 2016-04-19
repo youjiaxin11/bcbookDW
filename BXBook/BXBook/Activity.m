@@ -24,7 +24,7 @@ Task* taskActivity;
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userActivity.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－任务活动";
     behaviour.doWhere = [[NSString alloc ]initWithFormat:@"Activity-(void)viewDidLoad-任务id:%d", taskActivity.taskId];
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];

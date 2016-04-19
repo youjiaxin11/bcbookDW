@@ -47,7 +47,7 @@ NSString* taskTitle_video;
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userUploadVideo.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－上传视频";
     behaviour.doWhere = @"UploadVideo-(void)viewDidLoad";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -159,7 +159,7 @@ NSString* taskTitle_video;
         //记录行为数据
         Behaviour *behaviour = [[Behaviour alloc]init];
         behaviour.userId = userUploadVideo.userId;
-        behaviour.doWhat = @"上传－本地";
+        behaviour.doWhat = @"上传视频－本地";
         behaviour.doWhere = @"UploadVideo-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info";
         behaviour.doWhen = timeNow;
         [BehaviourDao addBehaviour:behaviour];

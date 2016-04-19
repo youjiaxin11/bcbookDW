@@ -32,7 +32,7 @@ NSString* taskTitle_note;
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userNotebook.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－笔记本";
     behaviour.doWhere = @"NotebookController-(void)viewDidLoad";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];

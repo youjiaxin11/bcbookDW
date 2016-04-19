@@ -44,7 +44,7 @@ int exitdragonboat = 0; //判断是否强行退出
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userDragonBoat.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－游戏赛龙舟";
     behaviour.doWhere = [[NSString alloc ]initWithFormat:@"DragonBoat-(void)viewDidLoad-关卡id:%d", gameIdDragonBoat];
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -99,7 +99,7 @@ int exitdragonboat = 0; //判断是否强行退出
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userDragonBoat.userId;
-    behaviour.doWhat = @"游戏－答题";
+    behaviour.doWhat = @"游戏－答题赛龙舟";
     behaviour.doWhere = [[NSString alloc]initWithFormat:@"DragonBoat-(IBAction)DBCheckAnswers:(id)sender-题目id:%d",_DBQuestionEntity.questionId];
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -434,7 +434,7 @@ int exitdragonboat = 0; //判断是否强行退出
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userDragonBoat.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－测拉";
     behaviour.doWhere = @"DragonBoat-(void)menuButtonClicked:(int)index";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];

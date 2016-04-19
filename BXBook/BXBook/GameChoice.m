@@ -49,7 +49,7 @@ int change =0;
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userGameChoice.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－选择关卡";
     behaviour.doWhere = @"GameChoice-(void)viewDidLoad";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];

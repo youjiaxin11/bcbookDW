@@ -49,7 +49,7 @@ int taskCard = 0;//点击选择任务卡
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userInformation.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－课程介绍";
     behaviour.doWhere = @"Information-(void)viewDidLoad";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -107,7 +107,7 @@ int taskCard = 0;//点击选择任务卡
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userInformation.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－测拉";
     behaviour.doWhere = @"Information-(void)menuButtonClicked:(int)index";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -148,7 +148,7 @@ int taskCard = 0;//点击选择任务卡
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userInformation.userId;
-    behaviour.doWhat = @"特殊";
+    behaviour.doWhat = @"选择关卡";
     behaviour.doWhere = @"Information-(IBAction)gameChocie:(id)sender";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -180,7 +180,7 @@ int taskCard = 0;//点击选择任务卡
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userInformation.userId;
-    behaviour.doWhat = @"特殊";
+    behaviour.doWhat = @"直接跳转任务卡";
     behaviour.doWhere = @"Information-(IBAction)gotoTask:(id)sender";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];

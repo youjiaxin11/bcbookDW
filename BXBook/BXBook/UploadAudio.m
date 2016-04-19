@@ -45,7 +45,7 @@ NSString* taskTitle_audio;
     //记录行为数据
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userUploadAudio.userId;
-    behaviour.doWhat = @"浏览";
+    behaviour.doWhat = @"浏览－上传音频";
     behaviour.doWhere = @"UploadAudio-(void)viewDidLoad";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
@@ -265,7 +265,7 @@ NSString* taskTitle_audio;
     //记录行为数据
     Behaviour *behaviour = [[Behaviour alloc]init];
     behaviour.userId = userUploadAudio.userId;
-    behaviour.doWhat = @"上传－本地";
+    behaviour.doWhat = @"上传音频－本地";
     behaviour.doWhere = @"UploadAudio-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
