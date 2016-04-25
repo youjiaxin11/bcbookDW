@@ -75,7 +75,7 @@ int taskCard = 0;//点击选择任务卡
     [self.view addSubview:goBackBtn];
     
     //播放音乐
- //   [self play];
+    [self play];
     
     // textview 改变字体的行间距
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -101,6 +101,7 @@ int taskCard = 0;//点击选择任务卡
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     //记录行为数据
@@ -226,7 +227,7 @@ int taskCard = 0;//点击选择任务卡
 -(NSArray *)songs
 {
     if (_songs==nil) {
-        self.songs=@[@"1.m4a"];
+        self.songs=@[@"1.mp3"];
     }
     return _songs;
 }

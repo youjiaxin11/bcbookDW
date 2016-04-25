@@ -13,6 +13,12 @@
 #import "UploadVideo.h"
 #import "NotebookController.h"
 
+
+@interface LineNine ()<AVAudioPlayerDelegate>
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
+@end
+
 @implementation LineNine
 @synthesize
 questionsAll,
@@ -53,7 +59,7 @@ static int lineNineAnswerTimes;
 
     
     userLineNine = self.user;
-    
+    [self play];
 
     //获取所有题目
     questionsAll = [[NSMutableArray alloc]init];
@@ -299,6 +305,7 @@ static int lineNineAnswerTimes;
 
 //跳转到下一页
 -(void)nextpage1{
+    [self stop];
 
     if(gameIdLineNine%2==0)userLineNine.golden=userLineNine.golden+1;
     if(gameIdLineNine%2==1) userLineNine.golden=userLineNine.golden+1;
@@ -350,6 +357,7 @@ static int lineNineAnswerTimes;
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
 
+    [self stop];
     
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         exitlinenine = 1;
@@ -454,6 +462,7 @@ static int lineNineAnswerTimes;
 
 }
 - (IBAction)goBack:(id)sender {
+    [self stop];
     exitlinenine = 1;
     //[self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
     [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
@@ -467,7 +476,7 @@ static int lineNineAnswerTimes;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
-    
+    [self stop];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -512,5 +521,24 @@ static int lineNineAnswerTimes;
     }
 }
 
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"3.mp3"];
+    }
+    return _songs;
+}
 
 @end

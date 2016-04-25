@@ -11,6 +11,12 @@
 #import "PersonalData.h"
 #import "NotebookController.h"
 
+@interface UserCenter ()<AVAudioPlayerDelegate>
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
+@end
+
+
 @implementation UserCenter
 @synthesize admDataCen;
 
@@ -18,6 +24,7 @@ User* userUserCenter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self play];
     userUserCenter = self.user;
     if ([userUserCenter.loginName isEqualToString:@"admin"]) {
     }else{
@@ -41,7 +48,7 @@ User* userUserCenter;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
-    
+    [self stop];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -90,6 +97,7 @@ User* userUserCenter;
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self stop];
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
         information.user = userUserCenter;
@@ -99,6 +107,7 @@ User* userUserCenter;
 
 //学习轨迹
 - (IBAction)learningTrack:(id)sender{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LearningRecord *nextpage = [mainStoryboard instantiateViewControllerWithIdentifier:@"LearningRecord"];
     nextpage.user = userUserCenter;
@@ -108,6 +117,7 @@ User* userUserCenter;
 
 //我的好友
 - (IBAction)myFriends:(id)sender{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MyFriend *nextpage = [mainStoryboard instantiateViewControllerWithIdentifier:@"MyFriend"];
     nextpage.user = userUserCenter;
@@ -117,6 +127,7 @@ User* userUserCenter;
 
 //我的作品
 - (IBAction)myWorks:(id)sender{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MyWorks *nextpage = [mainStoryboard instantiateViewControllerWithIdentifier:@"MyWorks"];
     nextpage.user = userUserCenter;
@@ -127,6 +138,7 @@ User* userUserCenter;
 
 //伙伴排行
 - (IBAction)friendsRank:(id)sender{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FriendLevel *nextpage = [mainStoryboard instantiateViewControllerWithIdentifier:@"FriendLevel"];
     nextpage.user = userUserCenter;
@@ -136,6 +148,7 @@ User* userUserCenter;
 
 //个人信息
 - (IBAction)userInfo:(id)sender{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserInfo *userinfo = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserInfo"];
     userinfo.user = userUserCenter;
@@ -145,6 +158,7 @@ User* userUserCenter;
 
 //修改密码
 - (IBAction)changePassword:(id)sender{
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ChangePwd *changepwd = [mainStoryboard instantiateViewControllerWithIdentifier:@"ChangePwd"];
     changepwd.user = userUserCenter;
@@ -153,6 +167,7 @@ User* userUserCenter;
 }
 //跳转到数据中心
 - (IBAction)dataCenter:(id)sender {
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PersonalData *next = [mainStoryboard instantiateViewControllerWithIdentifier:@"PersonalData"];
     next.user = userUserCenter;
@@ -161,6 +176,7 @@ User* userUserCenter;
 
 }
 - (IBAction)goBack:(id)sender {
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
     information.user = userUserCenter;
@@ -168,11 +184,31 @@ User* userUserCenter;
     [self presentViewController:information animated:YES completion:nil];
 }
 - (IBAction)mybag:(UIButton *)sender {
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
    Mybag *mybag = [mainStoryboard instantiateViewControllerWithIdentifier:@"Mybag"];
   mybag.user = userUserCenter;
     [mybag setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:mybag animated:YES completion:nil];
     
+}
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"6.mp3"];
+    }
+    return _songs;
 }
 @end

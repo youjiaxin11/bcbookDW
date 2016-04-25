@@ -12,8 +12,12 @@
 #import "UploadPhoto.h"
 #import "UploadVideo.h"
 #import "NotebookController.h"
-@interface Makezongzi()
+
+@interface Makezongzi()<AVAudioPlayerDelegate>
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
 @end
+
 
 @implementation Makezongzi
 @synthesize user,button1,button2,button3,button4,button5,button6,step1,step2,step3,step4,step5,step6;
@@ -23,7 +27,7 @@ int step=0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     userMakezongzi = self.user;
-    
+    [self play];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -64,6 +68,7 @@ int step=0;
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self stop];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
@@ -85,6 +90,7 @@ int step=0;
 
 
 - (IBAction)finish:(UIButton *)sender {
+    
     if([step1.text isEqualToString:@"1"]&&[step2.text isEqualToString:@"3"]&&[step3.text isEqualToString:@"5"]&&[step4.text isEqualToString:@"2"]&&[step5.text isEqualToString:@"6"]&&[step6.text isEqualToString:@"4"]) {  [self nextpage1];
         
     }
@@ -101,6 +107,7 @@ int step=0;
 
 //跳转到下一页
 -(void)nextpage1{
+     [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
    Zongzi* zongzi = [mainStoryboard instantiateViewControllerWithIdentifier:@"Zongzi"];
    zongzi.user = userMakezongzi;
@@ -109,6 +116,7 @@ int step=0;
 }
 
 - (IBAction)goBack:(id)sender {
+     [self stop];
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
@@ -119,7 +127,7 @@ int step=0;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
-    
+     [self stop];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -163,6 +171,26 @@ int step=0;
         
     }
 }
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"8.mp3"];
+    }
+    return _songs;
+}
+
 
 
 

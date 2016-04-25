@@ -9,6 +9,13 @@
 #import "TaskChoice.h"
 #import "NotebookController.h"
 
+
+@interface TaskChoice()<AVAudioPlayerDelegate>
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
+@end
+
+
 @implementation TaskChoice
 
 /*开发者在页面操作中，用这几个值*/
@@ -21,7 +28,7 @@ int taskChoiceId;
    // finishgameId1=self.finishgameId;
     NSLog(@"golden:%d",_user.golden);
     
-    
+    [self play];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -40,7 +47,7 @@ int taskChoiceId;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
-    
+    [self stop];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -88,7 +95,7 @@ int taskChoiceId;
 //跳转到下一页
 - (IBAction)nextPage:(id)sender{
     
-    
+     [self stop];
     UIButton* button1 = (UIButton*)sender;
     taskChoiceId = (int)[button1 tag];
     NSLog(@"id:%d",taskChoiceId);
@@ -105,6 +112,7 @@ int taskChoiceId;
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+         [self stop];
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         Information * information= [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
         information.user = userTaskChoice;
@@ -114,12 +122,34 @@ int taskChoiceId;
     }
 }
 - (IBAction)goBack:(id)sender {
+     [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Information * information= [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
     information.user = userTaskChoice;
   //  information.finishgameId4=finishgameId1;
     [information setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:information animated:YES completion:nil];
+}
+
+
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"9.mp3"];
+    }
+    return _songs;
 }
 
 @end

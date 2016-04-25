@@ -9,10 +9,13 @@
 #import "GameChoice.h"
 #import <Foundation/Foundation.h>
 
-@interface GameChoice ()
+@interface GameChoice ()<AVAudioPlayerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *dice1;
 @property (nonatomic, retain) NSTimer *timer;
 @property (strong, nonatomic) CWStarRateView *starRateView;
+
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
 @end
 
 @implementation GameChoice
@@ -53,6 +56,10 @@ int change =0;
     behaviour.doWhere = @"GameChoice-(void)viewDidLoad";
     behaviour.doWhen = timeNow;
     [BehaviourDao addBehaviour:behaviour];
+    
+    //播放音乐
+    [self play];
+    
 }
 
 -(void)handleSingleTap:(UIGestureRecognizer*)gestureRecognizer{
@@ -153,7 +160,8 @@ int change =0;
 //点击开始闯关按钮
 - (IBAction)playGame:(id)sender{
     
-
+    //音乐暂停
+    [self stop];
     
     finalChoice = [self judgeFinalResult:(int)dice1Num star:(float)self.starRateView.scorePercent];
     NSLog(@"finalChoice:%d",finalChoice);
@@ -262,6 +270,7 @@ int change =0;
 //左滑返回上一页
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
+    [self stop];
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
@@ -282,6 +291,7 @@ int change =0;
     }
 }
 - (IBAction)goBack:(id)sender {
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Information *information = [mainStoryboard instantiateViewControllerWithIdentifier:@"Information"];
     information.user = userGameChoice;
@@ -291,4 +301,24 @@ int change =0;
 
 }
 
+
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"2.mp3"];
+    }
+    return _songs;
+}
 @end

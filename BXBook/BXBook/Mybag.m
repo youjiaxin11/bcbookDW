@@ -15,8 +15,12 @@
 #import "NotebookController.h"
 #define IMAGEWIDTH 360
 #define IMAGEHEIGHT 480
-@interface Mybag()
+
+@interface Mybag()<AVAudioPlayerDelegate>
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
 @end
+
 
 
 @implementation Mybag
@@ -26,6 +30,7 @@ User *userMybag;
 //int finishgameIdm1;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self play];
     userMybag = self.user;
     //finishgameIdm1=self.finishgameIdm;
     baward1.hidden=YES;
@@ -290,6 +295,7 @@ User *userMybag;
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self stop];
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UserCenter *usercenter = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserCenter"];
         usercenter.user = userMybag;
@@ -298,7 +304,7 @@ User *userMybag;
 }
 //跳转到下一页
 -(void)nextpage1{
-    
+    [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Makezongzi* makezongzi = [mainStoryboard instantiateViewControllerWithIdentifier:@"Makezongzi"];
     makezongzi.user = userMybag;
@@ -353,6 +359,7 @@ User *userMybag;
     
 }
 - (IBAction)goBack:(id)sender {
+     [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserCenter *usercenter = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserCenter"];
     usercenter.user = userMybag;
@@ -366,7 +373,7 @@ User *userMybag;
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
-    
+     [self stop];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -409,6 +416,25 @@ User *userMybag;
         [self presentViewController:notebookController animated:YES completion:nil];
         
     }
+}
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"7.mp3"];
+    }
+    return _songs;
 }
 
 

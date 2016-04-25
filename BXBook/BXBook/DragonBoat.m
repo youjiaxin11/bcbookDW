@@ -12,10 +12,13 @@
 #import "UploadVideo.h"
 #import "NotebookController.h"
 
-@interface DragonBoat()
+@interface DragonBoat()<AVAudioPlayerDelegate>
 {
     dispatch_source_t timer;
+    
 }
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//播放器
+@property(nonatomic,strong)NSArray *songs;//用一个数组来保存所有的音乐文件
 @end
 
 @implementation DragonBoat
@@ -31,6 +34,7 @@ int exitdragonboat = 0; //判断是否强行退出
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self play];
     userDragonBoat = self.user;
     // 数据初始化
     [self dataInitializationWhenViewDidLoad];
@@ -234,6 +238,7 @@ int exitdragonboat = 0; //判断是否强行退出
 }
 //跳转到下一页
 -(void)nextpage1{
+    [self stop];
     
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
@@ -256,6 +261,7 @@ int exitdragonboat = 0; //判断是否强行退出
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+         [self stop];
         exitdragonboat = 1;
        // [self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
         [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
@@ -313,6 +319,7 @@ int exitdragonboat = 0; //判断是否强行退出
 }
 
 - (IBAction)goBack:(id)sender {
+     [self stop];
     exitdragonboat = 1;
     //[self prompt2:@"退出游戏将会失去本关的游戏币哟！"];
     [self createSelfPrompt2:@"退出游戏将会失去本关的游戏币哟！" image:[UIImage imageNamed:@"sad.jpg"]];
@@ -320,7 +327,7 @@ int exitdragonboat = 0; //判断是否强行退出
 
 //跳到通关秘籍
 - (void)dragonBoatCheat{
-    
+     [self stop];
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     Cheats *cheat = [mainStoryboard instantiateViewControllerWithIdentifier:@"Cheats"];
     
@@ -429,7 +436,7 @@ int exitdragonboat = 0; //判断是否强行退出
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 300,70)];
 }
 - (void)menuButtonClicked:(int)index{
-    
+    [self stop];
     //记录行为数据
     NSString* timeNow = [TimeUtil getTimeNow];
     Behaviour *behaviour = [[Behaviour alloc]init];
@@ -521,5 +528,25 @@ int exitdragonboat = 0; //判断是否强行退出
         [self nextpage1];
     }
 
+}
+
+//音乐播放控制
+- (void)play {
+    //开始播放/继续播放
+    [PlayMusicImpl playMusic:self.songs[0]];
+}
+
+- (void)stop {
+    //停止播放
+    [PlayMusicImpl stopMusic:self.songs[0]];
+}
+
+//歌曲初始化
+-(NSArray *)songs
+{
+    if (_songs==nil) {
+        self.songs=@[@"5.mp3"];
+    }
+    return _songs;
 }
 @end
