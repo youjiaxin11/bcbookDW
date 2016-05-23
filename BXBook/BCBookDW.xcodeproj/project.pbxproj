@@ -146,6 +146,9 @@
 		37AC88021CA1490700B0BC30 /* ZLPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87FB1CA1490700B0BC30 /* ZLPanGestureRecognizer.m */; };
 		37AC88031CA1490700B0BC30 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC87FD1CA1490700B0BC30 /* ZLSwipeableView.m */; };
 		37AC88051CA14FAE00B0BC30 /* MyWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AC88041CA14FAE00B0BC30 /* MyWork.m */; };
+		37B5B57D1CEB3B15002EA384 /* Weike24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 37B5B57A1CEB3B15002EA384 /* Weike24.mp4 */; };
+		37B5B57E1CEB3B15002EA384 /* Weike26.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 37B5B57B1CEB3B15002EA384 /* Weike26.mp4 */; };
+		37B5B57F1CEB3B15002EA384 /* Weike31.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 37B5B57C1CEB3B15002EA384 /* Weike31.mp4 */; };
 		37B775771C55C493004AC862 /* LineNine.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B775761C55C493004AC862 /* LineNine.m */; };
 		37B7757B1C55C4C9004AC862 /* FamilyDinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7757A1C55C4C9004AC862 /* FamilyDinner.m */; };
 		37B7757D1C55C4D9004AC862 /* DragonBoat.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7757C1C55C4D9004AC862 /* DragonBoat.m */; };
@@ -445,6 +448,9 @@
 		37AC87FD1CA1490700B0BC30 /* ZLSwipeableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableView.m; sourceTree = "<group>"; };
 		37AC88041CA14FAE00B0BC30 /* MyWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWork.m; sourceTree = "<group>"; };
 		37AC88061CA14FBC00B0BC30 /* MyWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWork.h; sourceTree = "<group>"; };
+		37B5B57A1CEB3B15002EA384 /* Weike24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Weike24.mp4; sourceTree = "<group>"; };
+		37B5B57B1CEB3B15002EA384 /* Weike26.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Weike26.mp4; sourceTree = "<group>"; };
+		37B5B57C1CEB3B15002EA384 /* Weike31.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Weike31.mp4; sourceTree = "<group>"; };
 		37B775761C55C493004AC862 /* LineNine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNine.m; sourceTree = "<group>"; };
 		37B775781C55C4A3004AC862 /* LineNine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineNine.h; sourceTree = "<group>"; };
 		37B775791C55C4B7004AC862 /* FamilyDinner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FamilyDinner.h; sourceTree = "<group>"; };
@@ -619,11 +625,14 @@
 				37F433CD1CE03761001FDD91 /* Weike21.mp4 */,
 				37F433CE1CE03761001FDD91 /* Weike22.mp4 */,
 				37F433CF1CE03761001FDD91 /* Weike23.mp4 */,
+				37B5B57A1CEB3B15002EA384 /* Weike24.mp4 */,
 				37F433D01CE03761001FDD91 /* Weike25.mp4 */,
+				37B5B57B1CEB3B15002EA384 /* Weike26.mp4 */,
 				37F433D11CE03761001FDD91 /* Weike27.mp4 */,
 				37F433D21CE03761001FDD91 /* Weike28.mp4 */,
 				37F433D31CE03761001FDD91 /* Weike29.mp4 */,
 				37F433D41CE03761001FDD91 /* Weike30.mp4 */,
+				37B5B57C1CEB3B15002EA384 /* Weike31.mp4 */,
 			);
 			name = "微课";
 			sourceTree = "<group>";
@@ -1273,6 +1282,7 @@
 				3791BAB81CC4D97D00259FF1 /* 拼图-6.png in Resources */,
 				372626931CA2A4E400750099 /* buttonBkg.png in Resources */,
 				371B041B1CC74E85005C3096 /* 9.mp3 in Resources */,
+				37B5B57D1CEB3B15002EA384 /* Weike24.mp4 in Resources */,
 				37D8C7961C97D1EB005EEAE0 /* menuClose.png in Resources */,
 				37F434151CE039EF001FDD91 /* d26.jpg in Resources */,
 				37F433DA1CE03761001FDD91 /* Weike28.mp4 in Resources */,
@@ -1283,6 +1293,7 @@
 				374FD8E21CC6214B0025DAEF /* 粽子gif2.gif in Resources */,
 				3791BAB61CC4D97D00259FF1 /* 拼图-4.png in Resources */,
 				37742B7B1CC0BC2800F740EA /* zongzi.gif in Resources */,
+				37B5B57F1CEB3B15002EA384 /* Weike31.mp4 in Resources */,
 				37F4340A1CE039EF001FDD91 /* d13.jpg in Resources */,
 				371B04171CC74E85005C3096 /* 5.mp3 in Resources */,
 				371B04151CC74E85005C3096 /* 3.mp3 in Resources */,
@@ -1352,6 +1363,7 @@
 				371B041A1CC74E85005C3096 /* 8.mp3 in Resources */,
 				3791BABA1CC4D97D00259FF1 /* 拼图-8.png in Resources */,
 				37F433DC1CE03761001FDD91 /* Weike30.mp4 in Resources */,
+				37B5B57E1CEB3B15002EA384 /* Weike26.mp4 in Resources */,
 				37A63FFE1B9EA25900D84680 /* 音乐按钮.png in Resources */,
 				37742B6C1CC0973900F740EA /* award1.png in Resources */,
 				37F434061CE039EF001FDD91 /* d9.jpg in Resources */,
@@ -1622,7 +1634,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BXBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cnubx.BCBookDw;
 				PRODUCT_NAME = BCBookDW;
@@ -1637,7 +1649,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BXBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cnubx.BCBookDw;
 				PRODUCT_NAME = BCBookDW;
